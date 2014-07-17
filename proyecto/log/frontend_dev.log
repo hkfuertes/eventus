@@ -1,0 +1,152 @@
+Jul 17 17:20:34 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 17 17:20:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 17:20:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 17:20:34 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 17 17:20:34 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/indexSuccess.php"
+Jul 17 17:20:34 symfony [info] {sfPHPView} Decorate content with "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Jul 17 17:20:34 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Jul 17 17:20:34 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:20:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 17:20:34 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:20:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:20:34 symfony [info] {sfWebDebugLogger} Configuration 136.79 ms (9)
+Jul 17 17:20:34 symfony [info] {sfWebDebugLogger} Factories 107.26 ms (1)
+Jul 17 17:20:34 symfony [info] {sfWebDebugLogger} Action "default/index" 0.17 ms (1)
+Jul 17 17:20:34 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 21.55 ms (1)
+Jul 17 17:20:34 symfony [info] {sfWebResponse} Send content (29677 o)
+Jul 17 17:23:25 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 17 17:23:25 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 17:23:25 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 17:23:25 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 17 17:23:25 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/indexSuccess.php"
+Jul 17 17:23:25 symfony [info] {sfPHPView} Decorate content with "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Jul 17 17:23:25 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Jul 17 17:23:25 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:23:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 17:23:25 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:23:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:23:25 symfony [info] {sfWebDebugLogger} Configuration 104.13 ms (9)
+Jul 17 17:23:25 symfony [info] {sfWebDebugLogger} Factories 74.20 ms (1)
+Jul 17 17:23:25 symfony [info] {sfWebDebugLogger} Action "default/index" 0.18 ms (1)
+Jul 17 17:23:25 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 12.76 ms (1)
+Jul 17 17:23:25 symfony [info] {sfWebResponse} Send content (29913 o)
+Jul 17 17:29:06 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /get_users with parameters array (  'module' => 'get_users',  'action' => 'index',)
+Jul 17 17:29:06 symfony [info] {sfFrontWebController} Action "get_users/index" does not exist
+Jul 17 17:29:06 symfony [err] {sfError404Exception} Action "get_users/index" does not exist.
+Jul 17 17:29:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:29:06 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:29:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:29:06 symfony [info] {sfWebDebugLogger} Configuration 46.45 ms (6)
+Jul 17 17:29:06 symfony [info] {sfWebDebugLogger} Factories 34.52 ms (1)
+Jul 17 17:29:23 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /get_users with parameters array (  'module' => 'get_users',  'action' => 'index',)
+Jul 17 17:29:23 symfony [info] {sfFrontWebController} Action "get_users/index" does not exist
+Jul 17 17:29:23 symfony [err] {sfError404Exception} Action "get_users/index" does not exist.
+Jul 17 17:29:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:29:23 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:29:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:29:23 symfony [info] {sfWebDebugLogger} Configuration 0.62 ms (5)
+Jul 17 17:29:23 symfony [info] {sfWebDebugLogger} Factories 24.23 ms (1)
+Jul 17 17:29:26 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /get_users with parameters array (  'module' => 'get_users',  'action' => 'index',)
+Jul 17 17:29:26 symfony [info] {sfFrontWebController} Action "get_users/index" does not exist
+Jul 17 17:29:26 symfony [err] {sfError404Exception} Action "get_users/index" does not exist.
+Jul 17 17:29:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:29:26 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:29:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:29:26 symfony [info] {sfWebDebugLogger} Configuration 0.57 ms (5)
+Jul 17 17:29:26 symfony [info] {sfWebDebugLogger} Factories 24.08 ms (1)
+Jul 17 17:29:38 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /get_users with parameters array (  'module' => 'get_users',  'action' => 'index',)
+Jul 17 17:29:38 symfony [info] {sfFrontWebController} Action "get_users/index" does not exist
+Jul 17 17:29:38 symfony [err] {sfError404Exception} Action "get_users/index" does not exist.
+Jul 17 17:29:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:29:38 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:29:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:29:38 symfony [info] {sfWebDebugLogger} Configuration 0.57 ms (5)
+Jul 17 17:29:38 symfony [info] {sfWebDebugLogger} Factories 24.27 ms (1)
+Jul 17 17:46:31 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /users/get_users with parameters array (  'module' => 'users',  'action' => 'get_users',)
+Jul 17 17:46:31 symfony [info] {sfFrontWebController} Action "users/get_users" does not exist
+Jul 17 17:46:31 symfony [err] {sfError404Exception} Action "users/get_users" does not exist.
+Jul 17 17:46:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:46:31 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:46:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:46:31 symfony [info] {sfWebDebugLogger} Configuration 0.56 ms (5)
+Jul 17 17:46:31 symfony [info] {sfWebDebugLogger} Factories 23.97 ms (1)
+Jul 17 17:46:40 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /users/getUsers with parameters array (  'module' => 'users',  'action' => 'getUsers',)
+Jul 17 17:46:40 symfony [info] {sfFrontWebController} Action "users/getUsers" does not exist
+Jul 17 17:46:40 symfony [err] {sfError404Exception} Action "users/getUsers" does not exist.
+Jul 17 17:46:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:46:40 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:46:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:46:40 symfony [info] {sfWebDebugLogger} Configuration 0.56 ms (5)
+Jul 17 17:46:40 symfony [info] {sfWebDebugLogger} Factories 24.27 ms (1)
+Jul 17 17:46:49 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /users/index with parameters array (  'module' => 'users',  'action' => 'index',)
+Jul 17 17:46:49 symfony [info] {sfFrontWebController} Action "users/index" does not exist
+Jul 17 17:46:49 symfony [err] {sfError404Exception} Action "users/index" does not exist.
+Jul 17 17:46:49 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:46:49 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:46:49 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:46:49 symfony [info] {sfWebDebugLogger} Configuration 0.57 ms (5)
+Jul 17 17:46:49 symfony [info] {sfWebDebugLogger} Factories 24.29 ms (1)
+Jul 17 17:47:10 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /default/index with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 17 17:47:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 17:47:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 17:47:10 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 17 17:47:10 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/indexSuccess.php"
+Jul 17 17:47:10 symfony [info] {sfPHPView} Decorate content with "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Jul 17 17:47:10 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Jul 17 17:47:10 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:47:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 17:47:10 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:47:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:47:10 symfony [info] {sfWebDebugLogger} Configuration 1.11 ms (9)
+Jul 17 17:47:10 symfony [info] {sfWebDebugLogger} Factories 24.26 ms (1)
+Jul 17 17:47:10 symfony [info] {sfWebDebugLogger} Action "default/index" 0.17 ms (1)
+Jul 17 17:47:10 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 9.37 ms (1)
+Jul 17 17:47:10 symfony [info] {sfWebResponse} Send content (30053 o)
+Jul 17 17:47:31 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /default/index with parameters array (  'module' => 'default',  'action' => 'index',)
+Jul 17 17:47:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 17 17:47:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 17 17:47:31 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Jul 17 17:47:31 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/indexSuccess.php"
+Jul 17 17:47:31 symfony [info] {sfPHPView} Decorate content with "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Jul 17 17:47:31 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/symfony-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Jul 17 17:47:31 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:47:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 17 17:47:31 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:47:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:47:31 symfony [info] {sfWebDebugLogger} Configuration 104.27 ms (9)
+Jul 17 17:47:31 symfony [info] {sfWebDebugLogger} Factories 77.65 ms (1)
+Jul 17 17:47:31 symfony [info] {sfWebDebugLogger} Action "default/index" 0.17 ms (1)
+Jul 17 17:47:31 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 12.58 ms (1)
+Jul 17 17:47:32 symfony [info] {sfWebResponse} Send content (30057 o)
+Jul 17 17:48:03 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /API/default/index with parameters array (  'module' => 'API',  'action' => 'default',  'index' => true,)
+Jul 17 17:48:03 symfony [info] {sfFrontWebController} Action "API/default" does not exist
+Jul 17 17:48:03 symfony [err] {sfError404Exception} Action "API/default" does not exist.
+Jul 17 17:48:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:48:03 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:48:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:48:03 symfony [info] {sfWebDebugLogger} Configuration 0.71 ms (5)
+Jul 17 17:48:03 symfony [info] {sfWebDebugLogger} Factories 24.63 ms (1)
+Jul 17 17:48:09 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /api/default/index with parameters array (  'module' => 'api',  'action' => 'default',  'index' => true,)
+Jul 17 17:48:09 symfony [info] {sfFrontWebController} Action "api/default" does not exist
+Jul 17 17:48:09 symfony [err] {sfError404Exception} Action "api/default" does not exist.
+Jul 17 17:48:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:48:09 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:48:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:48:09 symfony [info] {sfWebDebugLogger} Configuration 0.81 ms (5)
+Jul 17 17:48:09 symfony [info] {sfWebDebugLogger} Factories 24.68 ms (1)
+Jul 17 17:48:12 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /api/default with parameters array (  'module' => 'api',  'action' => 'default',)
+Jul 17 17:48:12 symfony [info] {sfFrontWebController} Action "api/default" does not exist
+Jul 17 17:48:12 symfony [err] {sfError404Exception} Action "api/default" does not exist.
+Jul 17 17:48:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:48:12 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:48:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:48:12 symfony [info] {sfWebDebugLogger} Configuration 0.57 ms (5)
+Jul 17 17:48:12 symfony [info] {sfWebDebugLogger} Factories 23.93 ms (1)
+Jul 17 17:48:25 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /api/get_users with parameters array (  'module' => 'api',  'action' => 'get_users',)
+Jul 17 17:48:25 symfony [info] {sfFrontWebController} Action "api/get_users" does not exist
+Jul 17 17:48:25 symfony [err] {sfError404Exception} Action "api/get_users" does not exist.
+Jul 17 17:48:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 17 17:48:25 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 17 17:48:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 17 17:48:25 symfony [info] {sfWebDebugLogger} Configuration 0.54 ms (5)
+Jul 17 17:48:25 symfony [info] {sfWebDebugLogger} Factories 24.30 ms (1)
