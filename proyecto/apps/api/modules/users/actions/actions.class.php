@@ -20,7 +20,8 @@ class usersActions extends sfActions {
     public function executeGetUsers(sfWebRequest $request) {
         $users = sfGuardUserPeer::doSelect(new Criteria());
         foreach($users as $user) $retU[] = $user->getUsername();
-        return $this->renderText(json_encode($retU));
+        $u['usuarios'] = $retU;
+        return $this->renderText(json_encode($u));
     }
 
 }

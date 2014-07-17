@@ -2,7 +2,7 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 get_users:
-  url: /get_users
+  url: /getUsers
   param: { module: users, action: getUsers }
 
 # default rules
