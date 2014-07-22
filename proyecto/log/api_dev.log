@@ -130,3 +130,51 @@ Jun 18 17:30:17 symfony [info] {sfWebDebugLogger} Factories 61.71 ms (1)
 Jun 18 17:30:17 symfony [info] {sfWebDebugLogger} Action "users/getUsers" 33.17 ms (1)
 Jun 18 17:30:17 symfony [info] {sfWebDebugLogger} View "None" for "users/getUsers" 0.01 ms (1)
 Jun 18 17:30:17 symfony [info] {sfWebResponse} Send content (19527 o)
+Jul 18 18:42:17 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/validate" (/).
+Jul 18 18:42:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 18 18:42:17 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 18 18:42:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 18 18:42:17 symfony [info] {sfWebDebugLogger} Configuration 93.09 ms (5)
+Jul 18 18:42:17 symfony [info] {sfWebDebugLogger} Factories 70.76 ms (1)
+Jul 18 18:42:24 symfony [info] {sfPatternRouting} Match route "validate_user" (/validate/:username/:password) for /validate/hkfuertes/gorilafeliz with parameters array (  'module' => 'users',  'action' => 'validateUser',  'username' => 'hkfuertes',  'password' => 'gorilafeliz',)
+Jul 18 18:42:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 18 18:42:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 18 18:42:24 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 18 18:42:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 18 18:42:24 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 18 18:42:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 18 18:42:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 18 18:42:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 18 18:42:24 symfony [info] {sfWebDebugLogger} Configuration 57.79 ms (10)
+Jul 18 18:42:24 symfony [info] {sfWebDebugLogger} Factories 24.81 ms (1)
+Jul 18 18:42:24 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 65.63 ms (1)
+Jul 18 18:42:24 symfony [info] {sfWebDebugLogger} View "None" for "users/validateUser" 0.01 ms (1)
+Jul 18 18:42:24 symfony [info] {sfWebResponse} Send content (19858 o)
+Jul 18 18:42:32 symfony [info] {sfPatternRouting} Match route "validate_user" (/validate/:username/:password) for /validate/hkfuertes/bla bla bla with parameters array (  'module' => 'users',  'action' => 'validateUser',  'username' => 'hkfuertes',  'password' => 'bla bla bla',)
+Jul 18 18:42:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 18 18:42:32 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 18 18:42:32 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 18 18:42:32 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 18 18:42:32 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 18 18:42:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 18 18:42:32 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 18 18:42:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 18 18:42:32 symfony [info] {sfWebDebugLogger} Configuration 46.80 ms (10)
+Jul 18 18:42:32 symfony [info] {sfWebDebugLogger} Factories 23.94 ms (1)
+Jul 18 18:42:32 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 76.66 ms (1)
+Jul 18 18:42:32 symfony [info] {sfWebDebugLogger} View "None" for "users/validateUser" 0.01 ms (1)
+Jul 18 18:42:32 symfony [info] {sfWebResponse} Send content (19836 o)
+Jul 18 18:42:37 symfony [info] {sfPatternRouting} Match route "validate_user" (/validate/:username/:password) for /validate/hkfuertes/gorilafeliz with parameters array (  'module' => 'users',  'action' => 'validateUser',  'username' => 'hkfuertes',  'password' => 'gorilafeliz',)
+Jul 18 18:42:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 18 18:42:37 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 18 18:42:37 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 18 18:42:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 18 18:42:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 18 18:42:37 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 18 18:42:37 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 18 18:42:37 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 18 18:42:37 symfony [info] {sfWebDebugLogger} Configuration 46.56 ms (10)
+Jul 18 18:42:37 symfony [info] {sfWebDebugLogger} Factories 24.04 ms (1)
+Jul 18 18:42:37 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 71.60 ms (1)
+Jul 18 18:42:37 symfony [info] {sfWebDebugLogger} View "None" for "users/validateUser" 0.01 ms (1)
+Jul 18 18:42:37 symfony [info] {sfWebResponse} Send content (19857 o)

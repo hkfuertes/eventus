@@ -1,6 +1,10 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+validate_user:
+  url: /validate/:username/:password
+  param: { module: users, action: validateUser }
+
 get_users:
   url: /getUsers
   param: { module: users, action: getUsers }
@@ -9,14 +13,5 @@ get_users:
 homepage:
   url:   /
   param: { module: default, action: index }
-
-# generic rules
-# please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
   
 

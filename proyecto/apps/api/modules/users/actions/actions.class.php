@@ -23,5 +23,25 @@ class usersActions extends sfActions {
         $u['usuarios'] = $retU;
         return $this->renderText(json_encode($u));
     }
+    
+    /**
+     * Validates a user and logges it in.
+     * @param username
+     * @param password
+     * See routes for url, params via get
+     */
+    public function executeValidateUser(sfWebRequest $request) {
+        $username = $request->getParameter('username');
+        $password = $request->getParameter('password');
+        
+        $user = sfGuardUserPeer::retrieveByUsername($username);
+        if($user->checkPassword($password)){
+            $retval = array('success'=>true,'user'=>array('username'=>$username, 'token'=>$user->getSalt()));
+            return $this->renderText(json_encode($retval));
+        }else{
+            $retval = array('success'=>false);
+            return $this->renderText(json_encode($retval));
+        }
+    }
 
 }
