@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Base class that represents a row from the 'sf_guard_user_group' table.
+ * Base class that represents a row from the 'tokens' table.
  *
  * 
  *
@@ -9,18 +9,24 @@
  *
  * Wed Jul 23 16:53:46 2014
  *
- * @package    plugins.sfGuardPlugin.lib.model.om
+ * @package    lib.model.om
  */
-abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
+abstract class BaseTokens extends BaseObject  implements Persistent {
 
 
 	/**
 	 * The Peer class.
 	 * Instance provides a convenient way of calling static methods on a class
 	 * that calling code may not be able to identify.
-	 * @var        sfGuardUserGroupPeer
+	 * @var        TokensPeer
 	 */
 	protected static $peer;
+
+	/**
+	 * The value for the id field.
+	 * @var        int
+	 */
+	protected $id;
 
 	/**
 	 * The value for the user_id field.
@@ -29,20 +35,28 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	protected $user_id;
 
 	/**
-	 * The value for the group_id field.
-	 * @var        int
+	 * The value for the token field.
+	 * @var        string
 	 */
-	protected $group_id;
+	protected $token;
+
+	/**
+	 * The value for the created_at field.
+	 * @var        string
+	 */
+	protected $created_at;
+
+	/**
+	 * The value for the active field.
+	 * Note: this column has a database default value of: true
+	 * @var        boolean
+	 */
+	protected $active;
 
 	/**
 	 * @var        sfGuardUser
 	 */
 	protected $asfGuardUser;
-
-	/**
-	 * @var        sfGuardGroup
-	 */
-	protected $asfGuardGroup;
 
 	/**
 	 * Flag to prevent endless save loop, if this object is referenced
@@ -60,7 +74,38 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 
 	// symfony behavior
 	
-	const PEER = 'sfGuardUserGroupPeer';
+	const PEER = 'TokensPeer';
+
+	/**
+	 * Applies default values to this object.
+	 * This method should be called from the object's constructor (or
+	 * equivalent initialization method).
+	 * @see        __construct()
+	 */
+	public function applyDefaultValues()
+	{
+		$this->active = true;
+	}
+
+	/**
+	 * Initializes internal state of BaseTokens object.
+	 * @see        applyDefaults()
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->applyDefaultValues();
+	}
+
+	/**
+	 * Get the [id] column value.
+	 * 
+	 * @return     int
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
 
 	/**
 	 * Get the [user_id] column value.
@@ -73,20 +118,88 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	}
 
 	/**
-	 * Get the [group_id] column value.
+	 * Get the [token] column value.
 	 * 
-	 * @return     int
+	 * @return     string
 	 */
-	public function getGroupId()
+	public function getToken()
 	{
-		return $this->group_id;
+		return $this->token;
 	}
+
+	/**
+	 * Get the [optionally formatted] temporal [created_at] column value.
+	 * 
+	 *
+	 * @param      string $format The date/time format string (either date()-style or strftime()-style).
+	 *							If format is NULL, then the raw DateTime object will be returned.
+	 * @return     mixed Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
+	 * @throws     PropelException - if unable to parse/validate the date/time value.
+	 */
+	public function getCreatedAt($format = 'Y-m-d H:i:s')
+	{
+		if ($this->created_at === null) {
+			return null;
+		}
+
+
+		if ($this->created_at === '0000-00-00 00:00:00') {
+			// while technically this is not a default value of NULL,
+			// this seems to be closest in meaning.
+			return null;
+		} else {
+			try {
+				$dt = new DateTime($this->created_at);
+			} catch (Exception $x) {
+				throw new PropelException("Internally stored date/time/timestamp value could not be converted to DateTime: " . var_export($this->created_at, true), $x);
+			}
+		}
+
+		if ($format === null) {
+			// Because propel.useDateTimeClass is TRUE, we return a DateTime object.
+			return $dt;
+		} elseif (strpos($format, '%') !== false) {
+			return strftime($format, $dt->format('U'));
+		} else {
+			return $dt->format($format);
+		}
+	}
+
+	/**
+	 * Get the [active] column value.
+	 * 
+	 * @return     boolean
+	 */
+	public function getActive()
+	{
+		return $this->active;
+	}
+
+	/**
+	 * Set the value of [id] column.
+	 * 
+	 * @param      int $v new value
+	 * @return     Tokens The current object (for fluent API support)
+	 */
+	public function setId($v)
+	{
+		if ($v !== null) {
+			$v = (int) $v;
+		}
+
+		if ($this->id !== $v) {
+			$this->id = $v;
+			$this->modifiedColumns[] = TokensPeer::ID;
+		}
+
+		return $this;
+	} // setId()
 
 	/**
 	 * Set the value of [user_id] column.
 	 * 
 	 * @param      int $v new value
-	 * @return     sfGuardUserGroup The current object (for fluent API support)
+	 * @return     Tokens The current object (for fluent API support)
 	 */
 	public function setUserId($v)
 	{
@@ -96,7 +209,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 
 		if ($this->user_id !== $v) {
 			$this->user_id = $v;
-			$this->modifiedColumns[] = sfGuardUserGroupPeer::USER_ID;
+			$this->modifiedColumns[] = TokensPeer::USER_ID;
 		}
 
 		if ($this->asfGuardUser !== null && $this->asfGuardUser->getId() !== $v) {
@@ -107,28 +220,93 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	} // setUserId()
 
 	/**
-	 * Set the value of [group_id] column.
+	 * Set the value of [token] column.
 	 * 
-	 * @param      int $v new value
-	 * @return     sfGuardUserGroup The current object (for fluent API support)
+	 * @param      string $v new value
+	 * @return     Tokens The current object (for fluent API support)
 	 */
-	public function setGroupId($v)
+	public function setToken($v)
 	{
 		if ($v !== null) {
-			$v = (int) $v;
+			$v = (string) $v;
 		}
 
-		if ($this->group_id !== $v) {
-			$this->group_id = $v;
-			$this->modifiedColumns[] = sfGuardUserGroupPeer::GROUP_ID;
-		}
-
-		if ($this->asfGuardGroup !== null && $this->asfGuardGroup->getId() !== $v) {
-			$this->asfGuardGroup = null;
+		if ($this->token !== $v) {
+			$this->token = $v;
+			$this->modifiedColumns[] = TokensPeer::TOKEN;
 		}
 
 		return $this;
-	} // setGroupId()
+	} // setToken()
+
+	/**
+	 * Sets the value of [created_at] column to a normalized version of the date/time value specified.
+	 * 
+	 * @param      mixed $v string, integer (timestamp), or DateTime value.  Empty string will
+	 *						be treated as NULL for temporal objects.
+	 * @return     Tokens The current object (for fluent API support)
+	 */
+	public function setCreatedAt($v)
+	{
+		// we treat '' as NULL for temporal objects because DateTime('') == DateTime('now')
+		// -- which is unexpected, to say the least.
+		if ($v === null || $v === '') {
+			$dt = null;
+		} elseif ($v instanceof DateTime) {
+			$dt = $v;
+		} else {
+			// some string/numeric value passed; we normalize that so that we can
+			// validate it.
+			try {
+				if (is_numeric($v)) { // if it's a unix timestamp
+					$dt = new DateTime('@'.$v, new DateTimeZone('UTC'));
+					// We have to explicitly specify and then change the time zone because of a
+					// DateTime bug: http://bugs.php.net/bug.php?id=43003
+					$dt->setTimeZone(new DateTimeZone(date_default_timezone_get()));
+				} else {
+					$dt = new DateTime($v);
+				}
+			} catch (Exception $x) {
+				throw new PropelException('Error parsing date/time value: ' . var_export($v, true), $x);
+			}
+		}
+
+		if ( $this->created_at !== null || $dt !== null ) {
+			// (nested ifs are a little easier to read in this case)
+
+			$currNorm = ($this->created_at !== null && $tmpDt = new DateTime($this->created_at)) ? $tmpDt->format('Y-m-d H:i:s') : null;
+			$newNorm = ($dt !== null) ? $dt->format('Y-m-d H:i:s') : null;
+
+			if ( ($currNorm !== $newNorm) // normalized values don't match 
+					)
+			{
+				$this->created_at = ($dt ? $dt->format('Y-m-d H:i:s') : null);
+				$this->modifiedColumns[] = TokensPeer::CREATED_AT;
+			}
+		} // if either are not null
+
+		return $this;
+	} // setCreatedAt()
+
+	/**
+	 * Set the value of [active] column.
+	 * 
+	 * @param      boolean $v new value
+	 * @return     Tokens The current object (for fluent API support)
+	 */
+	public function setActive($v)
+	{
+		if ($v !== null) {
+			$v = (boolean) $v;
+		}
+
+		if ($this->active !== $v || $this->isNew()) {
+			$this->active = $v;
+			$this->modifiedColumns[] = TokensPeer::ACTIVE;
+		}
+
+		return $this;
+	} // setActive()
 
 	/**
 	 * Indicates whether the columns in this object are only set to default values.
@@ -140,6 +318,10 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 */
 	public function hasOnlyDefaultValues()
 	{
+			if ($this->active !== true) {
+				return false;
+			}
+
 		// otherwise, everything was equal, so return TRUE
 		return true;
 	} // hasOnlyDefaultValues()
@@ -162,8 +344,11 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	{
 		try {
 
-			$this->user_id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
-			$this->group_id = ($row[$startcol + 1] !== null) ? (int) $row[$startcol + 1] : null;
+			$this->id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
+			$this->user_id = ($row[$startcol + 1] !== null) ? (int) $row[$startcol + 1] : null;
+			$this->token = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
+			$this->created_at = ($row[$startcol + 3] !== null) ? (string) $row[$startcol + 3] : null;
+			$this->active = ($row[$startcol + 4] !== null) ? (boolean) $row[$startcol + 4] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
@@ -173,10 +358,10 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 			}
 
 			// FIXME - using NUM_COLUMNS may be clearer.
-			return $startcol + 2; // 2 = sfGuardUserGroupPeer::NUM_COLUMNS - sfGuardUserGroupPeer::NUM_LAZY_LOAD_COLUMNS).
+			return $startcol + 5; // 5 = TokensPeer::NUM_COLUMNS - TokensPeer::NUM_LAZY_LOAD_COLUMNS).
 
 		} catch (Exception $e) {
-			throw new PropelException("Error populating sfGuardUserGroup object", $e);
+			throw new PropelException("Error populating Tokens object", $e);
 		}
 	}
 
@@ -198,9 +383,6 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 
 		if ($this->asfGuardUser !== null && $this->user_id !== $this->asfGuardUser->getId()) {
 			$this->asfGuardUser = null;
-		}
-		if ($this->asfGuardGroup !== null && $this->group_id !== $this->asfGuardGroup->getId()) {
-			$this->asfGuardGroup = null;
 		}
 	} // ensureConsistency
 
@@ -225,13 +407,13 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardUserGroupPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+			$con = Propel::getConnection(TokensPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
 		// We don't need to alter the object instance pool; we're just modifying this instance
 		// already in the pool.
 
-		$stmt = sfGuardUserGroupPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
+		$stmt = TokensPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
 		$row = $stmt->fetch(PDO::FETCH_NUM);
 		$stmt->closeCursor();
 		if (!$row) {
@@ -242,7 +424,6 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 		if ($deep) {  // also de-associate any related objects?
 
 			$this->asfGuardUser = null;
-			$this->asfGuardGroup = null;
 		} // if (deep)
 	}
 
@@ -262,14 +443,14 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardUserGroupPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(TokensPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 		
 		$con->beginTransaction();
 		try {
 			$ret = $this->preDelete($con);
 			// symfony_behaviors behavior
-			foreach (sfMixer::getCallables('BasesfGuardUserGroup:delete:pre') as $callable)
+			foreach (sfMixer::getCallables('BaseTokens:delete:pre') as $callable)
 			{
 			  if (call_user_func($callable, $this, $con))
 			  {
@@ -280,10 +461,10 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 			}
 
 			if ($ret) {
-				sfGuardUserGroupPeer::doDelete($this, $con);
+				TokensPeer::doDelete($this, $con);
 				$this->postDelete($con);
 				// symfony_behaviors behavior
-				foreach (sfMixer::getCallables('BasesfGuardUserGroup:delete:post') as $callable)
+				foreach (sfMixer::getCallables('BaseTokens:delete:post') as $callable)
 				{
 				  call_user_func($callable, $this, $con);
 				}
@@ -319,7 +500,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardUserGroupPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(TokensPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 		
 		$con->beginTransaction();
@@ -327,7 +508,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 		try {
 			$ret = $this->preSave($con);
 			// symfony_behaviors behavior
-			foreach (sfMixer::getCallables('BasesfGuardUserGroup:save:pre') as $callable)
+			foreach (sfMixer::getCallables('BaseTokens:save:pre') as $callable)
 			{
 			  if (is_integer($affectedRows = call_user_func($callable, $this, $con)))
 			  {
@@ -337,8 +518,16 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 			  }
 			}
 
+			// symfony_timestampable behavior
+			
 			if ($isInsert) {
 				$ret = $ret && $this->preInsert($con);
+				// symfony_timestampable behavior
+				if (!$this->isColumnModified(TokensPeer::CREATED_AT))
+				{
+				  $this->setCreatedAt(time());
+				}
+
 			} else {
 				$ret = $ret && $this->preUpdate($con);
 			}
@@ -351,12 +540,12 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 				}
 				$this->postSave($con);
 				// symfony_behaviors behavior
-				foreach (sfMixer::getCallables('BasesfGuardUserGroup:save:post') as $callable)
+				foreach (sfMixer::getCallables('BaseTokens:save:post') as $callable)
 				{
 				  call_user_func($callable, $this, $con, $affectedRows);
 				}
 
-				sfGuardUserGroupPeer::addInstanceToPool($this);
+				TokensPeer::addInstanceToPool($this);
 			} else {
 				$affectedRows = 0;
 			}
@@ -397,25 +586,23 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 				$this->setsfGuardUser($this->asfGuardUser);
 			}
 
-			if ($this->asfGuardGroup !== null) {
-				if ($this->asfGuardGroup->isModified() || $this->asfGuardGroup->isNew()) {
-					$affectedRows += $this->asfGuardGroup->save($con);
-				}
-				$this->setsfGuardGroup($this->asfGuardGroup);
+			if ($this->isNew() ) {
+				$this->modifiedColumns[] = TokensPeer::ID;
 			}
-
 
 			// If this object has been modified, then save it to the database.
 			if ($this->isModified()) {
 				if ($this->isNew()) {
-					$pk = sfGuardUserGroupPeer::doInsert($this, $con);
+					$pk = TokensPeer::doInsert($this, $con);
 					$affectedRows += 1; // we are assuming that there is only 1 row per doInsert() which
 										 // should always be true here (even though technically
 										 // BasePeer::doInsert() can insert multiple rows).
 
+					$this->setId($pk);  //[IMV] update autoincrement primary key
+
 					$this->setNew(false);
 				} else {
-					$affectedRows += sfGuardUserGroupPeer::doUpdate($this, $con);
+					$affectedRows += TokensPeer::doUpdate($this, $con);
 				}
 
 				$this->resetModified(); // [HL] After being saved an object is no longer 'modified'
@@ -498,14 +685,8 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 				}
 			}
 
-			if ($this->asfGuardGroup !== null) {
-				if (!$this->asfGuardGroup->validate($columns)) {
-					$failureMap = array_merge($failureMap, $this->asfGuardGroup->getValidationFailures());
-				}
-			}
 
-
-			if (($retval = sfGuardUserGroupPeer::doValidate($this, $columns)) !== true) {
+			if (($retval = TokensPeer::doValidate($this, $columns)) !== true) {
 				$failureMap = array_merge($failureMap, $retval);
 			}
 
@@ -528,7 +709,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 */
 	public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = sfGuardUserGroupPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = TokensPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		$field = $this->getByPosition($pos);
 		return $field;
 	}
@@ -544,10 +725,19 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	{
 		switch($pos) {
 			case 0:
-				return $this->getUserId();
+				return $this->getId();
 				break;
 			case 1:
-				return $this->getGroupId();
+				return $this->getUserId();
+				break;
+			case 2:
+				return $this->getToken();
+				break;
+			case 3:
+				return $this->getCreatedAt();
+				break;
+			case 4:
+				return $this->getActive();
 				break;
 			default:
 				return null;
@@ -568,10 +758,13 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 */
 	public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true)
 	{
-		$keys = sfGuardUserGroupPeer::getFieldNames($keyType);
+		$keys = TokensPeer::getFieldNames($keyType);
 		$result = array(
-			$keys[0] => $this->getUserId(),
-			$keys[1] => $this->getGroupId(),
+			$keys[0] => $this->getId(),
+			$keys[1] => $this->getUserId(),
+			$keys[2] => $this->getToken(),
+			$keys[3] => $this->getCreatedAt(),
+			$keys[4] => $this->getActive(),
 		);
 		return $result;
 	}
@@ -588,7 +781,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 */
 	public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = sfGuardUserGroupPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = TokensPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		return $this->setByPosition($pos, $value);
 	}
 
@@ -604,10 +797,19 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	{
 		switch($pos) {
 			case 0:
-				$this->setUserId($value);
+				$this->setId($value);
 				break;
 			case 1:
-				$this->setGroupId($value);
+				$this->setUserId($value);
+				break;
+			case 2:
+				$this->setToken($value);
+				break;
+			case 3:
+				$this->setCreatedAt($value);
+				break;
+			case 4:
+				$this->setActive($value);
 				break;
 		} // switch()
 	}
@@ -631,10 +833,13 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 */
 	public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
 	{
-		$keys = sfGuardUserGroupPeer::getFieldNames($keyType);
+		$keys = TokensPeer::getFieldNames($keyType);
 
-		if (array_key_exists($keys[0], $arr)) $this->setUserId($arr[$keys[0]]);
-		if (array_key_exists($keys[1], $arr)) $this->setGroupId($arr[$keys[1]]);
+		if (array_key_exists($keys[0], $arr)) $this->setId($arr[$keys[0]]);
+		if (array_key_exists($keys[1], $arr)) $this->setUserId($arr[$keys[1]]);
+		if (array_key_exists($keys[2], $arr)) $this->setToken($arr[$keys[2]]);
+		if (array_key_exists($keys[3], $arr)) $this->setCreatedAt($arr[$keys[3]]);
+		if (array_key_exists($keys[4], $arr)) $this->setActive($arr[$keys[4]]);
 	}
 
 	/**
@@ -644,10 +849,13 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 */
 	public function buildCriteria()
 	{
-		$criteria = new Criteria(sfGuardUserGroupPeer::DATABASE_NAME);
+		$criteria = new Criteria(TokensPeer::DATABASE_NAME);
 
-		if ($this->isColumnModified(sfGuardUserGroupPeer::USER_ID)) $criteria->add(sfGuardUserGroupPeer::USER_ID, $this->user_id);
-		if ($this->isColumnModified(sfGuardUserGroupPeer::GROUP_ID)) $criteria->add(sfGuardUserGroupPeer::GROUP_ID, $this->group_id);
+		if ($this->isColumnModified(TokensPeer::ID)) $criteria->add(TokensPeer::ID, $this->id);
+		if ($this->isColumnModified(TokensPeer::USER_ID)) $criteria->add(TokensPeer::USER_ID, $this->user_id);
+		if ($this->isColumnModified(TokensPeer::TOKEN)) $criteria->add(TokensPeer::TOKEN, $this->token);
+		if ($this->isColumnModified(TokensPeer::CREATED_AT)) $criteria->add(TokensPeer::CREATED_AT, $this->created_at);
+		if ($this->isColumnModified(TokensPeer::ACTIVE)) $criteria->add(TokensPeer::ACTIVE, $this->active);
 
 		return $criteria;
 	}
@@ -662,43 +870,31 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 */
 	public function buildPkeyCriteria()
 	{
-		$criteria = new Criteria(sfGuardUserGroupPeer::DATABASE_NAME);
+		$criteria = new Criteria(TokensPeer::DATABASE_NAME);
 
-		$criteria->add(sfGuardUserGroupPeer::USER_ID, $this->user_id);
-		$criteria->add(sfGuardUserGroupPeer::GROUP_ID, $this->group_id);
+		$criteria->add(TokensPeer::ID, $this->id);
 
 		return $criteria;
 	}
 
 	/**
-	 * Returns the composite primary key for this object.
-	 * The array elements will be in same order as specified in XML.
-	 * @return     array
+	 * Returns the primary key for this object (row).
+	 * @return     int
 	 */
 	public function getPrimaryKey()
 	{
-		$pks = array();
-
-		$pks[0] = $this->getUserId();
-
-		$pks[1] = $this->getGroupId();
-
-		return $pks;
+		return $this->getId();
 	}
 
 	/**
-	 * Set the [composite] primary key.
+	 * Generic method to set the primary key (id column).
 	 *
-	 * @param      array $keys The elements of the composite key (order must match the order in XML file).
+	 * @param      int $key Primary key.
 	 * @return     void
 	 */
-	public function setPrimaryKey($keys)
+	public function setPrimaryKey($key)
 	{
-
-		$this->setUserId($keys[0]);
-
-		$this->setGroupId($keys[1]);
-
+		$this->setId($key);
 	}
 
 	/**
@@ -707,7 +903,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 * If desired, this method can also make copies of all associated (fkey referrers)
 	 * objects.
 	 *
-	 * @param      object $copyObj An object of sfGuardUserGroup (or compatible) type.
+	 * @param      object $copyObj An object of Tokens (or compatible) type.
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
 	 * @throws     PropelException
 	 */
@@ -716,10 +912,16 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 
 		$copyObj->setUserId($this->user_id);
 
-		$copyObj->setGroupId($this->group_id);
+		$copyObj->setToken($this->token);
+
+		$copyObj->setCreatedAt($this->created_at);
+
+		$copyObj->setActive($this->active);
 
 
 		$copyObj->setNew(true);
+
+		$copyObj->setId(NULL); // this is a auto-increment column, so set to default value
 
 	}
 
@@ -732,7 +934,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 * objects.
 	 *
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-	 * @return     sfGuardUserGroup Clone of current object.
+	 * @return     Tokens Clone of current object.
 	 * @throws     PropelException
 	 */
 	public function copy($deepCopy = false)
@@ -751,12 +953,12 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 * same instance for all member of this class. The method could therefore
 	 * be static, but this would prevent one from overriding the behavior.
 	 *
-	 * @return     sfGuardUserGroupPeer
+	 * @return     TokensPeer
 	 */
 	public function getPeer()
 	{
 		if (self::$peer === null) {
-			self::$peer = new sfGuardUserGroupPeer();
+			self::$peer = new TokensPeer();
 		}
 		return self::$peer;
 	}
@@ -765,7 +967,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 * Declares an association between this object and a sfGuardUser object.
 	 *
 	 * @param      sfGuardUser $v
-	 * @return     sfGuardUserGroup The current object (for fluent API support)
+	 * @return     Tokens The current object (for fluent API support)
 	 * @throws     PropelException
 	 */
 	public function setsfGuardUser(sfGuardUser $v = null)
@@ -781,7 +983,7 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 		// Add binding for other direction of this n:n relationship.
 		// If this object has already been added to the sfGuardUser object, it will not be re-added.
 		if ($v !== null) {
-			$v->addsfGuardUserGroup($this);
+			$v->addTokens($this);
 		}
 
 		return $this;
@@ -804,59 +1006,10 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 			   to this object.  This level of coupling may, however, be
 			   undesirable since it could result in an only partially populated collection
 			   in the referenced object.
-			   $this->asfGuardUser->addsfGuardUserGroups($this);
+			   $this->asfGuardUser->addTokenss($this);
 			 */
 		}
 		return $this->asfGuardUser;
-	}
-
-	/**
-	 * Declares an association between this object and a sfGuardGroup object.
-	 *
-	 * @param      sfGuardGroup $v
-	 * @return     sfGuardUserGroup The current object (for fluent API support)
-	 * @throws     PropelException
-	 */
-	public function setsfGuardGroup(sfGuardGroup $v = null)
-	{
-		if ($v === null) {
-			$this->setGroupId(NULL);
-		} else {
-			$this->setGroupId($v->getId());
-		}
-
-		$this->asfGuardGroup = $v;
-
-		// Add binding for other direction of this n:n relationship.
-		// If this object has already been added to the sfGuardGroup object, it will not be re-added.
-		if ($v !== null) {
-			$v->addsfGuardUserGroup($this);
-		}
-
-		return $this;
-	}
-
-
-	/**
-	 * Get the associated sfGuardGroup object
-	 *
-	 * @param      PropelPDO Optional Connection object.
-	 * @return     sfGuardGroup The associated sfGuardGroup object.
-	 * @throws     PropelException
-	 */
-	public function getsfGuardGroup(PropelPDO $con = null)
-	{
-		if ($this->asfGuardGroup === null && ($this->group_id !== null)) {
-			$this->asfGuardGroup = sfGuardGroupPeer::retrieveByPk($this->group_id);
-			/* The following can be used additionally to
-			   guarantee the related object contains a reference
-			   to this object.  This level of coupling may, however, be
-			   undesirable since it could result in an only partially populated collection
-			   in the referenced object.
-			   $this->asfGuardGroup->addsfGuardUserGroups($this);
-			 */
-		}
-		return $this->asfGuardGroup;
 	}
 
 	/**
@@ -874,7 +1027,6 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 		} // if ($deep)
 
 			$this->asfGuardUser = null;
-			$this->asfGuardGroup = null;
 	}
 
 	// symfony_behaviors behavior
@@ -884,9 +1036,9 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	 */
 	public function __call($method, $arguments)
 	{
-	  if (!$callable = sfMixer::getCallable('BasesfGuardUserGroup:'.$method))
+	  if (!$callable = sfMixer::getCallable('BaseTokens:'.$method))
 	  {
-	    throw new sfException(sprintf('Call to undefined method BasesfGuardUserGroup::%s', $method));
+	    throw new sfException(sprintf('Call to undefined method BaseTokens::%s', $method));
 	  }
 	
 	  array_unshift($arguments, $this);
@@ -894,4 +1046,4 @@ abstract class BasesfGuardUserGroup extends BaseObject  implements Persistent {
 	  return call_user_func_array($callable, $arguments);
 	}
 
-} // BasesfGuardUserGroup
+} // BaseTokens

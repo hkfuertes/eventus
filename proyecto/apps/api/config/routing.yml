@@ -1,6 +1,10 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+info_user:
+  url: /info/:username/:token
+  param: { module: users, action: getInfo }
+
 validate_user:
   url: /validate/:username/:password
   param: { module: users, action: validateUser }

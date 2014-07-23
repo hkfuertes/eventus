@@ -9,6 +9,11 @@
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class usersActions extends sfActions {
+    
+    public function preExecute(){
+        if(sfConfig::get('sf_environment')=='prod')
+            $this->getResponse()->setContentType('application/json');
+    }
 
     public function executeIndex(sfWebRequest $request) {
         $this->forward('default', 'index');
@@ -36,7 +41,29 @@ class usersActions extends sfActions {
         
         $user = sfGuardUserPeer::retrieveByUsername($username);
         if($user->checkPassword($password)){
-            $retval = array('success'=>true,'user'=>array('username'=>$username, 'token'=>$user->getSalt()));
+            $token = $user->getTokenss();
+            $retval = array('success'=>true,'user'=>array('username'=>$username, 'token'=>$token[0]->getToken()));
+            return $this->renderText(json_encode($retval));
+        }else{
+            $retval = array('success'=>false);
+            return $this->renderText(json_encode($retval));
+        }
+    }
+    
+    /**
+     * Validates a user and logges it in.
+     * @param username
+     * @param password
+     * See routes for url, params via get
+     */
+    public function executeGetInfo(sfWebRequest $request) {
+        $username = $request->getParameter('username');
+        $token = $request->getParameter('token');
+        
+        $user = sfGuardUserPeer::retrieveByUsername($username);
+        //print_r($user);die();
+        if(token::check($user, $token)){
+            $retval = array('success'=>true,'user'=> $user->getProfile()->expose());
             return $this->renderText(json_encode($retval));
         }else{
             $retval = array('success'=>false);
