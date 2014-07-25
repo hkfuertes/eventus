@@ -1,12 +1,16 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+create_user:
+  url: /user/create/:master_token
+  param: { module: users, action: createUser, master_token: null }
+
 info_user:
-  url: /info/:username/:token
+  url: /user/info/:username/:token
   param: { module: users, action: getInfo }
 
 validate_user:
-  url: /validate/:username/:password
+  url: /user/validate/:username/:password
   param: { module: users, action: validateUser }
 
 get_users:

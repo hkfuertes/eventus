@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Skeleton subclass for representing a row from the 'tokens' table.
  *
@@ -18,4 +17,28 @@
  */
 class Tokens extends BaseTokens {
 
-} // Tokens
+    public static function createTokenForUser($user) {
+        $token = new Tokens();
+        $token->setToken($user->getSalt());
+        $token->setUserId($user->getId());
+        $token->setCreatedAt(time());
+        $token->save();
+        
+        return $token;
+    }
+
+    public static function check(sfGuardUser $user, $token) {
+
+        $c = new Criteria();
+        $c->add(TokensPeer::USER_ID, $user->getId());
+        $c->add(TokensPeer::TOKEN, $token);
+        $c->add(TokensPeer::ACTIVE, 1);
+
+        $t = tokenPeer::doSelect($c);
+
+        return $t != null;
+    }
+
+}
+
+// Tokens

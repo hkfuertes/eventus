@@ -17,6 +17,11 @@
  * @package    lib.model
  */
 class token extends Basetoken {
+    
+    public static function createTokenForUser($user){
+        $token = new Tokens();
+        
+    }
 
     public static function check(sfGuardUser $user, $token){
         
