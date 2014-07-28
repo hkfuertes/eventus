@@ -20,17 +20,6 @@ class usersActions extends sfActions {
     }
 
     /**
-     * Testing only: Returns an array of users with their name.
-     */
-    public function executeGetUsers(sfWebRequest $request) {
-        $users = sfGuardUserPeer::doSelect(new Criteria());
-        foreach ($users as $user)
-            $retU[] = $user->getUsername();
-        $u['usuarios'] = $retU;
-        return $this->renderText(json_encode($u));
-    }
-
-    /**
      * Validates a user and logges it in.
      * @param username
      * @param password
@@ -63,7 +52,7 @@ class usersActions extends sfActions {
 
         $user = sfGuardUserPeer::retrieveByUsername($username);
         //print_r($user);die();
-        if (token::check($user, $token)) {
+        if (Tokens::check($user, $token)) {
             $retval = array('success' => true, 'user' => $user->getProfile()->expose());
             return $this->renderText(json_encode($retval));
         } else {
@@ -77,7 +66,7 @@ class usersActions extends sfActions {
      * See routes for url, params via POST
      */
     public function executeCreateUser(sfWebRequest $request) {
-        $master_token = $request->getParameter('master_token');
+        $app_token = $request->getParameter('app_token');
 
         $username = $request->getParameter('username');
         $password = $request->getParameter('password');

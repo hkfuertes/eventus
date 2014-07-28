@@ -230,3 +230,61 @@ Jul 18 18:42:07 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/M
 Jul 18 18:42:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
 Jul 18 18:42:07 symfony [info] {sfWebDebugLogger} Configuration 0.60 ms (5)
 Jul 18 18:42:07 symfony [info] {sfWebDebugLogger} Factories 24.47 ms (1)
+Jul 28 18:10:38 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /bla/user/validate/hkfuertes with parameters array (  'module' => 'bla',  'action' => 'user',  'validate' => 'hkfuertes',)
+Jul 28 18:10:38 symfony [info] {sfFrontWebController} Action "bla/user" does not exist
+Jul 28 18:10:38 symfony [err] {sfError404Exception} Action "bla/user" does not exist.
+Jul 28 18:10:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 28 18:10:38 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 28 18:10:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 28 18:10:38 symfony [info] {sfWebDebugLogger} Configuration 183.82 ms (5)
+Jul 28 18:10:38 symfony [info] {sfWebDebugLogger} Factories 100.73 ms (1)
+Jul 28 18:11:01 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /bla/user/validate/hkfuertes with parameters array (  'module' => 'bla',  'action' => 'user',  'validate' => 'hkfuertes',)
+Jul 28 18:11:01 symfony [info] {sfFrontWebController} Action "bla/user" does not exist
+Jul 28 18:11:01 symfony [err] {sfError404Exception} Action "bla/user" does not exist.
+Jul 28 18:11:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 28 18:11:01 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 28 18:11:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 28 18:11:01 symfony [info] {sfWebDebugLogger} Configuration 110.24 ms (5)
+Jul 28 18:11:01 symfony [info] {sfWebDebugLogger} Factories 96.29 ms (1)
+Jul 28 18:11:32 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /app/user/validate/hkfuertes with parameters array (  'module' => 'app',  'action' => 'user',  'validate' => 'hkfuertes',)
+Jul 28 18:11:32 symfony [info] {sfFrontWebController} Action "app/user" does not exist
+Jul 28 18:11:32 symfony [err] {sfError404Exception} Action "app/user" does not exist.
+Jul 28 18:11:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 28 18:11:32 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 28 18:11:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 28 18:11:32 symfony [info] {sfWebDebugLogger} Configuration 0.59 ms (5)
+Jul 28 18:11:32 symfony [info] {sfWebDebugLogger} Factories 25.43 ms (1)
+Jul 28 18:53:07 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /app/user/validate/hkfuertes with parameters array (  'module' => 'app',  'action' => 'user',  'validate' => 'hkfuertes',)
+Jul 28 18:53:07 symfony [info] {myUser} Automatic user logout due to timeout
+Jul 28 18:53:07 symfony [info] {myUser} User is not authenticated
+Jul 28 18:53:07 symfony [info] {sfFrontWebController} Action "app/user" does not exist
+Jul 28 18:53:07 symfony [err] {sfError404Exception} Action "app/user" does not exist.
+Jul 28 18:53:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 28 18:53:07 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 28 18:53:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 28 18:53:07 symfony [info] {sfWebDebugLogger} Configuration 0.61 ms (5)
+Jul 28 18:53:07 symfony [info] {sfWebDebugLogger} Factories 44.13 ms (1)
+Jul 28 18:59:21 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /app/user/validate/hkfuertes with parameters array (  'module' => 'app',  'action' => 'user',  'validate' => 'hkfuertes',)
+Jul 28 18:59:21 symfony [info] {sfFrontWebController} Action "app/user" does not exist
+Jul 28 18:59:21 symfony [err] {sfError404Exception} Action "app/user" does not exist.
+Jul 28 18:59:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 28 18:59:22 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 28 18:59:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 28 18:59:22 symfony [info] {sfWebDebugLogger} Configuration 0.61 ms (5)
+Jul 28 18:59:22 symfony [info] {sfWebDebugLogger} Factories 41.65 ms (1)
+Jul 28 18:59:24 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /bla/user/validate/hkfuertes with parameters array (  'module' => 'bla',  'action' => 'user',  'validate' => 'hkfuertes',)
+Jul 28 18:59:24 symfony [info] {sfFrontWebController} Action "bla/user" does not exist
+Jul 28 18:59:24 symfony [err] {sfError404Exception} Action "bla/user" does not exist.
+Jul 28 18:59:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 28 18:59:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 28 18:59:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 28 18:59:24 symfony [info] {sfWebDebugLogger} Configuration 0.56 ms (5)
+Jul 28 18:59:24 symfony [info] {sfWebDebugLogger} Factories 26.92 ms (1)
+Jul 28 18:59:25 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /app/user/validate/hkfuertes with parameters array (  'module' => 'app',  'action' => 'user',  'validate' => 'hkfuertes',)
+Jul 28 18:59:25 symfony [info] {sfFrontWebController} Action "app/user" does not exist
+Jul 28 18:59:25 symfony [err] {sfError404Exception} Action "app/user" does not exist.
+Jul 28 18:59:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jul 28 18:59:25 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 28 18:59:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 28 18:59:25 symfony [info] {sfWebDebugLogger} Configuration 0.61 ms (5)
+Jul 28 18:59:25 symfony [info] {sfWebDebugLogger} Factories 29.63 ms (1)

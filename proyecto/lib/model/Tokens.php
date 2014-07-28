@@ -34,7 +34,7 @@ class Tokens extends BaseTokens {
         $c->add(TokensPeer::TOKEN, $token);
         $c->add(TokensPeer::ACTIVE, 1);
 
-        $t = tokenPeer::doSelect($c);
+        $t = TokensPeer::doSelect($c);
 
         return $t != null;
     }

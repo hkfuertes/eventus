@@ -1,21 +1,22 @@
-# You can find more information about this file on the symfony website:
-# http://www.symfony-project.org/reference/1_4/en/10-Routing
-
+# CreateUser: POST parameters
+# All variables from a user via POST.
 create_user:
-  url: /user/create/:master_token
-  param: { module: users, action: createUser, master_token: null }
+  url: /:app_token/user/create/
+  param: { module: users, action: createUser, app_token: app }
 
+# Get User Info: POST and Route parameters
+#  username -> route & post
+#  token -> post
 info_user:
-  url: /user/info/:username/:token
-  param: { module: users, action: getInfo }
+  url: /:app_token/user/info/:username
+  param: { module: users, action: getInfo, app_token: app }
 
+# Validate Users: POST and Route parameters
+#  username -> route & post
+#  password -> post
 validate_user:
-  url: /user/validate/:username/:password
-  param: { module: users, action: validateUser }
-
-get_users:
-  url: /getUsers
-  param: { module: users, action: getUsers }
+  url: /:app_token/user/validate/:username
+  param: { module: users, action: validateUser, app_token: app }
 
 # default rules
 homepage:
