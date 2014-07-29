@@ -813,3 +813,16 @@ Jul 28 19:43:02 symfony [info] {sfWebDebugLogger} Factories 43.19 ms (1)
 Jul 28 19:43:02 symfony [info] {sfWebDebugLogger} Action "users/createUser" 65.05 ms (1)
 Jul 28 19:43:02 symfony [info] {sfWebDebugLogger} View "None" for "users/createUser" 0.01 ms (1)
 Jul 28 19:43:02 symfony [info] {sfWebResponse} Send content (23535 o)
+Jul 29 17:14:13 symfony [info] {sfPatternRouting} Match route "create_user" (/:app_token/user/create/) for /app/user/create/ with parameters array (  'module' => 'users',  'action' => 'createUser',  'app_token' => 'app',)
+Jul 29 17:14:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 29 17:14:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 29 17:14:13 symfony [info] {usersActions} Call "usersActions->executeCreateUser()"
+Jul 29 17:14:13 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 29 17:14:13 symfony [err] {sfPropelLogger} SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'usuario' for key 'sf_guard_user_U_1'
+Jul 29 17:14:13 symfony [err] {PropelException} Unable to execute INSERT statement. [wrapped: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'usuario' for key 'sf_guard_user_U_1']
+Jul 29 17:14:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 29 17:14:13 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 29 17:14:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 29 17:14:13 symfony [info] {sfWebDebugLogger} Configuration 1.42 ms (8)
+Jul 29 17:14:13 symfony [info] {sfWebDebugLogger} Factories 39.01 ms (1)
+Jul 29 17:14:13 symfony [info] {sfWebDebugLogger} Action "users/createUser" 133.05 ms (1)

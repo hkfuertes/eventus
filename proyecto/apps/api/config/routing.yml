@@ -1,7 +1,7 @@
 # CreateUser: POST parameters
 # All variables from a user via POST.
 create_user:
-  url: /:app_token/user/create/
+  url: /:app_token/user/create
   param: { module: users, action: createUser, app_token: app }
 
 # Get User Info: POST and Route parameters
