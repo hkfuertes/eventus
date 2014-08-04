@@ -826,3 +826,145 @@ Jul 29 17:14:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/h
 Jul 29 17:14:13 symfony [info] {sfWebDebugLogger} Configuration 1.42 ms (8)
 Jul 29 17:14:13 symfony [info] {sfWebDebugLogger} Factories 39.01 ms (1)
 Jul 29 17:14:13 symfony [info] {sfWebDebugLogger} Action "users/createUser" 133.05 ms (1)
+Jul 31 18:38:56 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 18:38:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 18:38:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 18:38:56 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 18:38:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 18:38:56 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 18:38:56 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Jul 31 18:38:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1
+Jul 31 18:38:56 symfony [notice] {sfWebDebugLogger}  Notice at /Applications/MAMP/htdocs/eventus/proyecto/apps/api/modules/users/actions/actions.class.php on line 35 (Undefined offset: 0)
+Jul 31 18:39:55 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 18:39:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 18:39:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 18:39:55 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 18:39:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 18:39:55 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 18:39:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Jul 31 18:39:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.5 MB | mempeak:    6.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1
+Jul 31 18:39:55 symfony [notice] {sfWebDebugLogger}  Notice at /Applications/MAMP/htdocs/eventus/proyecto/apps/api/modules/users/actions/actions.class.php on line 35 (Undefined offset: 0)
+Jul 31 18:40:37 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 18:40:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 18:40:37 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 18:40:37 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 18:40:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 18:40:37 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 18:40:37 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT Tokens.ID, Tokens.USER_ID, Tokens.TOKEN, Tokens.CREATED_AT, Tokens.ACTIVE FROM `Tokens` WHERE Tokens.USER_ID=1 LIMIT 1
+Jul 31 18:40:37 symfony [err] {sfException} Call to undefined method BasesfGuardUser::getTokenss
+Jul 31 18:40:37 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 31 18:40:37 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 31 18:40:37 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 18:40:37 symfony [info] {sfWebDebugLogger} Configuration 65.74 ms (9)
+Jul 31 18:40:37 symfony [info] {sfWebDebugLogger} Factories 81.91 ms (1)
+Jul 31 18:40:37 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 79.15 ms (1)
+Jul 31 18:40:56 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 18:40:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 18:40:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 18:40:56 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 18:40:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 18:40:56 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 18:40:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT Tokens.ID, Tokens.USER_ID, Tokens.TOKEN, Tokens.CREATED_AT, Tokens.ACTIVE FROM `Tokens` WHERE Tokens.USER_ID=1 LIMIT 1
+Jul 31 18:40:56 symfony [err] {sfException} Call to undefined method BasesfGuardUser::getTokens
+Jul 31 18:40:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 31 18:40:56 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 31 18:40:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 18:40:56 symfony [info] {sfWebDebugLogger} Configuration 0.97 ms (8)
+Jul 31 18:40:56 symfony [info] {sfWebDebugLogger} Factories 25.04 ms (1)
+Jul 31 18:40:56 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 92.00 ms (1)
+Jul 31 20:57:57 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 20:57:57 symfony [info] {myUser} Automatic user logout due to timeout
+Jul 31 20:57:57 symfony [info] {myUser} User is not authenticated
+Jul 31 20:57:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 20:57:58 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 20:57:58 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 20:57:58 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 20:57:58 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 20:57:58 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT Tokens.ID, Tokens.USER_ID, Tokens.TOKEN, Tokens.CREATED_AT, Tokens.ACTIVE FROM `Tokens` WHERE Tokens.USER_ID=1 LIMIT 1
+Jul 31 20:57:58 symfony [err] {sfException} Call to undefined method BasesfGuardUser::getTokens
+Jul 31 20:57:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jul 31 20:57:58 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 31 20:57:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 20:57:58 symfony [info] {sfWebDebugLogger} Configuration 0.90 ms (8)
+Jul 31 20:57:58 symfony [info] {sfWebDebugLogger} Factories 24.86 ms (1)
+Jul 31 20:57:58 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 78.99 ms (1)
+Jul 31 21:01:17 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:01:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:01:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:01:17 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:01:17 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:01:17 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:01:17 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT Tokens.ID, Tokens.USER_ID, Tokens.TOKEN, Tokens.CREATED_AT, Tokens.ACTIVE FROM `Tokens` WHERE Tokens.USER_ID=1 LIMIT 1
+Jul 31 21:01:17 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:01:54 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:01:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:01:54 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:01:54 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:01:54 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:01:54 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:01:54 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT Tokens.ID, Tokens.USER_ID, Tokens.TOKEN, Tokens.CREATED_AT, Tokens.ACTIVE FROM `Tokens` WHERE Tokens.USER_ID=1 LIMIT 1
+Jul 31 21:01:54 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:02:19 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:02:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:02:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:02:19 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:02:19 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:02:19 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:02:19 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT Tokens.ID, Tokens.USER_ID, Tokens.TOKEN, Tokens.CREATED_AT, Tokens.ACTIVE FROM `Tokens` WHERE Tokens.USER_ID=1 LIMIT 1
+Jul 31 21:02:19 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:02:33 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:02:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:02:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:02:33 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:02:33 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:02:33 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:02:33 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT Tokens.ID, Tokens.USER_ID, Tokens.TOKEN, Tokens.CREATED_AT, Tokens.ACTIVE FROM `Tokens` WHERE Tokens.USER_ID=1 LIMIT 1
+Jul 31 21:02:33 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:03:08 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:03:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:03:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:03:08 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:03:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:03:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:03:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT Tokens.ID, Tokens.USER_ID, Tokens.TOKEN, Tokens.CREATED_AT, Tokens.ACTIVE FROM `Tokens` WHERE Tokens.USER_ID=1 LIMIT 1
+Jul 31 21:03:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:09:31 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:09:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:09:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:09:31 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:09:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:09:31 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:09:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Jul 31 21:09:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:09:55 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:09:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:09:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:09:55 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:09:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:09:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:09:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Jul 31 21:09:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.5 MB | mempeak:    6.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:10:05 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:10:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:10:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:10:05 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:10:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:10:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:10:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Jul 31 21:10:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:16:59 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Jul 31 21:16:59 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 31 21:16:59 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 31 21:16:59 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Jul 31 21:16:59 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Jul 31 21:16:59 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Jul 31 21:16:59 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Jul 31 21:16:59 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Jul 31 21:16:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 31 21:16:59 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Jul 31 21:16:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 31 21:16:59 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Jul 31 21:16:59 symfony [info] {sfWebDebugLogger} Factories 24.73 ms (1)
+Jul 31 21:16:59 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 41.03 ms (1)
+Jul 31 21:16:59 symfony [info] {sfWebDebugLogger} View "None" for "users/validateUser" 0.01 ms (1)
+Jul 31 21:16:59 symfony [info] {sfWebResponse} Send content (22679 o)

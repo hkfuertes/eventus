@@ -2,11 +2,12 @@ propel:
   sf_guard_user_profile: 
     _attributes:    {phpName: sfGuardUserProfile}
     user_id:        {type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
-    nombre:         {type: varchar(100)}
-    apellidos:      {type: varchar(100)}
+    firstname:         {type: varchar(100)}
+    lastname:      {type: varchar(100)}
     email:          {type: varchar(100)}
   
   tokens:
+    _attributes:    {phpName: Token}
     id:             ~
     user_id:        {type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
     token:          {type: varchar(255), required: true}

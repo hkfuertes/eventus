@@ -13,15 +13,15 @@ abstract class BasesfGuardUserProfileFormFilter extends BaseFormFilterPropel
   {
     $this->setWidgets(array(
       'user_id'   => new sfWidgetFormPropelChoice(array('model' => 'sfGuardUser', 'add_empty' => true)),
-      'nombre'    => new sfWidgetFormFilterInput(),
-      'apellidos' => new sfWidgetFormFilterInput(),
+      'firstname' => new sfWidgetFormFilterInput(),
+      'lastname'  => new sfWidgetFormFilterInput(),
       'email'     => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
       'user_id'   => new sfValidatorPropelChoice(array('required' => false, 'model' => 'sfGuardUser', 'column' => 'id')),
-      'nombre'    => new sfValidatorPass(array('required' => false)),
-      'apellidos' => new sfValidatorPass(array('required' => false)),
+      'firstname' => new sfValidatorPass(array('required' => false)),
+      'lastname'  => new sfValidatorPass(array('required' => false)),
       'email'     => new sfValidatorPass(array('required' => false)),
     ));
 
@@ -41,8 +41,8 @@ abstract class BasesfGuardUserProfileFormFilter extends BaseFormFilterPropel
   {
     return array(
       'user_id'   => 'ForeignKey',
-      'nombre'    => 'Text',
-      'apellidos' => 'Text',
+      'firstname' => 'Text',
+      'lastname'  => 'Text',
       'email'     => 'Text',
       'id'        => 'Number',
     );

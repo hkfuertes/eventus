@@ -13,8 +13,8 @@ DROP TABLE IF EXISTS `sf_guard_user_profile`;
 CREATE TABLE `sf_guard_user_profile`
 (
 	`user_id` INTEGER  NOT NULL,
-	`nombre` VARCHAR(100),
-	`apellidos` VARCHAR(100),
+	`firstname` VARCHAR(100),
+	`lastname` VARCHAR(100),
 	`email` VARCHAR(100),
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY (`id`),

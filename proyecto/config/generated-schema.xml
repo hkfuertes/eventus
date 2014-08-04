@@ -6,13 +6,13 @@
     <foreign-key foreignTable="sf_guard_user" onDelete="cascade">
       <reference local="user_id" foreign="id" />
     </foreign-key>
-    <column name="nombre" type="varchar" size="100" />
-    <column name="apellidos" type="varchar" size="100" />
+    <column name="firstname" type="varchar" size="100" />
+    <column name="lastname" type="varchar" size="100" />
     <column name="email" type="varchar" size="100" />
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
   </table>
 
-  <table name="tokens">
+  <table name="tokens" phpName="Token">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="user_id" type="integer" required="true" />
     <foreign-key foreignTable="sf_guard_user" onDelete="cascade">

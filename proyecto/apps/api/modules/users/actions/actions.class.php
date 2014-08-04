@@ -31,8 +31,9 @@ class usersActions extends sfActions {
 
         $user = sfGuardUserPeer::retrieveByUsername($username);
         if ($user->checkPassword($password)) {
-            $token = $user->getTokenss();
-            $retval = array('success' => true, 'user' => array('username' => $username, 'token' => $token[0]->getToken()));
+            $token = TokenPeer::retrieveToken($user);
+            //var_dump($token);die();
+            $retval = array('success' => true, 'user' => array('username' => $username, 'token' => $token->getToken()));
             return $this->renderText(json_encode($retval));
         } else {
             $retval = array('success' => false);
