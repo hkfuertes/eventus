@@ -29,16 +29,24 @@ class usersActions extends sfActions {
         $username = $request->getParameter('username');
         $password = $request->getParameter('password');
 
-        $user = sfGuardUserPeer::retrieveByUsername($username);
-        if ($user->checkPassword($password)) {
-            $token = TokenPeer::retrieveToken($user);
-            //var_dump($token);die();
-            $retval = array('success' => true, 'user' => array('username' => $username, 'token' => $token->getToken()));
-            return $this->renderText(json_encode($retval));
-        } else {
-            $retval = array('success' => false);
+        //The app is not registered or not active.
+        if (!AppTokenPeer::checkExistAndActive($request->getParameter('app_token'))) {
+            $retval = array('success' => false, 'error' => 1);
             return $this->renderText(json_encode($retval));
         }
+
+        $user = sfGuardUserPeer::retrieveByUsername($username);
+
+        //The user has wrong password
+        if (!$user->checkPassword($password)) {
+            $retval = array('success' => false, 'error' => 2);
+            return $this->renderText(json_encode($retval));
+        }
+
+        //Everything OK!, we validate and log the user in
+        $token = TokenPeer::retrieveToken($user);
+        $retval = array('success' => true, 'user' => array('username' => $username, 'token' => $token->getToken()));
+        return $this->renderText(json_encode($retval));
     }
 
     /**
@@ -51,24 +59,37 @@ class usersActions extends sfActions {
         $username = $request->getParameter('username');
         $token = $request->getParameter('token');
 
-        $user = sfGuardUserPeer::retrieveByUsername($username);
-        //print_r($user);die();
-        if (Tokens::check($user, $token)) {
-            $retval = array('success' => true, 'user' => $user->getProfile()->expose());
-            return $this->renderText(json_encode($retval));
-        } else {
-            $retval = array('success' => false);
+        //The app is not registered or not active.
+        if (!AppTokenPeer::checkExistAndActive($request->getParameter('app_token'))) {
+            $retval = array('success' => false, 'error' => 1);
             return $this->renderText(json_encode($retval));
         }
+
+        $user = sfGuardUserPeer::retrieveByUsername($username);
+
+        //The user has wrong token
+        if (!Token::check($user, $token)) {
+            $retval = array('success' => false, 'error' => 2);
+            return $this->renderText(json_encode($retval));
+        }
+
+        //OK!, we return user info.
+        $retval = array('success' => true, 'user' => $user->getProfile()->expose());
+        return $this->renderText(json_encode($retval));
     }
 
     /**
      * Creates a user.
      * See routes for url, params via POST
      */
-    public function executeCreateUser(sfWebRequest $request) {
-        $app_token = $request->getParameter('app_token');
+    public function executeCreateUser(sfWebRequest $request) {        
+        //The app is not registered or not active.
+        if (!AppTokenPeer::checkExistAndActive($request->getParameter('app_token'))) {
+            $retval = array('success' => false, 'error' => 1);
+            return $this->renderText(json_encode($retval));
+        }
 
+        //OK!, we generate the user.
         $username = $request->getParameter('username');
         $password = $request->getParameter('password');
 
@@ -76,7 +97,6 @@ class usersActions extends sfActions {
         $apellidos = $request->getParameter('apellidos');
         $email = $request->getParameter('email');
 
-        //print_r($request);die();
 
         $user = new sfGuardUser();
         $user->setPassword($password);

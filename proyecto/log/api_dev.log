@@ -968,3 +968,202 @@ Jul 31 21:16:59 symfony [info] {sfWebDebugLogger} Factories 24.73 ms (1)
 Jul 31 21:16:59 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 41.03 ms (1)
 Jul 31 21:16:59 symfony [info] {sfWebDebugLogger} View "None" for "users/validateUser" 0.01 ms (1)
 Jul 31 21:16:59 symfony [info] {sfWebResponse} Send content (22679 o)
+Aug 04 17:22:48 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 17:22:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:22:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:22:48 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Aug 04 17:22:48 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:22:48 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 17:22:48 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 04 17:22:48 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Aug 04 17:22:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 04 17:22:48 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 17:22:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 04 17:22:48 symfony [info] {sfWebDebugLogger} Configuration 1.36 ms (8)
+Aug 04 17:22:48 symfony [info] {sfWebDebugLogger} Factories 37.87 ms (1)
+Aug 04 17:22:48 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 39.76 ms (1)
+Aug 04 17:22:48 symfony [info] {sfWebDebugLogger} View "None" for "users/validateUser" 0.01 ms (1)
+Aug 04 17:22:48 symfony [info] {sfWebResponse} Send content (22624 o)
+Aug 04 17:22:51 symfony [info] {sfPatternRouting} Match route "info_user" (/:app_token/user/info/:username) for /app/user/info/hkfuertes with parameters array (  'module' => 'users',  'action' => 'getInfo',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 17:22:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:22:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:22:51 symfony [info] {usersActions} Call "usersActions->executeGetInfo()"
+Aug 04 17:22:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:22:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 17:23:38 symfony [info] {sfPatternRouting} Match route "info_user" (/:app_token/user/info/:username) for /app/user/info/hkfuertes with parameters array (  'module' => 'users',  'action' => 'getInfo',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 17:23:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:23:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:23:38 symfony [info] {usersActions} Call "usersActions->executeGetInfo()"
+Aug 04 17:23:38 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:23:38 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 17:24:02 symfony [info] {sfPatternRouting} Match route "info_user" (/:app_token/user/info/:username) for /app/user/info/hkfuertes with parameters array (  'module' => 'users',  'action' => 'getInfo',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 17:24:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:24:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:24:02 symfony [info] {usersActions} Call "usersActions->executeGetInfo()"
+Aug 04 17:24:02 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:24:02 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 17:24:08 symfony [info] {sfPatternRouting} Match route "info_user" (/:app_token/user/info/:username) for /app/user/info/hkfuertes with parameters array (  'module' => 'users',  'action' => 'getInfo',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 17:24:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:24:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:24:08 symfony [info] {usersActions} Call "usersActions->executeGetInfo()"
+Aug 04 17:24:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:24:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 17:24:33 symfony [info] {sfPatternRouting} Match route "info_user" (/:app_token/user/info/:username) for /app/user/info/hkfuertes with parameters array (  'module' => 'users',  'action' => 'getInfo',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 17:24:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:24:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:24:33 symfony [info] {usersActions} Call "usersActions->executeGetInfo()"
+Aug 04 17:24:33 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:24:33 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 17:24:33 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='alguna' AND tokens.ACTIVE=1
+Aug 04 17:24:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 04 17:24:33 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 17:24:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 04 17:24:33 symfony [info] {sfWebDebugLogger} Configuration 0.94 ms (8)
+Aug 04 17:24:33 symfony [info] {sfWebDebugLogger} Factories 25.48 ms (1)
+Aug 04 17:24:33 symfony [info] {sfWebDebugLogger} Action "users/getInfo" 34.88 ms (1)
+Aug 04 17:24:33 symfony [info] {sfWebDebugLogger} View "None" for "users/getInfo" 0.01 ms (1)
+Aug 04 17:24:33 symfony [info] {sfWebResponse} Send content (21126 o)
+Aug 04 17:26:41 symfony [info] {sfPatternRouting} Match route "info_user" (/:app_token/user/info/:username) for /app/user/info/hkfuertes with parameters array (  'module' => 'users',  'action' => 'getInfo',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 17:26:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:26:41 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:26:41 symfony [info] {usersActions} Call "usersActions->executeGetInfo()"
+Aug 04 17:26:41 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:26:41 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 17:26:41 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 04 17:26:41 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 04 17:26:41 symfony [err] {sfException} Call to undefined method BasesfGuardUserProfile::getNombre
+Aug 04 17:26:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Aug 04 17:26:41 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 17:26:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 04 17:26:41 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Aug 04 17:26:41 symfony [info] {sfWebDebugLogger} Factories 24.82 ms (1)
+Aug 04 17:26:41 symfony [info] {sfWebDebugLogger} Action "users/getInfo" 75.94 ms (1)
+Aug 04 17:27:57 symfony [info] {sfPatternRouting} Match route "info_user" (/:app_token/user/info/:username) for /app/user/info/hkfuertes with parameters array (  'module' => 'users',  'action' => 'getInfo',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 17:27:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:27:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:27:57 symfony [info] {usersActions} Call "usersActions->executeGetInfo()"
+Aug 04 17:27:57 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.3 MB | mempeak:    4.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:27:57 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 17:27:57 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 04 17:27:57 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 04 17:27:57 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 04 17:27:57 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 17:27:57 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 04 17:27:57 symfony [info] {sfWebDebugLogger} Configuration 0.92 ms (8)
+Aug 04 17:27:57 symfony [info] {sfWebDebugLogger} Factories 25.13 ms (1)
+Aug 04 17:27:57 symfony [info] {sfWebDebugLogger} Action "users/getInfo" 45.21 ms (1)
+Aug 04 17:27:57 symfony [info] {sfWebDebugLogger} View "None" for "users/getInfo" 0.01 ms (1)
+Aug 04 17:27:57 symfony [info] {sfWebResponse} Send content (22736 o)
+Aug 04 17:49:09 symfony [info] {sfPatternRouting} Match route "app_token" (/appTokens.:sf_format) for /appTokens with parameters array (  'module' => 'appTokens',  'action' => 'index',  'sf_format' => 'html',)
+Aug 04 17:49:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:49:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:49:09 symfony [info] {appTokensActions} Call "appTokensActions->executeIndex()"
+Aug 04 17:49:09 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:49:09 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens`
+Aug 04 17:49:09 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/indexSuccess.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_assets.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_flashes.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list_header.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list_batch_actions.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list_actions.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list_footer.php"
+Aug 04 17:49:09 symfony [info] {sfPHPView} Decorate content with "/Applications/MAMP/htdocs/eventus/proyecto/apps/api/templates/layout.php"
+Aug 04 17:49:09 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/eventus/proyecto/apps/api/templates/layout.php"
+Aug 04 17:49:09 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 17:49:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 04 17:49:09 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 17:49:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Configuration 129.17 ms (12)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Factories 90.48 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Action "appTokens/index" 30.07 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} View "Success" for "appTokens/index" 49.55 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_assets" 0.61 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_flashes" 0.55 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list_header" 0.45 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_filters" 21.49 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_filters_field" 14.13 ms (6)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list" 0.68 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list_batch_actions" 1.03 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list_actions" 0.66 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list_footer" 0.44 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebResponse} Send content (73898 o)
+Aug 04 17:49:09 symfony [info] {sfPatternRouting} Match route "app_token" (/appTokens.:sf_format) for /appTokens with parameters array (  'module' => 'appTokens',  'action' => 'index',  'sf_format' => 'html',)
+Aug 04 17:49:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 17:49:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 17:49:09 symfony [info] {appTokensActions} Call "appTokensActions->executeIndex()"
+Aug 04 17:49:09 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 17:49:09 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.5 MB | mempeak:    6.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens`
+Aug 04 17:49:09 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/indexSuccess.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_assets.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_flashes.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list_header.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_filters_field.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list_batch_actions.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list_actions.php"
+Aug 04 17:49:09 symfony [info] {sfPartialView} Render "/Applications/MAMP/htdocs/eventus/proyecto/cache/api/dev/modules/autoAppTokens/templates/_list_footer.php"
+Aug 04 17:49:09 symfony [info] {sfPHPView} Decorate content with "/Applications/MAMP/htdocs/eventus/proyecto/apps/api/templates/layout.php"
+Aug 04 17:49:09 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/eventus/proyecto/apps/api/templates/layout.php"
+Aug 04 17:49:09 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 17:49:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 04 17:49:09 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 17:49:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Configuration 1.39 ms (11)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Factories 26.90 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Action "appTokens/index" 31.85 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} View "Success" for "appTokens/index" 36.47 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_assets" 0.60 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_flashes" 0.57 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list_header" 0.52 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_filters" 18.90 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_filters_field" 13.04 ms (6)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list" 0.66 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list_batch_actions" 0.90 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list_actions" 0.62 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebDebugLogger} Partial "appTokens/_list_footer" 0.42 ms (1)
+Aug 04 17:49:09 symfony [info] {sfWebResponse} Send content (73942 o)
+Aug 04 18:04:06 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /app/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'app',  'username' => 'hkfuertes',)
+Aug 04 18:04:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 18:04:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 18:04:06 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Aug 04 18:04:06 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 18:04:06 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='app' AND app_tokens.ACTIVE=1
+Aug 04 18:04:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 04 18:04:06 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 18:04:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 04 18:04:06 symfony [info] {sfWebDebugLogger} Configuration 116.19 ms (8)
+Aug 04 18:04:06 symfony [info] {sfWebDebugLogger} Factories 81.70 ms (1)
+Aug 04 18:04:06 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 20.12 ms (1)
+Aug 04 18:04:06 symfony [info] {sfWebDebugLogger} View "None" for "users/validateUser" 0.01 ms (1)
+Aug 04 18:04:06 symfony [info] {sfWebResponse} Send content (19683 o)
+Aug 04 18:04:28 symfony [info] {sfPatternRouting} Match route "validate_user" (/:app_token/user/validate/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'validateUser',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'username' => 'hkfuertes',)
+Aug 04 18:04:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 04 18:04:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 04 18:04:28 symfony [info] {usersActions} Call "usersActions->executeValidateUser()"
+Aug 04 18:04:28 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 04 18:04:28 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 04 18:04:28 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 04 18:04:28 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 04 18:04:28 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Aug 04 18:04:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 04 18:04:28 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 04 18:04:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 04 18:04:28 symfony [info] {sfWebDebugLogger} Configuration 1.01 ms (8)
+Aug 04 18:04:28 symfony [info] {sfWebDebugLogger} Factories 26.53 ms (1)
+Aug 04 18:04:28 symfony [info] {sfWebDebugLogger} Action "users/validateUser" 41.70 ms (1)
+Aug 04 18:04:28 symfony [info] {sfWebDebugLogger} View "None" for "users/validateUser" 0.01 ms (1)
+Aug 04 18:04:28 symfony [info] {sfWebResponse} Send content (24209 o)

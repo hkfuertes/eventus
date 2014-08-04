@@ -1,0 +1,22 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           AppToken
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              AppToken
+    plural:                AppTokens
+    route_prefix:          app_token
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  
+        class: false
+      form:    ~
+      edit:    ~
+      new:     ~

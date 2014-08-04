@@ -47,5 +47,25 @@ CREATE TABLE `tokens`
 		ON DELETE CASCADE
 )Type=InnoDB;
 
+#-----------------------------------------------------------------------------
+#-- app_tokens
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `app_tokens`;
+
+
+CREATE TABLE `app_tokens`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`token` VARCHAR(255)  NOT NULL,
+	`created_at` DATETIME,
+	`name` VARCHAR(255)  NOT NULL,
+	`company` VARCHAR(255)  NOT NULL,
+	`os` VARCHAR(255),
+	`active` TINYINT default 1,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `app_tokens_U_1` (`token`)
+)Type=InnoDB;
+
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;

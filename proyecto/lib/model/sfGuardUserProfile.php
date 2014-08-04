@@ -19,7 +19,7 @@ class sfGuardUserProfile extends BasesfGuardUserProfile {
 
     public function expose() {
         //return get_object_vars($this);
-        return array('nombre'=> $this->getNombre(),'apellidos'=>$this->getApellidos(),'email'=>$this->getEmail());
+        return array('firstname'=> $this->getFirstName(),'lastname'=>$this->getLastname(),'email'=>$this->getEmail());
     }
 
     public function toJSON(){

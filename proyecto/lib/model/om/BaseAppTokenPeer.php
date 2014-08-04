@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Base static class for performing query and update operations on the 'sf_guard_permission' table.
+ * Base static class for performing query and update operations on the 'app_tokens' table.
  *
  * 
  *
@@ -9,45 +9,57 @@
  *
  * Mon Aug  4 15:38:27 2014
  *
- * @package    plugins.sfGuardPlugin.lib.model.om
+ * @package    lib.model.om
  */
-abstract class BasesfGuardPermissionPeer {
+abstract class BaseAppTokenPeer {
 
 	/** the default database name for this class */
 	const DATABASE_NAME = 'propel';
 
 	/** the table name for this class */
-	const TABLE_NAME = 'sf_guard_permission';
+	const TABLE_NAME = 'app_tokens';
 
 	/** the related Propel class for this table */
-	const OM_CLASS = 'sfGuardPermission';
+	const OM_CLASS = 'AppToken';
 
 	/** A class that can be returned by this peer. */
-	const CLASS_DEFAULT = 'plugins.sfGuardPlugin.lib.model.sfGuardPermission';
+	const CLASS_DEFAULT = 'lib.model.AppToken';
 
 	/** the related TableMap class for this table */
-	const TM_CLASS = 'sfGuardPermissionTableMap';
+	const TM_CLASS = 'AppTokenTableMap';
 	
 	/** The total number of columns. */
-	const NUM_COLUMNS = 3;
+	const NUM_COLUMNS = 7;
 
 	/** The number of lazy-loaded columns. */
 	const NUM_LAZY_LOAD_COLUMNS = 0;
 
 	/** the column name for the ID field */
-	const ID = 'sf_guard_permission.ID';
+	const ID = 'app_tokens.ID';
+
+	/** the column name for the TOKEN field */
+	const TOKEN = 'app_tokens.TOKEN';
+
+	/** the column name for the CREATED_AT field */
+	const CREATED_AT = 'app_tokens.CREATED_AT';
 
 	/** the column name for the NAME field */
-	const NAME = 'sf_guard_permission.NAME';
+	const NAME = 'app_tokens.NAME';
 
-	/** the column name for the DESCRIPTION field */
-	const DESCRIPTION = 'sf_guard_permission.DESCRIPTION';
+	/** the column name for the COMPANY field */
+	const COMPANY = 'app_tokens.COMPANY';
+
+	/** the column name for the OS field */
+	const OS = 'app_tokens.OS';
+
+	/** the column name for the ACTIVE field */
+	const ACTIVE = 'app_tokens.ACTIVE';
 
 	/**
-	 * An identiy map to hold any loaded instances of sfGuardPermission objects.
+	 * An identiy map to hold any loaded instances of AppToken objects.
 	 * This must be public so that other peer classes can access this when hydrating from JOIN
 	 * queries.
-	 * @var        array sfGuardPermission[]
+	 * @var        array AppToken[]
 	 */
 	public static $instances = array();
 
@@ -66,11 +78,11 @@ abstract class BasesfGuardPermissionPeer {
 	 * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
 	 */
 	private static $fieldNames = array (
-		BasePeer::TYPE_PHPNAME => array ('Id', 'Name', 'Description', ),
-		BasePeer::TYPE_STUDLYPHPNAME => array ('id', 'name', 'description', ),
-		BasePeer::TYPE_COLNAME => array (self::ID, self::NAME, self::DESCRIPTION, ),
-		BasePeer::TYPE_FIELDNAME => array ('id', 'name', 'description', ),
-		BasePeer::TYPE_NUM => array (0, 1, 2, )
+		BasePeer::TYPE_PHPNAME => array ('Id', 'Token', 'CreatedAt', 'Name', 'Company', 'Os', 'Active', ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('id', 'token', 'createdAt', 'name', 'company', 'os', 'active', ),
+		BasePeer::TYPE_COLNAME => array (self::ID, self::TOKEN, self::CREATED_AT, self::NAME, self::COMPANY, self::OS, self::ACTIVE, ),
+		BasePeer::TYPE_FIELDNAME => array ('id', 'token', 'created_at', 'name', 'company', 'os', 'active', ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, )
 	);
 
 	/**
@@ -80,11 +92,11 @@ abstract class BasesfGuardPermissionPeer {
 	 * e.g. self::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
 	 */
 	private static $fieldKeys = array (
-		BasePeer::TYPE_PHPNAME => array ('Id' => 0, 'Name' => 1, 'Description' => 2, ),
-		BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, 'name' => 1, 'description' => 2, ),
-		BasePeer::TYPE_COLNAME => array (self::ID => 0, self::NAME => 1, self::DESCRIPTION => 2, ),
-		BasePeer::TYPE_FIELDNAME => array ('id' => 0, 'name' => 1, 'description' => 2, ),
-		BasePeer::TYPE_NUM => array (0, 1, 2, )
+		BasePeer::TYPE_PHPNAME => array ('Id' => 0, 'Token' => 1, 'CreatedAt' => 2, 'Name' => 3, 'Company' => 4, 'Os' => 5, 'Active' => 6, ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, 'token' => 1, 'createdAt' => 2, 'name' => 3, 'company' => 4, 'os' => 5, 'active' => 6, ),
+		BasePeer::TYPE_COLNAME => array (self::ID => 0, self::TOKEN => 1, self::CREATED_AT => 2, self::NAME => 3, self::COMPANY => 4, self::OS => 5, self::ACTIVE => 6, ),
+		BasePeer::TYPE_FIELDNAME => array ('id' => 0, 'token' => 1, 'created_at' => 2, 'name' => 3, 'company' => 4, 'os' => 5, 'active' => 6, ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, )
 	);
 
 	/**
@@ -133,12 +145,12 @@ abstract class BasesfGuardPermissionPeer {
 	 *		$c->addJoin(TablePeer::alias("alias1", TablePeer::PRIMARY_KEY_COLUMN), TablePeer::PRIMARY_KEY_COLUMN);
 	 * </code>
 	 * @param      string $alias The alias for the current table.
-	 * @param      string $column The column name for current table. (i.e. sfGuardPermissionPeer::COLUMN_NAME).
+	 * @param      string $column The column name for current table. (i.e. AppTokenPeer::COLUMN_NAME).
 	 * @return     string
 	 */
 	public static function alias($alias, $column)
 	{
-		return str_replace(sfGuardPermissionPeer::TABLE_NAME.'.', $alias.'.', $column);
+		return str_replace(AppTokenPeer::TABLE_NAME.'.', $alias.'.', $column);
 	}
 
 	/**
@@ -154,9 +166,13 @@ abstract class BasesfGuardPermissionPeer {
 	 */
 	public static function addSelectColumns(Criteria $criteria)
 	{
-		$criteria->addSelectColumn(sfGuardPermissionPeer::ID);
-		$criteria->addSelectColumn(sfGuardPermissionPeer::NAME);
-		$criteria->addSelectColumn(sfGuardPermissionPeer::DESCRIPTION);
+		$criteria->addSelectColumn(AppTokenPeer::ID);
+		$criteria->addSelectColumn(AppTokenPeer::TOKEN);
+		$criteria->addSelectColumn(AppTokenPeer::CREATED_AT);
+		$criteria->addSelectColumn(AppTokenPeer::NAME);
+		$criteria->addSelectColumn(AppTokenPeer::COMPANY);
+		$criteria->addSelectColumn(AppTokenPeer::OS);
+		$criteria->addSelectColumn(AppTokenPeer::ACTIVE);
 	}
 
 	/**
@@ -175,26 +191,26 @@ abstract class BasesfGuardPermissionPeer {
 		// We need to set the primary table name, since in the case that there are no WHERE columns
 		// it will be impossible for the BasePeer::createSelectSql() method to determine which
 		// tables go into the FROM clause.
-		$criteria->setPrimaryTableName(sfGuardPermissionPeer::TABLE_NAME);
+		$criteria->setPrimaryTableName(AppTokenPeer::TABLE_NAME);
 
 		if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
 			$criteria->setDistinct();
 		}
 
 		if (!$criteria->hasSelectClause()) {
-			sfGuardPermissionPeer::addSelectColumns($criteria);
+			AppTokenPeer::addSelectColumns($criteria);
 		}
 
 		$criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
 		$criteria->setDbName(self::DATABASE_NAME); // Set the correct dbName
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardPermissionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 		// symfony_behaviors behavior
 		foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
 		{
-		  call_user_func($sf_hook, 'BasesfGuardPermissionPeer', $criteria, $con);
+		  call_user_func($sf_hook, 'BaseAppTokenPeer', $criteria, $con);
 		}
 
 		// BasePeer returns a PDOStatement
@@ -213,7 +229,7 @@ abstract class BasesfGuardPermissionPeer {
 	 *
 	 * @param      Criteria $criteria object used to create the SELECT statement.
 	 * @param      PropelPDO $con
-	 * @return     sfGuardPermission
+	 * @return     AppToken
 	 * @throws     PropelException Any exceptions caught during processing will be
 	 *		 rethrown wrapped into a PropelException.
 	 */
@@ -221,7 +237,7 @@ abstract class BasesfGuardPermissionPeer {
 	{
 		$critcopy = clone $criteria;
 		$critcopy->setLimit(1);
-		$objects = sfGuardPermissionPeer::doSelect($critcopy, $con);
+		$objects = AppTokenPeer::doSelect($critcopy, $con);
 		if ($objects) {
 			return $objects[0];
 		}
@@ -238,7 +254,7 @@ abstract class BasesfGuardPermissionPeer {
 	 */
 	public static function doSelect(Criteria $criteria, PropelPDO $con = null)
 	{
-		return sfGuardPermissionPeer::populateObjects(sfGuardPermissionPeer::doSelectStmt($criteria, $con));
+		return AppTokenPeer::populateObjects(AppTokenPeer::doSelectStmt($criteria, $con));
 	}
 	/**
 	 * Prepares the Criteria object and uses the parent doSelect() method to execute a PDOStatement.
@@ -256,12 +272,12 @@ abstract class BasesfGuardPermissionPeer {
 	public static function doSelectStmt(Criteria $criteria, PropelPDO $con = null)
 	{
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardPermissionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
 		if (!$criteria->hasSelectClause()) {
 			$criteria = clone $criteria;
-			sfGuardPermissionPeer::addSelectColumns($criteria);
+			AppTokenPeer::addSelectColumns($criteria);
 		}
 
 		// Set the correct dbName
@@ -269,7 +285,7 @@ abstract class BasesfGuardPermissionPeer {
 		// symfony_behaviors behavior
 		foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
 		{
-		  call_user_func($sf_hook, 'BasesfGuardPermissionPeer', $criteria, $con);
+		  call_user_func($sf_hook, 'BaseAppTokenPeer', $criteria, $con);
 		}
 
 
@@ -285,10 +301,10 @@ abstract class BasesfGuardPermissionPeer {
 	 * to the cache in order to ensure that the same objects are always returned by doSelect*()
 	 * and retrieveByPK*() calls.
 	 *
-	 * @param      sfGuardPermission $value A sfGuardPermission object.
+	 * @param      AppToken $value A AppToken object.
 	 * @param      string $key (optional) key to use for instance map (for performance boost if key was already calculated externally).
 	 */
-	public static function addInstanceToPool(sfGuardPermission $obj, $key = null)
+	public static function addInstanceToPool(AppToken $obj, $key = null)
 	{
 		if (Propel::isInstancePoolingEnabled()) {
 			if ($key === null) {
@@ -306,18 +322,18 @@ abstract class BasesfGuardPermissionPeer {
 	 * methods in your stub classes -- you may need to explicitly remove objects
 	 * from the cache in order to prevent returning objects that no longer exist.
 	 *
-	 * @param      mixed $value A sfGuardPermission object or a primary key value.
+	 * @param      mixed $value A AppToken object or a primary key value.
 	 */
 	public static function removeInstanceFromPool($value)
 	{
 		if (Propel::isInstancePoolingEnabled() && $value !== null) {
-			if (is_object($value) && $value instanceof sfGuardPermission) {
+			if (is_object($value) && $value instanceof AppToken) {
 				$key = (string) $value->getId();
 			} elseif (is_scalar($value)) {
 				// assume we've been passed a primary key
 				$key = (string) $value;
 			} else {
-				$e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or sfGuardPermission object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value,true)));
+				$e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or AppToken object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value,true)));
 				throw $e;
 			}
 
@@ -332,7 +348,7 @@ abstract class BasesfGuardPermissionPeer {
 	 * a multi-column primary key, a serialize()d version of the primary key will be returned.
 	 *
 	 * @param      string $key The key (@see getPrimaryKeyHash()) for this instance.
-	 * @return     sfGuardPermission Found object or NULL if 1) no instance exists for specified key or 2) instance pooling has been disabled.
+	 * @return     AppToken Found object or NULL if 1) no instance exists for specified key or 2) instance pooling has been disabled.
 	 * @see        getPrimaryKeyHash()
 	 */
 	public static function getInstanceFromPool($key)
@@ -356,17 +372,11 @@ abstract class BasesfGuardPermissionPeer {
 	}
 	
 	/**
-	 * Method to invalidate the instance pool of all tables related to sf_guard_permission
+	 * Method to invalidate the instance pool of all tables related to app_tokens
 	 * by a foreign key with ON DELETE CASCADE
 	 */
 	public static function clearRelatedInstancePool()
 	{
-		// invalidate objects in sfGuardGroupPermissionPeer instance pool, since one or more of them may be deleted by ON DELETE CASCADE rule.
-		sfGuardGroupPermissionPeer::clearInstancePool();
-
-		// invalidate objects in sfGuardUserPermissionPeer instance pool, since one or more of them may be deleted by ON DELETE CASCADE rule.
-		sfGuardUserPermissionPeer::clearInstancePool();
-
 	}
 
 	/**
@@ -400,11 +410,11 @@ abstract class BasesfGuardPermissionPeer {
 		$results = array();
 	
 		// set the class once to avoid overhead in the loop
-		$cls = sfGuardPermissionPeer::getOMClass(false);
+		$cls = AppTokenPeer::getOMClass(false);
 		// populate the object(s)
 		while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-			$key = sfGuardPermissionPeer::getPrimaryKeyHashFromRow($row, 0);
-			if (null !== ($obj = sfGuardPermissionPeer::getInstanceFromPool($key))) {
+			$key = AppTokenPeer::getPrimaryKeyHashFromRow($row, 0);
+			if (null !== ($obj = AppTokenPeer::getInstanceFromPool($key))) {
 				// We no longer rehydrate the object, since this can cause data loss.
 				// See http://propel.phpdb.org/trac/ticket/509
 				// $obj->hydrate($row, 0, true); // rehydrate
@@ -413,7 +423,7 @@ abstract class BasesfGuardPermissionPeer {
 				$obj = new $cls();
 				$obj->hydrate($row);
 				$results[] = $obj;
-				sfGuardPermissionPeer::addInstanceToPool($obj, $key);
+				AppTokenPeer::addInstanceToPool($obj, $key);
 			} // if key exists
 		}
 		$stmt->closeCursor();
@@ -436,10 +446,10 @@ abstract class BasesfGuardPermissionPeer {
 	 */
 	public static function buildTableMap()
 	{
-	  $dbMap = Propel::getDatabaseMap(BasesfGuardPermissionPeer::DATABASE_NAME);
-	  if (!$dbMap->hasTable(BasesfGuardPermissionPeer::TABLE_NAME))
+	  $dbMap = Propel::getDatabaseMap(BaseAppTokenPeer::DATABASE_NAME);
+	  if (!$dbMap->hasTable(BaseAppTokenPeer::TABLE_NAME))
 	  {
-	    $dbMap->addTableObject(new sfGuardPermissionTableMap());
+	    $dbMap->addTableObject(new AppTokenTableMap());
 	  }
 	}
 
@@ -456,13 +466,13 @@ abstract class BasesfGuardPermissionPeer {
 	 */
 	public static function getOMClass($withPrefix = true)
 	{
-		return $withPrefix ? sfGuardPermissionPeer::CLASS_DEFAULT : sfGuardPermissionPeer::OM_CLASS;
+		return $withPrefix ? AppTokenPeer::CLASS_DEFAULT : AppTokenPeer::OM_CLASS;
 	}
 
 	/**
-	 * Method perform an INSERT on the database, given a sfGuardPermission or Criteria object.
+	 * Method perform an INSERT on the database, given a AppToken or Criteria object.
 	 *
-	 * @param      mixed $values Criteria or sfGuardPermission object containing data that is used to create the INSERT statement.
+	 * @param      mixed $values Criteria or AppToken object containing data that is used to create the INSERT statement.
 	 * @param      PropelPDO $con the PropelPDO connection to use
 	 * @return     mixed The new primary key.
 	 * @throws     PropelException Any exceptions caught during processing will be
@@ -471,26 +481,26 @@ abstract class BasesfGuardPermissionPeer {
 	public static function doInsert($values, PropelPDO $con = null)
 	{
     // symfony_behaviors behavior
-    foreach (sfMixer::getCallables('BasesfGuardPermissionPeer:doInsert:pre') as $sf_hook)
+    foreach (sfMixer::getCallables('BaseAppTokenPeer:doInsert:pre') as $sf_hook)
     {
-      if (false !== $sf_hook_retval = call_user_func($sf_hook, 'BasesfGuardPermissionPeer', $values, $con))
+      if (false !== $sf_hook_retval = call_user_func($sf_hook, 'BaseAppTokenPeer', $values, $con))
       {
         return $sf_hook_retval;
       }
     }
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardPermissionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
 		if ($values instanceof Criteria) {
 			$criteria = clone $values; // rename for clarity
 		} else {
-			$criteria = $values->buildCriteria(); // build Criteria from sfGuardPermission object
+			$criteria = $values->buildCriteria(); // build Criteria from AppToken object
 		}
 
-		if ($criteria->containsKey(sfGuardPermissionPeer::ID) && $criteria->keyContainsValue(sfGuardPermissionPeer::ID) ) {
-			throw new PropelException('Cannot insert a value for auto-increment primary key ('.sfGuardPermissionPeer::ID.')');
+		if ($criteria->containsKey(AppTokenPeer::ID) && $criteria->keyContainsValue(AppTokenPeer::ID) ) {
+			throw new PropelException('Cannot insert a value for auto-increment primary key ('.AppTokenPeer::ID.')');
 		}
 
 
@@ -509,18 +519,18 @@ abstract class BasesfGuardPermissionPeer {
 		}
 
     // symfony_behaviors behavior
-    foreach (sfMixer::getCallables('BasesfGuardPermissionPeer:doInsert:post') as $sf_hook)
+    foreach (sfMixer::getCallables('BaseAppTokenPeer:doInsert:post') as $sf_hook)
     {
-      call_user_func($sf_hook, 'BasesfGuardPermissionPeer', $values, $con, $pk);
+      call_user_func($sf_hook, 'BaseAppTokenPeer', $values, $con, $pk);
     }
 
 		return $pk;
 	}
 
 	/**
-	 * Method perform an UPDATE on the database, given a sfGuardPermission or Criteria object.
+	 * Method perform an UPDATE on the database, given a AppToken or Criteria object.
 	 *
-	 * @param      mixed $values Criteria or sfGuardPermission object containing data that is used to create the UPDATE statement.
+	 * @param      mixed $values Criteria or AppToken object containing data that is used to create the UPDATE statement.
 	 * @param      PropelPDO $con The connection to use (specify PropelPDO connection object to exert more control over transactions).
 	 * @return     int The number of affected rows (if supported by underlying database driver).
 	 * @throws     PropelException Any exceptions caught during processing will be
@@ -529,16 +539,16 @@ abstract class BasesfGuardPermissionPeer {
 	public static function doUpdate($values, PropelPDO $con = null)
 	{
     // symfony_behaviors behavior
-    foreach (sfMixer::getCallables('BasesfGuardPermissionPeer:doUpdate:pre') as $sf_hook)
+    foreach (sfMixer::getCallables('BaseAppTokenPeer:doUpdate:pre') as $sf_hook)
     {
-      if (false !== $sf_hook_retval = call_user_func($sf_hook, 'BasesfGuardPermissionPeer', $values, $con))
+      if (false !== $sf_hook_retval = call_user_func($sf_hook, 'BaseAppTokenPeer', $values, $con))
       {
         return $sf_hook_retval;
       }
     }
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardPermissionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
 		$selectCriteria = new Criteria(self::DATABASE_NAME);
@@ -546,10 +556,10 @@ abstract class BasesfGuardPermissionPeer {
 		if ($values instanceof Criteria) {
 			$criteria = clone $values; // rename for clarity
 
-			$comparison = $criteria->getComparison(sfGuardPermissionPeer::ID);
-			$selectCriteria->add(sfGuardPermissionPeer::ID, $criteria->remove(sfGuardPermissionPeer::ID), $comparison);
+			$comparison = $criteria->getComparison(AppTokenPeer::ID);
+			$selectCriteria->add(AppTokenPeer::ID, $criteria->remove(AppTokenPeer::ID), $comparison);
 
-		} else { // $values is sfGuardPermission object
+		} else { // $values is AppToken object
 			$criteria = $values->buildCriteria(); // gets full criteria
 			$selectCriteria = $values->buildPkeyCriteria(); // gets criteria w/ primary key(s)
 		}
@@ -560,36 +570,35 @@ abstract class BasesfGuardPermissionPeer {
 		$ret = BasePeer::doUpdate($selectCriteria, $criteria, $con);
 
     // symfony_behaviors behavior
-    foreach (sfMixer::getCallables('BasesfGuardPermissionPeer:doUpdate:post') as $sf_hook)
+    foreach (sfMixer::getCallables('BaseAppTokenPeer:doUpdate:post') as $sf_hook)
     {
-      call_user_func($sf_hook, 'BasesfGuardPermissionPeer', $values, $con, $ret);
+      call_user_func($sf_hook, 'BaseAppTokenPeer', $values, $con, $ret);
     }
 
     return $ret;
 	}
 
 	/**
-	 * Method to DELETE all rows from the sf_guard_permission table.
+	 * Method to DELETE all rows from the app_tokens table.
 	 *
 	 * @return     int The number of affected rows (if supported by underlying database driver).
 	 */
 	public static function doDeleteAll($con = null)
 	{
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardPermissionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 		$affectedRows = 0; // initialize var to track total num of affected rows
 		try {
 			// use transaction because $criteria could contain info
 			// for more than one table or we could emulating ON DELETE CASCADE, etc.
 			$con->beginTransaction();
-			$affectedRows += sfGuardPermissionPeer::doOnDeleteCascade(new Criteria(sfGuardPermissionPeer::DATABASE_NAME), $con);
-			$affectedRows += BasePeer::doDeleteAll(sfGuardPermissionPeer::TABLE_NAME, $con);
+			$affectedRows += BasePeer::doDeleteAll(AppTokenPeer::TABLE_NAME, $con);
 			// Because this db requires some delete cascade/set null emulation, we have to
 			// clear the cached instance *after* the emulation has happened (since
 			// instances get re-added by the select statement contained therein).
-			sfGuardPermissionPeer::clearInstancePool();
-			sfGuardPermissionPeer::clearRelatedInstancePool();
+			AppTokenPeer::clearInstancePool();
+			AppTokenPeer::clearRelatedInstancePool();
 			$con->commit();
 			return $affectedRows;
 		} catch (PropelException $e) {
@@ -599,9 +608,9 @@ abstract class BasesfGuardPermissionPeer {
 	}
 
 	/**
-	 * Method perform a DELETE on the database, given a sfGuardPermission or Criteria object OR a primary key value.
+	 * Method perform a DELETE on the database, given a AppToken or Criteria object OR a primary key value.
 	 *
-	 * @param      mixed $values Criteria or sfGuardPermission object or primary key or array of primary keys
+	 * @param      mixed $values Criteria or AppToken object or primary key or array of primary keys
 	 *              which is used to create the DELETE statement
 	 * @param      PropelPDO $con the connection to use
 	 * @return     int 	The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -612,18 +621,28 @@ abstract class BasesfGuardPermissionPeer {
 	 public static function doDelete($values, PropelPDO $con = null)
 	 {
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardPermissionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
 		if ($values instanceof Criteria) {
+			// invalidate the cache for all objects of this type, since we have no
+			// way of knowing (without running a query) what objects should be invalidated
+			// from the cache based on this Criteria.
+			AppTokenPeer::clearInstancePool();
 			// rename for clarity
 			$criteria = clone $values;
-		} elseif ($values instanceof sfGuardPermission) { // it's a model object
+		} elseif ($values instanceof AppToken) { // it's a model object
+			// invalidate the cache for this single object
+			AppTokenPeer::removeInstanceFromPool($values);
 			// create criteria based on pk values
 			$criteria = $values->buildPkeyCriteria();
 		} else { // it's a primary key, or an array of pks
 			$criteria = new Criteria(self::DATABASE_NAME);
-			$criteria->add(sfGuardPermissionPeer::ID, (array) $values, Criteria::IN);
+			$criteria->add(AppTokenPeer::ID, (array) $values, Criteria::IN);
+			// invalidate the cache for this object(s)
+			foreach ((array) $values as $singleval) {
+				AppTokenPeer::removeInstanceFromPool($singleval);
+			}
 		}
 
 		// Set the correct dbName
@@ -635,23 +654,9 @@ abstract class BasesfGuardPermissionPeer {
 			// use transaction because $criteria could contain info
 			// for more than one table or we could emulating ON DELETE CASCADE, etc.
 			$con->beginTransaction();
-			$affectedRows += sfGuardPermissionPeer::doOnDeleteCascade($criteria, $con);
-			
-			// Because this db requires some delete cascade/set null emulation, we have to
-			// clear the cached instance *after* the emulation has happened (since
-			// instances get re-added by the select statement contained therein).
-			if ($values instanceof Criteria) {
-				sfGuardPermissionPeer::clearInstancePool();
-			} elseif ($values instanceof sfGuardPermission) { // it's a model object
-				sfGuardPermissionPeer::removeInstanceFromPool($values);
-			} else { // it's a primary key, or an array of pks
-				foreach ((array) $values as $singleval) {
-					sfGuardPermissionPeer::removeInstanceFromPool($singleval);
-				}
-			}
 			
 			$affectedRows += BasePeer::doDelete($criteria, $con);
-			sfGuardPermissionPeer::clearRelatedInstancePool();
+			AppTokenPeer::clearRelatedInstancePool();
 			$con->commit();
 			return $affectedRows;
 		} catch (PropelException $e) {
@@ -661,62 +666,24 @@ abstract class BasesfGuardPermissionPeer {
 	}
 
 	/**
-	 * This is a method for emulating ON DELETE CASCADE for DBs that don't support this
-	 * feature (like MySQL or SQLite).
-	 *
-	 * This method is not very speedy because it must perform a query first to get
-	 * the implicated records and then perform the deletes by calling those Peer classes.
-	 *
-	 * This method should be used within a transaction if possible.
-	 *
-	 * @param      Criteria $criteria
-	 * @param      PropelPDO $con
-	 * @return     int The number of affected rows (if supported by underlying database driver).
-	 */
-	protected static function doOnDeleteCascade(Criteria $criteria, PropelPDO $con)
-	{
-		// initialize var to track total num of affected rows
-		$affectedRows = 0;
-
-		// first find the objects that are implicated by the $criteria
-		$objects = sfGuardPermissionPeer::doSelect($criteria, $con);
-		foreach ($objects as $obj) {
-
-
-			// delete related sfGuardGroupPermission objects
-			$criteria = new Criteria(sfGuardGroupPermissionPeer::DATABASE_NAME);
-			
-			$criteria->add(sfGuardGroupPermissionPeer::PERMISSION_ID, $obj->getId());
-			$affectedRows += sfGuardGroupPermissionPeer::doDelete($criteria, $con);
-
-			// delete related sfGuardUserPermission objects
-			$criteria = new Criteria(sfGuardUserPermissionPeer::DATABASE_NAME);
-			
-			$criteria->add(sfGuardUserPermissionPeer::PERMISSION_ID, $obj->getId());
-			$affectedRows += sfGuardUserPermissionPeer::doDelete($criteria, $con);
-		}
-		return $affectedRows;
-	}
-
-	/**
-	 * Validates all modified columns of given sfGuardPermission object.
+	 * Validates all modified columns of given AppToken object.
 	 * If parameter $columns is either a single column name or an array of column names
 	 * than only those columns are validated.
 	 *
 	 * NOTICE: This does not apply to primary or foreign keys for now.
 	 *
-	 * @param      sfGuardPermission $obj The object to validate.
+	 * @param      AppToken $obj The object to validate.
 	 * @param      mixed $cols Column name or array of column names.
 	 *
 	 * @return     mixed TRUE if all columns are valid or the error message of the first invalid column.
 	 */
-	public static function doValidate(sfGuardPermission $obj, $cols = null)
+	public static function doValidate(AppToken $obj, $cols = null)
 	{
 		$columns = array();
 
 		if ($cols) {
-			$dbMap = Propel::getDatabaseMap(sfGuardPermissionPeer::DATABASE_NAME);
-			$tableMap = $dbMap->getTable(sfGuardPermissionPeer::TABLE_NAME);
+			$dbMap = Propel::getDatabaseMap(AppTokenPeer::DATABASE_NAME);
+			$tableMap = $dbMap->getTable(AppTokenPeer::TABLE_NAME);
 
 			if (! is_array($cols)) {
 				$cols = array($cols);
@@ -732,7 +699,7 @@ abstract class BasesfGuardPermissionPeer {
 
 		}
 
-		return BasePeer::doValidate(sfGuardPermissionPeer::DATABASE_NAME, sfGuardPermissionPeer::TABLE_NAME, $columns);
+		return BasePeer::doValidate(AppTokenPeer::DATABASE_NAME, AppTokenPeer::TABLE_NAME, $columns);
 	}
 
 	/**
@@ -740,23 +707,23 @@ abstract class BasesfGuardPermissionPeer {
 	 *
 	 * @param      int $pk the primary key.
 	 * @param      PropelPDO $con the connection to use
-	 * @return     sfGuardPermission
+	 * @return     AppToken
 	 */
 	public static function retrieveByPK($pk, PropelPDO $con = null)
 	{
 
-		if (null !== ($obj = sfGuardPermissionPeer::getInstanceFromPool((string) $pk))) {
+		if (null !== ($obj = AppTokenPeer::getInstanceFromPool((string) $pk))) {
 			return $obj;
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardPermissionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
-		$criteria = new Criteria(sfGuardPermissionPeer::DATABASE_NAME);
-		$criteria->add(sfGuardPermissionPeer::ID, $pk);
+		$criteria = new Criteria(AppTokenPeer::DATABASE_NAME);
+		$criteria->add(AppTokenPeer::ID, $pk);
 
-		$v = sfGuardPermissionPeer::doSelect($criteria, $con);
+		$v = AppTokenPeer::doSelect($criteria, $con);
 
 		return !empty($v) > 0 ? $v[0] : null;
 	}
@@ -772,16 +739,16 @@ abstract class BasesfGuardPermissionPeer {
 	public static function retrieveByPKs($pks, PropelPDO $con = null)
 	{
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardPermissionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
 		$objs = null;
 		if (empty($pks)) {
 			$objs = array();
 		} else {
-			$criteria = new Criteria(sfGuardPermissionPeer::DATABASE_NAME);
-			$criteria->add(sfGuardPermissionPeer::ID, $pks, Criteria::IN);
-			$objs = sfGuardPermissionPeer::doSelect($criteria, $con);
+			$criteria = new Criteria(AppTokenPeer::DATABASE_NAME);
+			$criteria->add(AppTokenPeer::ID, $pks, Criteria::IN);
+			$objs = AppTokenPeer::doSelect($criteria, $con);
 		}
 		return $objs;
 	}
@@ -795,7 +762,7 @@ abstract class BasesfGuardPermissionPeer {
 	 */
 	static public function getUniqueColumnNames()
 	{
-	  return array(array('name'));
+	  return array(array('token'));
 	}
 
 	// symfony_behaviors behavior
@@ -813,15 +780,15 @@ abstract class BasesfGuardPermissionPeer {
 	{
 	  if (preg_match('/^do(Select|Count)(Join(All(Except)?)?|Stmt)?/', $method, $match))
 	  {
-	    return sprintf('BasesfGuardPermissionPeer:%s:%1$s', 'Count' == $match[1] ? 'doCount' : $match[0]);
+	    return sprintf('BaseAppTokenPeer:%s:%1$s', 'Count' == $match[1] ? 'doCount' : $match[0]);
 	  }
 	
 	  throw new LogicException(sprintf('Unrecognized function "%s"', $method));
 	}
 
-} // BasesfGuardPermissionPeer
+} // BaseAppTokenPeer
 
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-BasesfGuardPermissionPeer::buildTableMap();
+BaseAppTokenPeer::buildTableMap();
 

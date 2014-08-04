@@ -13,3 +13,13 @@ propel:
     token:          {type: varchar(255), required: true}
     created_at:     {type: timestamp}
     active:         {type: boolean, default: true}
+    
+  app_tokens:
+    _attributes:    {phpName: AppToken}
+    id:             ~
+    token:          {type: varchar(255), required: true, index: unique}
+    created_at:     {type: timestamp}
+    name:           {type: varchar(255), required: true}
+    company:        {type: varchar(255), required: true}
+    os:             {type: varchar(255), required: false}
+    active:         {type: boolean, default: true}

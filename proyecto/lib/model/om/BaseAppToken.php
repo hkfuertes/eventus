@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Base class that represents a row from the 'sf_guard_remember_key' table.
+ * Base class that represents a row from the 'app_tokens' table.
  *
  * 
  *
@@ -9,36 +9,30 @@
  *
  * Mon Aug  4 15:38:27 2014
  *
- * @package    plugins.sfGuardPlugin.lib.model.om
+ * @package    lib.model.om
  */
-abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent {
+abstract class BaseAppToken extends BaseObject  implements Persistent {
 
 
 	/**
 	 * The Peer class.
 	 * Instance provides a convenient way of calling static methods on a class
 	 * that calling code may not be able to identify.
-	 * @var        sfGuardRememberKeyPeer
+	 * @var        AppTokenPeer
 	 */
 	protected static $peer;
 
 	/**
-	 * The value for the user_id field.
+	 * The value for the id field.
 	 * @var        int
 	 */
-	protected $user_id;
+	protected $id;
 
 	/**
-	 * The value for the remember_key field.
+	 * The value for the token field.
 	 * @var        string
 	 */
-	protected $remember_key;
-
-	/**
-	 * The value for the ip_address field.
-	 * @var        string
-	 */
-	protected $ip_address;
+	protected $token;
 
 	/**
 	 * The value for the created_at field.
@@ -47,9 +41,29 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	protected $created_at;
 
 	/**
-	 * @var        sfGuardUser
+	 * The value for the name field.
+	 * @var        string
 	 */
-	protected $asfGuardUser;
+	protected $name;
+
+	/**
+	 * The value for the company field.
+	 * @var        string
+	 */
+	protected $company;
+
+	/**
+	 * The value for the os field.
+	 * @var        string
+	 */
+	protected $os;
+
+	/**
+	 * The value for the active field.
+	 * Note: this column has a database default value of: true
+	 * @var        boolean
+	 */
+	protected $active;
 
 	/**
 	 * Flag to prevent endless save loop, if this object is referenced
@@ -67,36 +81,47 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 
 	// symfony behavior
 	
-	const PEER = 'sfGuardRememberKeyPeer';
+	const PEER = 'AppTokenPeer';
 
 	/**
-	 * Get the [user_id] column value.
+	 * Applies default values to this object.
+	 * This method should be called from the object's constructor (or
+	 * equivalent initialization method).
+	 * @see        __construct()
+	 */
+	public function applyDefaultValues()
+	{
+		$this->active = true;
+	}
+
+	/**
+	 * Initializes internal state of BaseAppToken object.
+	 * @see        applyDefaults()
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->applyDefaultValues();
+	}
+
+	/**
+	 * Get the [id] column value.
 	 * 
 	 * @return     int
 	 */
-	public function getUserId()
+	public function getId()
 	{
-		return $this->user_id;
+		return $this->id;
 	}
 
 	/**
-	 * Get the [remember_key] column value.
+	 * Get the [token] column value.
 	 * 
 	 * @return     string
 	 */
-	public function getRememberKey()
+	public function getToken()
 	{
-		return $this->remember_key;
-	}
-
-	/**
-	 * Get the [ip_address] column value.
-	 * 
-	 * @return     string
-	 */
-	public function getIpAddress()
-	{
-		return $this->ip_address;
+		return $this->token;
 	}
 
 	/**
@@ -138,75 +163,91 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	}
 
 	/**
-	 * Set the value of [user_id] column.
+	 * Get the [name] column value.
+	 * 
+	 * @return     string
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	/**
+	 * Get the [company] column value.
+	 * 
+	 * @return     string
+	 */
+	public function getCompany()
+	{
+		return $this->company;
+	}
+
+	/**
+	 * Get the [os] column value.
+	 * 
+	 * @return     string
+	 */
+	public function getOs()
+	{
+		return $this->os;
+	}
+
+	/**
+	 * Get the [active] column value.
+	 * 
+	 * @return     boolean
+	 */
+	public function getActive()
+	{
+		return $this->active;
+	}
+
+	/**
+	 * Set the value of [id] column.
 	 * 
 	 * @param      int $v new value
-	 * @return     sfGuardRememberKey The current object (for fluent API support)
+	 * @return     AppToken The current object (for fluent API support)
 	 */
-	public function setUserId($v)
+	public function setId($v)
 	{
 		if ($v !== null) {
 			$v = (int) $v;
 		}
 
-		if ($this->user_id !== $v) {
-			$this->user_id = $v;
-			$this->modifiedColumns[] = sfGuardRememberKeyPeer::USER_ID;
-		}
-
-		if ($this->asfGuardUser !== null && $this->asfGuardUser->getId() !== $v) {
-			$this->asfGuardUser = null;
+		if ($this->id !== $v) {
+			$this->id = $v;
+			$this->modifiedColumns[] = AppTokenPeer::ID;
 		}
 
 		return $this;
-	} // setUserId()
+	} // setId()
 
 	/**
-	 * Set the value of [remember_key] column.
+	 * Set the value of [token] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     sfGuardRememberKey The current object (for fluent API support)
+	 * @return     AppToken The current object (for fluent API support)
 	 */
-	public function setRememberKey($v)
+	public function setToken($v)
 	{
 		if ($v !== null) {
 			$v = (string) $v;
 		}
 
-		if ($this->remember_key !== $v) {
-			$this->remember_key = $v;
-			$this->modifiedColumns[] = sfGuardRememberKeyPeer::REMEMBER_KEY;
+		if ($this->token !== $v) {
+			$this->token = $v;
+			$this->modifiedColumns[] = AppTokenPeer::TOKEN;
 		}
 
 		return $this;
-	} // setRememberKey()
-
-	/**
-	 * Set the value of [ip_address] column.
-	 * 
-	 * @param      string $v new value
-	 * @return     sfGuardRememberKey The current object (for fluent API support)
-	 */
-	public function setIpAddress($v)
-	{
-		if ($v !== null) {
-			$v = (string) $v;
-		}
-
-		if ($this->ip_address !== $v) {
-			$this->ip_address = $v;
-			$this->modifiedColumns[] = sfGuardRememberKeyPeer::IP_ADDRESS;
-		}
-
-		return $this;
-	} // setIpAddress()
+	} // setToken()
 
 	/**
 	 * Sets the value of [created_at] column to a normalized version of the date/time value specified.
 	 * 
 	 * @param      mixed $v string, integer (timestamp), or DateTime value.  Empty string will
 	 *						be treated as NULL for temporal objects.
-	 * @return     sfGuardRememberKey The current object (for fluent API support)
+	 * @return     AppToken The current object (for fluent API support)
 	 */
 	public function setCreatedAt($v)
 	{
@@ -243,12 +284,92 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 					)
 			{
 				$this->created_at = ($dt ? $dt->format('Y-m-d H:i:s') : null);
-				$this->modifiedColumns[] = sfGuardRememberKeyPeer::CREATED_AT;
+				$this->modifiedColumns[] = AppTokenPeer::CREATED_AT;
 			}
 		} // if either are not null
 
 		return $this;
 	} // setCreatedAt()
+
+	/**
+	 * Set the value of [name] column.
+	 * 
+	 * @param      string $v new value
+	 * @return     AppToken The current object (for fluent API support)
+	 */
+	public function setName($v)
+	{
+		if ($v !== null) {
+			$v = (string) $v;
+		}
+
+		if ($this->name !== $v) {
+			$this->name = $v;
+			$this->modifiedColumns[] = AppTokenPeer::NAME;
+		}
+
+		return $this;
+	} // setName()
+
+	/**
+	 * Set the value of [company] column.
+	 * 
+	 * @param      string $v new value
+	 * @return     AppToken The current object (for fluent API support)
+	 */
+	public function setCompany($v)
+	{
+		if ($v !== null) {
+			$v = (string) $v;
+		}
+
+		if ($this->company !== $v) {
+			$this->company = $v;
+			$this->modifiedColumns[] = AppTokenPeer::COMPANY;
+		}
+
+		return $this;
+	} // setCompany()
+
+	/**
+	 * Set the value of [os] column.
+	 * 
+	 * @param      string $v new value
+	 * @return     AppToken The current object (for fluent API support)
+	 */
+	public function setOs($v)
+	{
+		if ($v !== null) {
+			$v = (string) $v;
+		}
+
+		if ($this->os !== $v) {
+			$this->os = $v;
+			$this->modifiedColumns[] = AppTokenPeer::OS;
+		}
+
+		return $this;
+	} // setOs()
+
+	/**
+	 * Set the value of [active] column.
+	 * 
+	 * @param      boolean $v new value
+	 * @return     AppToken The current object (for fluent API support)
+	 */
+	public function setActive($v)
+	{
+		if ($v !== null) {
+			$v = (boolean) $v;
+		}
+
+		if ($this->active !== $v || $this->isNew()) {
+			$this->active = $v;
+			$this->modifiedColumns[] = AppTokenPeer::ACTIVE;
+		}
+
+		return $this;
+	} // setActive()
 
 	/**
 	 * Indicates whether the columns in this object are only set to default values.
@@ -260,6 +381,10 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 */
 	public function hasOnlyDefaultValues()
 	{
+			if ($this->active !== true) {
+				return false;
+			}
+
 		// otherwise, everything was equal, so return TRUE
 		return true;
 	} // hasOnlyDefaultValues()
@@ -282,10 +407,13 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	{
 		try {
 
-			$this->user_id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
-			$this->remember_key = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
-			$this->ip_address = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
-			$this->created_at = ($row[$startcol + 3] !== null) ? (string) $row[$startcol + 3] : null;
+			$this->id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
+			$this->token = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
+			$this->created_at = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
+			$this->name = ($row[$startcol + 3] !== null) ? (string) $row[$startcol + 3] : null;
+			$this->company = ($row[$startcol + 4] !== null) ? (string) $row[$startcol + 4] : null;
+			$this->os = ($row[$startcol + 5] !== null) ? (string) $row[$startcol + 5] : null;
+			$this->active = ($row[$startcol + 6] !== null) ? (boolean) $row[$startcol + 6] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
@@ -295,10 +423,10 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 			}
 
 			// FIXME - using NUM_COLUMNS may be clearer.
-			return $startcol + 4; // 4 = sfGuardRememberKeyPeer::NUM_COLUMNS - sfGuardRememberKeyPeer::NUM_LAZY_LOAD_COLUMNS).
+			return $startcol + 7; // 7 = AppTokenPeer::NUM_COLUMNS - AppTokenPeer::NUM_LAZY_LOAD_COLUMNS).
 
 		} catch (Exception $e) {
-			throw new PropelException("Error populating sfGuardRememberKey object", $e);
+			throw new PropelException("Error populating AppToken object", $e);
 		}
 	}
 
@@ -318,9 +446,6 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	public function ensureConsistency()
 	{
 
-		if ($this->asfGuardUser !== null && $this->user_id !== $this->asfGuardUser->getId()) {
-			$this->asfGuardUser = null;
-		}
 	} // ensureConsistency
 
 	/**
@@ -344,13 +469,13 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardRememberKeyPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
 		// We don't need to alter the object instance pool; we're just modifying this instance
 		// already in the pool.
 
-		$stmt = sfGuardRememberKeyPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
+		$stmt = AppTokenPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
 		$row = $stmt->fetch(PDO::FETCH_NUM);
 		$stmt->closeCursor();
 		if (!$row) {
@@ -360,7 +485,6 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 
 		if ($deep) {  // also de-associate any related objects?
 
-			$this->asfGuardUser = null;
 		} // if (deep)
 	}
 
@@ -380,14 +504,14 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardRememberKeyPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 		
 		$con->beginTransaction();
 		try {
 			$ret = $this->preDelete($con);
 			// symfony_behaviors behavior
-			foreach (sfMixer::getCallables('BasesfGuardRememberKey:delete:pre') as $callable)
+			foreach (sfMixer::getCallables('BaseAppToken:delete:pre') as $callable)
 			{
 			  if (call_user_func($callable, $this, $con))
 			  {
@@ -398,10 +522,10 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 			}
 
 			if ($ret) {
-				sfGuardRememberKeyPeer::doDelete($this, $con);
+				AppTokenPeer::doDelete($this, $con);
 				$this->postDelete($con);
 				// symfony_behaviors behavior
-				foreach (sfMixer::getCallables('BasesfGuardRememberKey:delete:post') as $callable)
+				foreach (sfMixer::getCallables('BaseAppToken:delete:post') as $callable)
 				{
 				  call_user_func($callable, $this, $con);
 				}
@@ -437,7 +561,7 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(sfGuardRememberKeyPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(AppTokenPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 		
 		$con->beginTransaction();
@@ -445,7 +569,7 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 		try {
 			$ret = $this->preSave($con);
 			// symfony_behaviors behavior
-			foreach (sfMixer::getCallables('BasesfGuardRememberKey:save:pre') as $callable)
+			foreach (sfMixer::getCallables('BaseAppToken:save:pre') as $callable)
 			{
 			  if (is_integer($affectedRows = call_user_func($callable, $this, $con)))
 			  {
@@ -460,7 +584,7 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 			if ($isInsert) {
 				$ret = $ret && $this->preInsert($con);
 				// symfony_timestampable behavior
-				if (!$this->isColumnModified(sfGuardRememberKeyPeer::CREATED_AT))
+				if (!$this->isColumnModified(AppTokenPeer::CREATED_AT))
 				{
 				  $this->setCreatedAt(time());
 				}
@@ -477,12 +601,12 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 				}
 				$this->postSave($con);
 				// symfony_behaviors behavior
-				foreach (sfMixer::getCallables('BasesfGuardRememberKey:save:post') as $callable)
+				foreach (sfMixer::getCallables('BaseAppToken:save:post') as $callable)
 				{
 				  call_user_func($callable, $this, $con, $affectedRows);
 				}
 
-				sfGuardRememberKeyPeer::addInstanceToPool($this);
+				AppTokenPeer::addInstanceToPool($this);
 			} else {
 				$affectedRows = 0;
 			}
@@ -511,30 +635,23 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 		if (!$this->alreadyInSave) {
 			$this->alreadyInSave = true;
 
-			// We call the save method on the following object(s) if they
-			// were passed to this object by their coresponding set
-			// method.  This object relates to these object(s) by a
-			// foreign key reference.
-
-			if ($this->asfGuardUser !== null) {
-				if ($this->asfGuardUser->isModified() || $this->asfGuardUser->isNew()) {
-					$affectedRows += $this->asfGuardUser->save($con);
-				}
-				$this->setsfGuardUser($this->asfGuardUser);
+			if ($this->isNew() ) {
+				$this->modifiedColumns[] = AppTokenPeer::ID;
 			}
-
 
 			// If this object has been modified, then save it to the database.
 			if ($this->isModified()) {
 				if ($this->isNew()) {
-					$pk = sfGuardRememberKeyPeer::doInsert($this, $con);
+					$pk = AppTokenPeer::doInsert($this, $con);
 					$affectedRows += 1; // we are assuming that there is only 1 row per doInsert() which
 										 // should always be true here (even though technically
 										 // BasePeer::doInsert() can insert multiple rows).
 
+					$this->setId($pk);  //[IMV] update autoincrement primary key
+
 					$this->setNew(false);
 				} else {
-					$affectedRows += sfGuardRememberKeyPeer::doUpdate($this, $con);
+					$affectedRows += AppTokenPeer::doUpdate($this, $con);
 				}
 
 				$this->resetModified(); // [HL] After being saved an object is no longer 'modified'
@@ -606,19 +723,7 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 			$failureMap = array();
 
 
-			// We call the validate method on the following object(s) if they
-			// were passed to this object by their coresponding set
-			// method.  This object relates to these object(s) by a
-			// foreign key reference.
-
-			if ($this->asfGuardUser !== null) {
-				if (!$this->asfGuardUser->validate($columns)) {
-					$failureMap = array_merge($failureMap, $this->asfGuardUser->getValidationFailures());
-				}
-			}
-
-
-			if (($retval = sfGuardRememberKeyPeer::doValidate($this, $columns)) !== true) {
+			if (($retval = AppTokenPeer::doValidate($this, $columns)) !== true) {
 				$failureMap = array_merge($failureMap, $retval);
 			}
 
@@ -641,7 +746,7 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 */
 	public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = sfGuardRememberKeyPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = AppTokenPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		$field = $this->getByPosition($pos);
 		return $field;
 	}
@@ -657,16 +762,25 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	{
 		switch($pos) {
 			case 0:
-				return $this->getUserId();
+				return $this->getId();
 				break;
 			case 1:
-				return $this->getRememberKey();
+				return $this->getToken();
 				break;
 			case 2:
-				return $this->getIpAddress();
+				return $this->getCreatedAt();
 				break;
 			case 3:
-				return $this->getCreatedAt();
+				return $this->getName();
+				break;
+			case 4:
+				return $this->getCompany();
+				break;
+			case 5:
+				return $this->getOs();
+				break;
+			case 6:
+				return $this->getActive();
 				break;
 			default:
 				return null;
@@ -687,12 +801,15 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 */
 	public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true)
 	{
-		$keys = sfGuardRememberKeyPeer::getFieldNames($keyType);
+		$keys = AppTokenPeer::getFieldNames($keyType);
 		$result = array(
-			$keys[0] => $this->getUserId(),
-			$keys[1] => $this->getRememberKey(),
-			$keys[2] => $this->getIpAddress(),
-			$keys[3] => $this->getCreatedAt(),
+			$keys[0] => $this->getId(),
+			$keys[1] => $this->getToken(),
+			$keys[2] => $this->getCreatedAt(),
+			$keys[3] => $this->getName(),
+			$keys[4] => $this->getCompany(),
+			$keys[5] => $this->getOs(),
+			$keys[6] => $this->getActive(),
 		);
 		return $result;
 	}
@@ -709,7 +826,7 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 */
 	public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = sfGuardRememberKeyPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = AppTokenPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		return $this->setByPosition($pos, $value);
 	}
 
@@ -725,16 +842,25 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	{
 		switch($pos) {
 			case 0:
-				$this->setUserId($value);
+				$this->setId($value);
 				break;
 			case 1:
-				$this->setRememberKey($value);
+				$this->setToken($value);
 				break;
 			case 2:
-				$this->setIpAddress($value);
+				$this->setCreatedAt($value);
 				break;
 			case 3:
-				$this->setCreatedAt($value);
+				$this->setName($value);
+				break;
+			case 4:
+				$this->setCompany($value);
+				break;
+			case 5:
+				$this->setOs($value);
+				break;
+			case 6:
+				$this->setActive($value);
 				break;
 		} // switch()
 	}
@@ -758,12 +884,15 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 */
 	public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
 	{
-		$keys = sfGuardRememberKeyPeer::getFieldNames($keyType);
+		$keys = AppTokenPeer::getFieldNames($keyType);
 
-		if (array_key_exists($keys[0], $arr)) $this->setUserId($arr[$keys[0]]);
-		if (array_key_exists($keys[1], $arr)) $this->setRememberKey($arr[$keys[1]]);
-		if (array_key_exists($keys[2], $arr)) $this->setIpAddress($arr[$keys[2]]);
-		if (array_key_exists($keys[3], $arr)) $this->setCreatedAt($arr[$keys[3]]);
+		if (array_key_exists($keys[0], $arr)) $this->setId($arr[$keys[0]]);
+		if (array_key_exists($keys[1], $arr)) $this->setToken($arr[$keys[1]]);
+		if (array_key_exists($keys[2], $arr)) $this->setCreatedAt($arr[$keys[2]]);
+		if (array_key_exists($keys[3], $arr)) $this->setName($arr[$keys[3]]);
+		if (array_key_exists($keys[4], $arr)) $this->setCompany($arr[$keys[4]]);
+		if (array_key_exists($keys[5], $arr)) $this->setOs($arr[$keys[5]]);
+		if (array_key_exists($keys[6], $arr)) $this->setActive($arr[$keys[6]]);
 	}
 
 	/**
@@ -773,12 +902,15 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 */
 	public function buildCriteria()
 	{
-		$criteria = new Criteria(sfGuardRememberKeyPeer::DATABASE_NAME);
+		$criteria = new Criteria(AppTokenPeer::DATABASE_NAME);
 
-		if ($this->isColumnModified(sfGuardRememberKeyPeer::USER_ID)) $criteria->add(sfGuardRememberKeyPeer::USER_ID, $this->user_id);
-		if ($this->isColumnModified(sfGuardRememberKeyPeer::REMEMBER_KEY)) $criteria->add(sfGuardRememberKeyPeer::REMEMBER_KEY, $this->remember_key);
-		if ($this->isColumnModified(sfGuardRememberKeyPeer::IP_ADDRESS)) $criteria->add(sfGuardRememberKeyPeer::IP_ADDRESS, $this->ip_address);
-		if ($this->isColumnModified(sfGuardRememberKeyPeer::CREATED_AT)) $criteria->add(sfGuardRememberKeyPeer::CREATED_AT, $this->created_at);
+		if ($this->isColumnModified(AppTokenPeer::ID)) $criteria->add(AppTokenPeer::ID, $this->id);
+		if ($this->isColumnModified(AppTokenPeer::TOKEN)) $criteria->add(AppTokenPeer::TOKEN, $this->token);
+		if ($this->isColumnModified(AppTokenPeer::CREATED_AT)) $criteria->add(AppTokenPeer::CREATED_AT, $this->created_at);
+		if ($this->isColumnModified(AppTokenPeer::NAME)) $criteria->add(AppTokenPeer::NAME, $this->name);
+		if ($this->isColumnModified(AppTokenPeer::COMPANY)) $criteria->add(AppTokenPeer::COMPANY, $this->company);
+		if ($this->isColumnModified(AppTokenPeer::OS)) $criteria->add(AppTokenPeer::OS, $this->os);
+		if ($this->isColumnModified(AppTokenPeer::ACTIVE)) $criteria->add(AppTokenPeer::ACTIVE, $this->active);
 
 		return $criteria;
 	}
@@ -793,43 +925,31 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 */
 	public function buildPkeyCriteria()
 	{
-		$criteria = new Criteria(sfGuardRememberKeyPeer::DATABASE_NAME);
+		$criteria = new Criteria(AppTokenPeer::DATABASE_NAME);
 
-		$criteria->add(sfGuardRememberKeyPeer::USER_ID, $this->user_id);
-		$criteria->add(sfGuardRememberKeyPeer::IP_ADDRESS, $this->ip_address);
+		$criteria->add(AppTokenPeer::ID, $this->id);
 
 		return $criteria;
 	}
 
 	/**
-	 * Returns the composite primary key for this object.
-	 * The array elements will be in same order as specified in XML.
-	 * @return     array
+	 * Returns the primary key for this object (row).
+	 * @return     int
 	 */
 	public function getPrimaryKey()
 	{
-		$pks = array();
-
-		$pks[0] = $this->getUserId();
-
-		$pks[1] = $this->getIpAddress();
-
-		return $pks;
+		return $this->getId();
 	}
 
 	/**
-	 * Set the [composite] primary key.
+	 * Generic method to set the primary key (id column).
 	 *
-	 * @param      array $keys The elements of the composite key (order must match the order in XML file).
+	 * @param      int $key Primary key.
 	 * @return     void
 	 */
-	public function setPrimaryKey($keys)
+	public function setPrimaryKey($key)
 	{
-
-		$this->setUserId($keys[0]);
-
-		$this->setIpAddress($keys[1]);
-
+		$this->setId($key);
 	}
 
 	/**
@@ -838,23 +958,29 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 * If desired, this method can also make copies of all associated (fkey referrers)
 	 * objects.
 	 *
-	 * @param      object $copyObj An object of sfGuardRememberKey (or compatible) type.
+	 * @param      object $copyObj An object of AppToken (or compatible) type.
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
 	 * @throws     PropelException
 	 */
 	public function copyInto($copyObj, $deepCopy = false)
 	{
 
-		$copyObj->setUserId($this->user_id);
-
-		$copyObj->setRememberKey($this->remember_key);
-
-		$copyObj->setIpAddress($this->ip_address);
+		$copyObj->setToken($this->token);
 
 		$copyObj->setCreatedAt($this->created_at);
 
+		$copyObj->setName($this->name);
+
+		$copyObj->setCompany($this->company);
+
+		$copyObj->setOs($this->os);
+
+		$copyObj->setActive($this->active);
+
 
 		$copyObj->setNew(true);
+
+		$copyObj->setId(NULL); // this is a auto-increment column, so set to default value
 
 	}
 
@@ -867,7 +993,7 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 * objects.
 	 *
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-	 * @return     sfGuardRememberKey Clone of current object.
+	 * @return     AppToken Clone of current object.
 	 * @throws     PropelException
 	 */
 	public function copy($deepCopy = false)
@@ -886,63 +1012,14 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 * same instance for all member of this class. The method could therefore
 	 * be static, but this would prevent one from overriding the behavior.
 	 *
-	 * @return     sfGuardRememberKeyPeer
+	 * @return     AppTokenPeer
 	 */
 	public function getPeer()
 	{
 		if (self::$peer === null) {
-			self::$peer = new sfGuardRememberKeyPeer();
+			self::$peer = new AppTokenPeer();
 		}
 		return self::$peer;
-	}
-
-	/**
-	 * Declares an association between this object and a sfGuardUser object.
-	 *
-	 * @param      sfGuardUser $v
-	 * @return     sfGuardRememberKey The current object (for fluent API support)
-	 * @throws     PropelException
-	 */
-	public function setsfGuardUser(sfGuardUser $v = null)
-	{
-		if ($v === null) {
-			$this->setUserId(NULL);
-		} else {
-			$this->setUserId($v->getId());
-		}
-
-		$this->asfGuardUser = $v;
-
-		// Add binding for other direction of this n:n relationship.
-		// If this object has already been added to the sfGuardUser object, it will not be re-added.
-		if ($v !== null) {
-			$v->addsfGuardRememberKey($this);
-		}
-
-		return $this;
-	}
-
-
-	/**
-	 * Get the associated sfGuardUser object
-	 *
-	 * @param      PropelPDO Optional Connection object.
-	 * @return     sfGuardUser The associated sfGuardUser object.
-	 * @throws     PropelException
-	 */
-	public function getsfGuardUser(PropelPDO $con = null)
-	{
-		if ($this->asfGuardUser === null && ($this->user_id !== null)) {
-			$this->asfGuardUser = sfGuardUserPeer::retrieveByPk($this->user_id);
-			/* The following can be used additionally to
-			   guarantee the related object contains a reference
-			   to this object.  This level of coupling may, however, be
-			   undesirable since it could result in an only partially populated collection
-			   in the referenced object.
-			   $this->asfGuardUser->addsfGuardRememberKeys($this);
-			 */
-		}
-		return $this->asfGuardUser;
 	}
 
 	/**
@@ -959,7 +1036,6 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 		if ($deep) {
 		} // if ($deep)
 
-			$this->asfGuardUser = null;
 	}
 
 	// symfony_behaviors behavior
@@ -969,9 +1045,9 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	 */
 	public function __call($method, $arguments)
 	{
-	  if (!$callable = sfMixer::getCallable('BasesfGuardRememberKey:'.$method))
+	  if (!$callable = sfMixer::getCallable('BaseAppToken:'.$method))
 	  {
-	    throw new sfException(sprintf('Call to undefined method BasesfGuardRememberKey::%s', $method));
+	    throw new sfException(sprintf('Call to undefined method BaseAppToken::%s', $method));
 	  }
 	
 	  array_unshift($arguments, $this);
@@ -979,4 +1055,4 @@ abstract class BasesfGuardRememberKey extends BaseObject  implements Persistent 
 	  return call_user_func_array($callable, $arguments);
 	}
 
-} // BasesfGuardRememberKey
+} // BaseAppToken

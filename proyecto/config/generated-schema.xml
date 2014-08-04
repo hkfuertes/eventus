@@ -23,4 +23,17 @@
     <column name="active" type="boolean" default="1" />
   </table>
 
+  <table name="app_tokens" phpName="AppToken">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="token" type="varchar" required="true" size="255" />
+    <unique>
+      <unique-column name="token" />
+    </unique>
+    <column name="created_at" type="timestamp" />
+    <column name="name" type="varchar" required="true" size="255" />
+    <column name="company" type="varchar" required="true" size="255" />
+    <column name="os" type="varchar" required="false" size="255" />
+    <column name="active" type="boolean" default="1" />
+  </table>
+
 </database>

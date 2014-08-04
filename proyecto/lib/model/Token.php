@@ -41,11 +41,11 @@ class Token extends BaseToken {
     public static function check(sfGuardUser $user, $token) {
 
         $c = new Criteria();
-        $c->add(TokensPeer::USER_ID, $user->getId());
-        $c->add(TokensPeer::TOKEN, $token);
-        $c->add(TokensPeer::ACTIVE, 1);
+        $c->add(TokenPeer::USER_ID, $user->getId());
+        $c->add(TokenPeer::TOKEN, $token);
+        $c->add(TokenPeer::ACTIVE, 1);
 
-        $t = TokensPeer::doSelect($c);
+        $t = TokenPeer::doSelect($c);
 
         return $t != null;
     }
