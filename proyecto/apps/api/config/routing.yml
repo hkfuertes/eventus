@@ -7,6 +7,22 @@ app_token:
     column:               id
     with_wildcard_routes: true
 
+# ShowEvent: POST parameters
+# All variables from a user via POST.
+#  username -> route & post
+#  token -> post
+show_event_program:
+  url: /:app_token/event/:key/program
+  param: { module: events, action: showProgram, app_token: app }
+
+# ShowEvent: POST parameters
+# All variables from a user via POST.
+#  username -> route & post
+#  token -> post
+show_event:
+  url: /:app_token/event/:key/show
+  param: { module: events, action: show, app_token: app }
+
 # CreateUser: POST parameters
 # All variables from a user via POST.
 create_user:

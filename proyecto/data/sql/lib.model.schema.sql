@@ -67,5 +67,69 @@ CREATE TABLE `app_tokens`
 	UNIQUE KEY `app_tokens_U_1` (`token`)
 )Type=InnoDB;
 
+#-----------------------------------------------------------------------------
+#-- events
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `events`;
+
+
+CREATE TABLE `events`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255)  NOT NULL,
+	`key` VARCHAR(255)  NOT NULL,
+	`date` DATETIME,
+	`created_at` DATETIME,
+	`admin_id` INTEGER  NOT NULL,
+	`active` TINYINT default 1,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `events_U_1` (`key`),
+	INDEX `events_FI_1` (`admin_id`),
+	CONSTRAINT `events_FK_1`
+		FOREIGN KEY (`admin_id`)
+		REFERENCES `sf_guard_user` (`id`)
+		ON DELETE CASCADE
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- programs
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `programs`;
+
+
+CREATE TABLE `programs`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`event_id` INTEGER,
+	`hora` DATETIME  NOT NULL,
+	`acto` VARCHAR(255)  NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `programs_FI_1` (`event_id`),
+	CONSTRAINT `programs_FK_1`
+		FOREIGN KEY (`event_id`)
+		REFERENCES `events` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- users_event
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users_event`;
+
+
+CREATE TABLE `users_event`
+(
+	`user_id` INTEGER  NOT NULL,
+	`event_id` VARCHAR(255)  NOT NULL,
+	`joined_at` DATETIME,
+	PRIMARY KEY (`user_id`,`event_id`),
+	CONSTRAINT `users_event_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `sf_guard_user` (`id`)
+		ON DELETE CASCADE
+)Type=InnoDB;
+
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;

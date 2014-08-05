@@ -36,4 +36,39 @@
     <column name="active" type="boolean" default="1" />
   </table>
 
+  <table name="events" phpName="Event">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" required="true" size="255" />
+    <column name="key" type="varchar" required="true" size="255" />
+    <unique>
+      <unique-column name="key" />
+    </unique>
+    <column name="date" type="timestamp" />
+    <column name="created_at" type="timestamp" />
+    <column name="admin_id" type="integer" required="true" />
+    <foreign-key foreignTable="sf_guard_user" onDelete="cascade">
+      <reference local="admin_id" foreign="id" />
+    </foreign-key>
+    <column name="active" type="boolean" default="1" />
+  </table>
+
+  <table name="programs" phpName="Entry">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="event_id" type="integer" />
+    <foreign-key foreignTable="events">
+      <reference local="event_id" foreign="id" />
+    </foreign-key>
+    <column name="hora" type="timestamp" required="true" />
+    <column name="acto" type="varchar" required="true" size="255" />
+  </table>
+
+  <table name="users_event" phpName="Participation">
+    <column name="user_id" type="integer" required="true" primaryKey="true" />
+    <foreign-key foreignTable="sf_guard_user" onDelete="cascade">
+      <reference local="user_id" foreign="id" />
+    </foreign-key>
+    <column name="event_id" primaryKey="true" />
+    <column name="joined_at" type="timestamp" />
+  </table>
+
 </database>

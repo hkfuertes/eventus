@@ -23,3 +23,26 @@ propel:
     company:        {type: varchar(255), required: true}
     os:             {type: varchar(255), required: false}
     active:         {type: boolean, default: true}
+  
+  events:
+    _attributes:    {phpName: Event}
+    id:             ~
+    name:           {type: varchar(255), required: true}
+    key:          {type: varchar(255), required: true, index: unique}
+    date:           {type: timestamp}
+    created_at:     {type: timestamp}
+    admin_id:        {type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
+    active:         {type: boolean, default: true}
+    
+  programs:
+    _attributes:    {phpName: Entry}
+    id:             ~
+    event_id:      ~
+    hora:           {type: timestamp, required: true}
+    acto:           {type: varchar(255), required: true}
+  
+  users_event:
+    _attributes:    {phpName: Participation}
+    user_id:        {type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade, primaryKey: true }
+    event_id:       {primaryKey: true}
+    joined_at:      {type: timestamp}
