@@ -88,8 +88,6 @@ class usersActions extends sfActions {
             $retval = array('success' => false, 'error' => 1);
             return $this->renderText(json_encode($retval));
         }
-
-        //OK!, we generate the user.
         $username = $request->getParameter('username');
         $password = $request->getParameter('password');
 
@@ -97,6 +95,11 @@ class usersActions extends sfActions {
         $apellidos = $request->getParameter('apellidos');
         $email = $request->getParameter('email');
 
+        //The user already exists?
+        if(sfGuardUserPeer::retrieveByUsername($username)!= null){
+            $retval = array('success' => false, 'error' => 2);
+            return $this->renderText(json_encode($retval));
+        }
 
         $user = new sfGuardUser();
         $user->setPassword($password);
@@ -104,12 +107,12 @@ class usersActions extends sfActions {
         $user->save();
 
         $profile = $user->getProfile();
-        $profile->setNombre($nombre);
-        $profile->setApellidos($apellidos);
+        $profile->setFirstname($nombre);
+        $profile->setLastname($apellidos);
         $profile->setEmail($email);
         $profile->save();
 
-        $token = Tokens::createTokenForUser($user);
+        $token = Token::createTokenForUser($user);
 
         $retval = array('success' => true, 'user' => array('username' => $username, 'token' => $token->getToken()));
         return $this->renderText(json_encode($retval));
