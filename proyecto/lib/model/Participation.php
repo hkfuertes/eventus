@@ -17,8 +17,34 @@
  */
 class Participation extends BaseParticipation {
 
+    public function create(sfGuardUser $user, Event $event, $save = 0) {
+
+        $this->setUserId($user->getId());
+        $this->setEventId($event->getId());
+        $this->setJoinedAt(time());
+        if ($save)
+            $this->save();
+    }
+
+    private function getUser(){
+        return sfGuardUserPeer::retrieveByPK($this->getUserId());
+    }
+    public function expose() {
+        //return get_object_vars($this);
+        return array('username'=>$this->getUser()->getUsername(), 'eventname' => $this->getEvent()->getName(),'joined_at'=>$this->getJoinedAt());
+    }
+
     public static function checkJoined(sfGuardUser $user, Event $event) {
-        return self::retrieveByPK($user->getId(), $event->getId()) != null;
+        return ParticipationPeer::retrieveByPk($user->getId(), $event->getId()) != null;
+    }
+
+    public static function exposeParticipantList($list) {
+        # $list<$user> typeof sfGuardUser
+        $retval = array();
+        foreach ($list as $user) {
+            $retval[] = $user->getUsername();
+        }
+        return $retval;
     }
 
 }

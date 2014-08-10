@@ -56,6 +56,7 @@ class usersActions extends sfActions {
      * See routes for url, params via get
      */
     public function executeGetInfo(sfWebRequest $request) {
+        $who_id = $request->getParameter('who');
         $username = $request->getParameter('username');
         $token = $request->getParameter('token');
 
@@ -73,8 +74,10 @@ class usersActions extends sfActions {
             return $this->renderText(json_encode($retval));
         }
 
+        $who = sfGuardUserPeer::retrieveByUsername($who_id);
+        
         //OK!, we return user info.
-        $retval = array('success' => true, 'user' => $user->getProfile()->expose());
+        $retval = array('success' => true, 'user' => $who->getProfile()->expose());
         return $this->renderText(json_encode($retval));
     }
 

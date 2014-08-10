@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Skeleton subclass for performing query and update operations on the 'eventos' table.
  *
@@ -18,12 +17,40 @@
  */
 class EventPeer extends BaseEventPeer {
 
-    public static function retrieveByKey($key){
+    public static function retrieveByKey($key) {
         $c = new Criteria();
-        $c->add(self::KEY,$key);
-        $c->add(self::ACTIVE,1);
-        
+        $c->add(self::KEY, $key);
+        $c->add(self::ACTIVE, 1);
+
         return self::doSelectOne($c);
     }
-    
-} // EventPeer
+
+    public static function retrieveByAdmin(sfGuardUser $user, $active = 1) {
+        $c = new Criteria();
+        $c->add(self::ADMIN_ID, $user->getId());
+        $c->add(self::ACTIVE, $active);
+
+        return self::doSelect($c);
+    }
+
+    public static function retrieveUsersEvent(sfGuardUser $user, $active = 1) {
+        $c = new Criteria();
+        $c->add(ParticipationPeer::USER_ID, $user->getId());
+
+        $participations = ParticipationPeer::doSelect($c);
+
+        $ids = array();
+        foreach ($participations as $p) {
+            $ids[] = $p->getEventId();
+        }
+
+        $c = new Criteria();
+        $c->add(self::ID, $ids, Criteria::IN);
+        $c->add(self::ACTIVE, $active);
+        
+        return self::doSelect($c);
+    }
+
+}
+
+// EventPeer

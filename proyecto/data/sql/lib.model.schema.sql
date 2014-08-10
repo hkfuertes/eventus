@@ -68,6 +68,20 @@ CREATE TABLE `app_tokens`
 )Type=InnoDB;
 
 #-----------------------------------------------------------------------------
+#-- events_type
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `events_type`;
+
+
+CREATE TABLE `events_type`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255)  NOT NULL,
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
 #-- events
 #-----------------------------------------------------------------------------
 
@@ -78,15 +92,21 @@ CREATE TABLE `events`
 (
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(255)  NOT NULL,
-	`key` VARCHAR(255)  NOT NULL,
+	`place` VARCHAR(255)  NOT NULL,
 	`date` DATETIME,
+	`key` VARCHAR(255)  NOT NULL,
+	`event_type_id` INTEGER,
 	`created_at` DATETIME,
 	`admin_id` INTEGER  NOT NULL,
 	`active` TINYINT default 1,
 	PRIMARY KEY (`id`),
 	UNIQUE KEY `events_U_1` (`key`),
-	INDEX `events_FI_1` (`admin_id`),
+	INDEX `events_FI_1` (`event_type_id`),
 	CONSTRAINT `events_FK_1`
+		FOREIGN KEY (`event_type_id`)
+		REFERENCES `events_type` (`id`),
+	INDEX `events_FI_2` (`admin_id`),
+	CONSTRAINT `events_FK_2`
 		FOREIGN KEY (`admin_id`)
 		REFERENCES `sf_guard_user` (`id`)
 		ON DELETE CASCADE
@@ -103,8 +123,8 @@ CREATE TABLE `programs`
 (
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	`event_id` INTEGER,
-	`hora` DATETIME  NOT NULL,
-	`acto` VARCHAR(255)  NOT NULL,
+	`time` DATETIME  NOT NULL,
+	`act` VARCHAR(255)  NOT NULL,
 	PRIMARY KEY (`id`),
 	INDEX `programs_FI_1` (`event_id`),
 	CONSTRAINT `programs_FK_1`
@@ -122,12 +142,17 @@ DROP TABLE IF EXISTS `users_event`;
 CREATE TABLE `users_event`
 (
 	`user_id` INTEGER  NOT NULL,
-	`event_id` VARCHAR(255)  NOT NULL,
+	`event_id` INTEGER  NOT NULL,
 	`joined_at` DATETIME,
 	PRIMARY KEY (`user_id`,`event_id`),
 	CONSTRAINT `users_event_FK_1`
 		FOREIGN KEY (`user_id`)
 		REFERENCES `sf_guard_user` (`id`)
+		ON DELETE CASCADE,
+	INDEX `users_event_FI_2` (`event_id`),
+	CONSTRAINT `users_event_FK_2`
+		FOREIGN KEY (`event_id`)
+		REFERENCES `events` (`id`)
 		ON DELETE CASCADE
 )Type=InnoDB;
 

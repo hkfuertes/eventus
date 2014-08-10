@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Base class that represents a row from the 'users_event' table.
+ * Base class that represents a row from the 'events_type' table.
  *
  * 
  *
@@ -11,44 +11,38 @@
  *
  * @package    lib.model.om
  */
-abstract class BaseParticipation extends BaseObject  implements Persistent {
+abstract class BaseEventType extends BaseObject  implements Persistent {
 
 
 	/**
 	 * The Peer class.
 	 * Instance provides a convenient way of calling static methods on a class
 	 * that calling code may not be able to identify.
-	 * @var        ParticipationPeer
+	 * @var        EventTypePeer
 	 */
 	protected static $peer;
 
 	/**
-	 * The value for the user_id field.
+	 * The value for the id field.
 	 * @var        int
 	 */
-	protected $user_id;
+	protected $id;
 
 	/**
-	 * The value for the event_id field.
-	 * @var        int
-	 */
-	protected $event_id;
-
-	/**
-	 * The value for the joined_at field.
+	 * The value for the name field.
 	 * @var        string
 	 */
-	protected $joined_at;
+	protected $name;
 
 	/**
-	 * @var        sfGuardUser
+	 * @var        array Event[] Collection to store aggregation of Event objects.
 	 */
-	protected $asfGuardUser;
+	protected $collEvents;
 
 	/**
-	 * @var        Event
+	 * @var        Criteria The criteria used to select the current contents of collEvents.
 	 */
-	protected $aEvent;
+	private $lastEventCriteria = null;
 
 	/**
 	 * Flag to prevent endless save loop, if this object is referenced
@@ -66,162 +60,67 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 
 	// symfony behavior
 	
-	const PEER = 'ParticipationPeer';
+	const PEER = 'EventTypePeer';
 
 	/**
-	 * Get the [user_id] column value.
+	 * Get the [id] column value.
 	 * 
 	 * @return     int
 	 */
-	public function getUserId()
+	public function getId()
 	{
-		return $this->user_id;
+		return $this->id;
 	}
 
 	/**
-	 * Get the [event_id] column value.
+	 * Get the [name] column value.
 	 * 
-	 * @return     int
+	 * @return     string
 	 */
-	public function getEventId()
+	public function getName()
 	{
-		return $this->event_id;
+		return $this->name;
 	}
 
 	/**
-	 * Get the [optionally formatted] temporal [joined_at] column value.
-	 * 
-	 *
-	 * @param      string $format The date/time format string (either date()-style or strftime()-style).
-	 *							If format is NULL, then the raw DateTime object will be returned.
-	 * @return     mixed Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
-	 * @throws     PropelException - if unable to parse/validate the date/time value.
-	 */
-	public function getJoinedAt($format = 'Y-m-d H:i:s')
-	{
-		if ($this->joined_at === null) {
-			return null;
-		}
-
-
-		if ($this->joined_at === '0000-00-00 00:00:00') {
-			// while technically this is not a default value of NULL,
-			// this seems to be closest in meaning.
-			return null;
-		} else {
-			try {
-				$dt = new DateTime($this->joined_at);
-			} catch (Exception $x) {
-				throw new PropelException("Internally stored date/time/timestamp value could not be converted to DateTime: " . var_export($this->joined_at, true), $x);
-			}
-		}
-
-		if ($format === null) {
-			// Because propel.useDateTimeClass is TRUE, we return a DateTime object.
-			return $dt;
-		} elseif (strpos($format, '%') !== false) {
-			return strftime($format, $dt->format('U'));
-		} else {
-			return $dt->format($format);
-		}
-	}
-
-	/**
-	 * Set the value of [user_id] column.
+	 * Set the value of [id] column.
 	 * 
 	 * @param      int $v new value
-	 * @return     Participation The current object (for fluent API support)
+	 * @return     EventType The current object (for fluent API support)
 	 */
-	public function setUserId($v)
+	public function setId($v)
 	{
 		if ($v !== null) {
 			$v = (int) $v;
 		}
 
-		if ($this->user_id !== $v) {
-			$this->user_id = $v;
-			$this->modifiedColumns[] = ParticipationPeer::USER_ID;
-		}
-
-		if ($this->asfGuardUser !== null && $this->asfGuardUser->getId() !== $v) {
-			$this->asfGuardUser = null;
+		if ($this->id !== $v) {
+			$this->id = $v;
+			$this->modifiedColumns[] = EventTypePeer::ID;
 		}
 
 		return $this;
-	} // setUserId()
+	} // setId()
 
 	/**
-	 * Set the value of [event_id] column.
+	 * Set the value of [name] column.
 	 * 
-	 * @param      int $v new value
-	 * @return     Participation The current object (for fluent API support)
+	 * @param      string $v new value
+	 * @return     EventType The current object (for fluent API support)
 	 */
-	public function setEventId($v)
+	public function setName($v)
 	{
 		if ($v !== null) {
-			$v = (int) $v;
+			$v = (string) $v;
 		}
 
-		if ($this->event_id !== $v) {
-			$this->event_id = $v;
-			$this->modifiedColumns[] = ParticipationPeer::EVENT_ID;
-		}
-
-		if ($this->aEvent !== null && $this->aEvent->getId() !== $v) {
-			$this->aEvent = null;
+		if ($this->name !== $v) {
+			$this->name = $v;
+			$this->modifiedColumns[] = EventTypePeer::NAME;
 		}
 
 		return $this;
-	} // setEventId()
-
-	/**
-	 * Sets the value of [joined_at] column to a normalized version of the date/time value specified.
-	 * 
-	 * @param      mixed $v string, integer (timestamp), or DateTime value.  Empty string will
-	 *						be treated as NULL for temporal objects.
-	 * @return     Participation The current object (for fluent API support)
-	 */
-	public function setJoinedAt($v)
-	{
-		// we treat '' as NULL for temporal objects because DateTime('') == DateTime('now')
-		// -- which is unexpected, to say the least.
-		if ($v === null || $v === '') {
-			$dt = null;
-		} elseif ($v instanceof DateTime) {
-			$dt = $v;
-		} else {
-			// some string/numeric value passed; we normalize that so that we can
-			// validate it.
-			try {
-				if (is_numeric($v)) { // if it's a unix timestamp
-					$dt = new DateTime('@'.$v, new DateTimeZone('UTC'));
-					// We have to explicitly specify and then change the time zone because of a
-					// DateTime bug: http://bugs.php.net/bug.php?id=43003
-					$dt->setTimeZone(new DateTimeZone(date_default_timezone_get()));
-				} else {
-					$dt = new DateTime($v);
-				}
-			} catch (Exception $x) {
-				throw new PropelException('Error parsing date/time value: ' . var_export($v, true), $x);
-			}
-		}
-
-		if ( $this->joined_at !== null || $dt !== null ) {
-			// (nested ifs are a little easier to read in this case)
-
-			$currNorm = ($this->joined_at !== null && $tmpDt = new DateTime($this->joined_at)) ? $tmpDt->format('Y-m-d H:i:s') : null;
-			$newNorm = ($dt !== null) ? $dt->format('Y-m-d H:i:s') : null;
-
-			if ( ($currNorm !== $newNorm) // normalized values don't match 
-					)
-			{
-				$this->joined_at = ($dt ? $dt->format('Y-m-d H:i:s') : null);
-				$this->modifiedColumns[] = ParticipationPeer::JOINED_AT;
-			}
-		} // if either are not null
-
-		return $this;
-	} // setJoinedAt()
+	} // setName()
 
 	/**
 	 * Indicates whether the columns in this object are only set to default values.
@@ -255,9 +154,8 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	{
 		try {
 
-			$this->user_id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
-			$this->event_id = ($row[$startcol + 1] !== null) ? (int) $row[$startcol + 1] : null;
-			$this->joined_at = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
+			$this->id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
+			$this->name = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
@@ -267,10 +165,10 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 			}
 
 			// FIXME - using NUM_COLUMNS may be clearer.
-			return $startcol + 3; // 3 = ParticipationPeer::NUM_COLUMNS - ParticipationPeer::NUM_LAZY_LOAD_COLUMNS).
+			return $startcol + 2; // 2 = EventTypePeer::NUM_COLUMNS - EventTypePeer::NUM_LAZY_LOAD_COLUMNS).
 
 		} catch (Exception $e) {
-			throw new PropelException("Error populating Participation object", $e);
+			throw new PropelException("Error populating EventType object", $e);
 		}
 	}
 
@@ -290,12 +188,6 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	public function ensureConsistency()
 	{
 
-		if ($this->asfGuardUser !== null && $this->user_id !== $this->asfGuardUser->getId()) {
-			$this->asfGuardUser = null;
-		}
-		if ($this->aEvent !== null && $this->event_id !== $this->aEvent->getId()) {
-			$this->aEvent = null;
-		}
 	} // ensureConsistency
 
 	/**
@@ -319,13 +211,13 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(ParticipationPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+			$con = Propel::getConnection(EventTypePeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
 		// We don't need to alter the object instance pool; we're just modifying this instance
 		// already in the pool.
 
-		$stmt = ParticipationPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
+		$stmt = EventTypePeer::doSelectStmt($this->buildPkeyCriteria(), $con);
 		$row = $stmt->fetch(PDO::FETCH_NUM);
 		$stmt->closeCursor();
 		if (!$row) {
@@ -335,8 +227,9 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 
 		if ($deep) {  // also de-associate any related objects?
 
-			$this->asfGuardUser = null;
-			$this->aEvent = null;
+			$this->collEvents = null;
+			$this->lastEventCriteria = null;
+
 		} // if (deep)
 	}
 
@@ -356,14 +249,14 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(ParticipationPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(EventTypePeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 		
 		$con->beginTransaction();
 		try {
 			$ret = $this->preDelete($con);
 			// symfony_behaviors behavior
-			foreach (sfMixer::getCallables('BaseParticipation:delete:pre') as $callable)
+			foreach (sfMixer::getCallables('BaseEventType:delete:pre') as $callable)
 			{
 			  if (call_user_func($callable, $this, $con))
 			  {
@@ -374,10 +267,10 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 			}
 
 			if ($ret) {
-				ParticipationPeer::doDelete($this, $con);
+				EventTypePeer::doDelete($this, $con);
 				$this->postDelete($con);
 				// symfony_behaviors behavior
-				foreach (sfMixer::getCallables('BaseParticipation:delete:post') as $callable)
+				foreach (sfMixer::getCallables('BaseEventType:delete:post') as $callable)
 				{
 				  call_user_func($callable, $this, $con);
 				}
@@ -413,7 +306,7 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(ParticipationPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(EventTypePeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 		
 		$con->beginTransaction();
@@ -421,7 +314,7 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 		try {
 			$ret = $this->preSave($con);
 			// symfony_behaviors behavior
-			foreach (sfMixer::getCallables('BaseParticipation:save:pre') as $callable)
+			foreach (sfMixer::getCallables('BaseEventType:save:pre') as $callable)
 			{
 			  if (is_integer($affectedRows = call_user_func($callable, $this, $con)))
 			  {
@@ -445,12 +338,12 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 				}
 				$this->postSave($con);
 				// symfony_behaviors behavior
-				foreach (sfMixer::getCallables('BaseParticipation:save:post') as $callable)
+				foreach (sfMixer::getCallables('BaseEventType:save:post') as $callable)
 				{
 				  call_user_func($callable, $this, $con, $affectedRows);
 				}
 
-				ParticipationPeer::addInstanceToPool($this);
+				EventTypePeer::addInstanceToPool($this);
 			} else {
 				$affectedRows = 0;
 			}
@@ -479,40 +372,34 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 		if (!$this->alreadyInSave) {
 			$this->alreadyInSave = true;
 
-			// We call the save method on the following object(s) if they
-			// were passed to this object by their coresponding set
-			// method.  This object relates to these object(s) by a
-			// foreign key reference.
-
-			if ($this->asfGuardUser !== null) {
-				if ($this->asfGuardUser->isModified() || $this->asfGuardUser->isNew()) {
-					$affectedRows += $this->asfGuardUser->save($con);
-				}
-				$this->setsfGuardUser($this->asfGuardUser);
+			if ($this->isNew() ) {
+				$this->modifiedColumns[] = EventTypePeer::ID;
 			}
-
-			if ($this->aEvent !== null) {
-				if ($this->aEvent->isModified() || $this->aEvent->isNew()) {
-					$affectedRows += $this->aEvent->save($con);
-				}
-				$this->setEvent($this->aEvent);
-			}
-
 
 			// If this object has been modified, then save it to the database.
 			if ($this->isModified()) {
 				if ($this->isNew()) {
-					$pk = ParticipationPeer::doInsert($this, $con);
+					$pk = EventTypePeer::doInsert($this, $con);
 					$affectedRows += 1; // we are assuming that there is only 1 row per doInsert() which
 										 // should always be true here (even though technically
 										 // BasePeer::doInsert() can insert multiple rows).
 
+					$this->setId($pk);  //[IMV] update autoincrement primary key
+
 					$this->setNew(false);
 				} else {
-					$affectedRows += ParticipationPeer::doUpdate($this, $con);
+					$affectedRows += EventTypePeer::doUpdate($this, $con);
 				}
 
 				$this->resetModified(); // [HL] After being saved an object is no longer 'modified'
+			}
+
+			if ($this->collEvents !== null) {
+				foreach ($this->collEvents as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
 			}
 
 			$this->alreadyInSave = false;
@@ -581,28 +468,18 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 			$failureMap = array();
 
 
-			// We call the validate method on the following object(s) if they
-			// were passed to this object by their coresponding set
-			// method.  This object relates to these object(s) by a
-			// foreign key reference.
-
-			if ($this->asfGuardUser !== null) {
-				if (!$this->asfGuardUser->validate($columns)) {
-					$failureMap = array_merge($failureMap, $this->asfGuardUser->getValidationFailures());
-				}
-			}
-
-			if ($this->aEvent !== null) {
-				if (!$this->aEvent->validate($columns)) {
-					$failureMap = array_merge($failureMap, $this->aEvent->getValidationFailures());
-				}
-			}
-
-
-			if (($retval = ParticipationPeer::doValidate($this, $columns)) !== true) {
+			if (($retval = EventTypePeer::doValidate($this, $columns)) !== true) {
 				$failureMap = array_merge($failureMap, $retval);
 			}
 
+
+				if ($this->collEvents !== null) {
+					foreach ($this->collEvents as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
 
 
 			$this->alreadyInValidation = false;
@@ -622,7 +499,7 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 */
 	public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = ParticipationPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = EventTypePeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		$field = $this->getByPosition($pos);
 		return $field;
 	}
@@ -638,13 +515,10 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	{
 		switch($pos) {
 			case 0:
-				return $this->getUserId();
+				return $this->getId();
 				break;
 			case 1:
-				return $this->getEventId();
-				break;
-			case 2:
-				return $this->getJoinedAt();
+				return $this->getName();
 				break;
 			default:
 				return null;
@@ -665,11 +539,10 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 */
 	public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true)
 	{
-		$keys = ParticipationPeer::getFieldNames($keyType);
+		$keys = EventTypePeer::getFieldNames($keyType);
 		$result = array(
-			$keys[0] => $this->getUserId(),
-			$keys[1] => $this->getEventId(),
-			$keys[2] => $this->getJoinedAt(),
+			$keys[0] => $this->getId(),
+			$keys[1] => $this->getName(),
 		);
 		return $result;
 	}
@@ -686,7 +559,7 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 */
 	public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = ParticipationPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = EventTypePeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		return $this->setByPosition($pos, $value);
 	}
 
@@ -702,13 +575,10 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	{
 		switch($pos) {
 			case 0:
-				$this->setUserId($value);
+				$this->setId($value);
 				break;
 			case 1:
-				$this->setEventId($value);
-				break;
-			case 2:
-				$this->setJoinedAt($value);
+				$this->setName($value);
 				break;
 		} // switch()
 	}
@@ -732,11 +602,10 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 */
 	public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
 	{
-		$keys = ParticipationPeer::getFieldNames($keyType);
+		$keys = EventTypePeer::getFieldNames($keyType);
 
-		if (array_key_exists($keys[0], $arr)) $this->setUserId($arr[$keys[0]]);
-		if (array_key_exists($keys[1], $arr)) $this->setEventId($arr[$keys[1]]);
-		if (array_key_exists($keys[2], $arr)) $this->setJoinedAt($arr[$keys[2]]);
+		if (array_key_exists($keys[0], $arr)) $this->setId($arr[$keys[0]]);
+		if (array_key_exists($keys[1], $arr)) $this->setName($arr[$keys[1]]);
 	}
 
 	/**
@@ -746,11 +615,10 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 */
 	public function buildCriteria()
 	{
-		$criteria = new Criteria(ParticipationPeer::DATABASE_NAME);
+		$criteria = new Criteria(EventTypePeer::DATABASE_NAME);
 
-		if ($this->isColumnModified(ParticipationPeer::USER_ID)) $criteria->add(ParticipationPeer::USER_ID, $this->user_id);
-		if ($this->isColumnModified(ParticipationPeer::EVENT_ID)) $criteria->add(ParticipationPeer::EVENT_ID, $this->event_id);
-		if ($this->isColumnModified(ParticipationPeer::JOINED_AT)) $criteria->add(ParticipationPeer::JOINED_AT, $this->joined_at);
+		if ($this->isColumnModified(EventTypePeer::ID)) $criteria->add(EventTypePeer::ID, $this->id);
+		if ($this->isColumnModified(EventTypePeer::NAME)) $criteria->add(EventTypePeer::NAME, $this->name);
 
 		return $criteria;
 	}
@@ -765,43 +633,31 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 */
 	public function buildPkeyCriteria()
 	{
-		$criteria = new Criteria(ParticipationPeer::DATABASE_NAME);
+		$criteria = new Criteria(EventTypePeer::DATABASE_NAME);
 
-		$criteria->add(ParticipationPeer::USER_ID, $this->user_id);
-		$criteria->add(ParticipationPeer::EVENT_ID, $this->event_id);
+		$criteria->add(EventTypePeer::ID, $this->id);
 
 		return $criteria;
 	}
 
 	/**
-	 * Returns the composite primary key for this object.
-	 * The array elements will be in same order as specified in XML.
-	 * @return     array
+	 * Returns the primary key for this object (row).
+	 * @return     int
 	 */
 	public function getPrimaryKey()
 	{
-		$pks = array();
-
-		$pks[0] = $this->getUserId();
-
-		$pks[1] = $this->getEventId();
-
-		return $pks;
+		return $this->getId();
 	}
 
 	/**
-	 * Set the [composite] primary key.
+	 * Generic method to set the primary key (id column).
 	 *
-	 * @param      array $keys The elements of the composite key (order must match the order in XML file).
+	 * @param      int $key Primary key.
 	 * @return     void
 	 */
-	public function setPrimaryKey($keys)
+	public function setPrimaryKey($key)
 	{
-
-		$this->setUserId($keys[0]);
-
-		$this->setEventId($keys[1]);
-
+		$this->setId($key);
 	}
 
 	/**
@@ -810,21 +666,33 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 * If desired, this method can also make copies of all associated (fkey referrers)
 	 * objects.
 	 *
-	 * @param      object $copyObj An object of Participation (or compatible) type.
+	 * @param      object $copyObj An object of EventType (or compatible) type.
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
 	 * @throws     PropelException
 	 */
 	public function copyInto($copyObj, $deepCopy = false)
 	{
 
-		$copyObj->setUserId($this->user_id);
+		$copyObj->setName($this->name);
 
-		$copyObj->setEventId($this->event_id);
 
-		$copyObj->setJoinedAt($this->joined_at);
+		if ($deepCopy) {
+			// important: temporarily setNew(false) because this affects the behavior of
+			// the getter/setter methods for fkey referrer objects.
+			$copyObj->setNew(false);
+
+			foreach ($this->getEvents() as $relObj) {
+				if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+					$copyObj->addEvent($relObj->copy($deepCopy));
+				}
+			}
+
+		} // if ($deepCopy)
 
 
 		$copyObj->setNew(true);
+
+		$copyObj->setId(NULL); // this is a auto-increment column, so set to default value
 
 	}
 
@@ -837,7 +705,7 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 * objects.
 	 *
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-	 * @return     Participation Clone of current object.
+	 * @return     EventType Clone of current object.
 	 * @throws     PropelException
 	 */
 	public function copy($deepCopy = false)
@@ -856,112 +724,215 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 * same instance for all member of this class. The method could therefore
 	 * be static, but this would prevent one from overriding the behavior.
 	 *
-	 * @return     ParticipationPeer
+	 * @return     EventTypePeer
 	 */
 	public function getPeer()
 	{
 		if (self::$peer === null) {
-			self::$peer = new ParticipationPeer();
+			self::$peer = new EventTypePeer();
 		}
 		return self::$peer;
 	}
 
 	/**
-	 * Declares an association between this object and a sfGuardUser object.
+	 * Clears out the collEvents collection (array).
 	 *
-	 * @param      sfGuardUser $v
-	 * @return     Participation The current object (for fluent API support)
+	 * This does not modify the database; however, it will remove any associated objects, causing
+	 * them to be refetched by subsequent calls to accessor method.
+	 *
+	 * @return     void
+	 * @see        addEvents()
+	 */
+	public function clearEvents()
+	{
+		$this->collEvents = null; // important to set this to NULL since that means it is uninitialized
+	}
+
+	/**
+	 * Initializes the collEvents collection (array).
+	 *
+	 * By default this just sets the collEvents collection to an empty array (like clearcollEvents());
+	 * however, you may wish to override this method in your stub class to provide setting appropriate
+	 * to your application -- for example, setting the initial array to the values stored in database.
+	 *
+	 * @return     void
+	 */
+	public function initEvents()
+	{
+		$this->collEvents = array();
+	}
+
+	/**
+	 * Gets an array of Event objects which contain a foreign key that references this object.
+	 *
+	 * If this collection has already been initialized with an identical Criteria, it returns the collection.
+	 * Otherwise if this EventType has previously been saved, it will retrieve
+	 * related Events from storage. If this EventType is new, it will return
+	 * an empty collection or the current collection, the criteria is ignored on a new object.
+	 *
+	 * @param      PropelPDO $con
+	 * @param      Criteria $criteria
+	 * @return     array Event[]
 	 * @throws     PropelException
 	 */
-	public function setsfGuardUser(sfGuardUser $v = null)
+	public function getEvents($criteria = null, PropelPDO $con = null)
 	{
-		if ($v === null) {
-			$this->setUserId(NULL);
+		if ($criteria === null) {
+			$criteria = new Criteria(EventTypePeer::DATABASE_NAME);
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collEvents === null) {
+			if ($this->isNew()) {
+			   $this->collEvents = array();
+			} else {
+
+				$criteria->add(EventPeer::EVENT_TYPE_ID, $this->id);
+
+				EventPeer::addSelectColumns($criteria);
+				$this->collEvents = EventPeer::doSelect($criteria, $con);
+			}
 		} else {
-			$this->setUserId($v->getId());
+			// criteria has no effect for a new object
+			if (!$this->isNew()) {
+				// the following code is to determine if a new query is
+				// called for.  If the criteria is the same as the last
+				// one, just return the collection.
+
+
+				$criteria->add(EventPeer::EVENT_TYPE_ID, $this->id);
+
+				EventPeer::addSelectColumns($criteria);
+				if (!isset($this->lastEventCriteria) || !$this->lastEventCriteria->equals($criteria)) {
+					$this->collEvents = EventPeer::doSelect($criteria, $con);
+				}
+			}
 		}
-
-		$this->asfGuardUser = $v;
-
-		// Add binding for other direction of this n:n relationship.
-		// If this object has already been added to the sfGuardUser object, it will not be re-added.
-		if ($v !== null) {
-			$v->addParticipation($this);
-		}
-
-		return $this;
-	}
-
-
-	/**
-	 * Get the associated sfGuardUser object
-	 *
-	 * @param      PropelPDO Optional Connection object.
-	 * @return     sfGuardUser The associated sfGuardUser object.
-	 * @throws     PropelException
-	 */
-	public function getsfGuardUser(PropelPDO $con = null)
-	{
-		if ($this->asfGuardUser === null && ($this->user_id !== null)) {
-			$this->asfGuardUser = sfGuardUserPeer::retrieveByPk($this->user_id);
-			/* The following can be used additionally to
-			   guarantee the related object contains a reference
-			   to this object.  This level of coupling may, however, be
-			   undesirable since it could result in an only partially populated collection
-			   in the referenced object.
-			   $this->asfGuardUser->addParticipations($this);
-			 */
-		}
-		return $this->asfGuardUser;
+		$this->lastEventCriteria = $criteria;
+		return $this->collEvents;
 	}
 
 	/**
-	 * Declares an association between this object and a Event object.
+	 * Returns the number of related Event objects.
 	 *
-	 * @param      Event $v
-	 * @return     Participation The current object (for fluent API support)
+	 * @param      Criteria $criteria
+	 * @param      boolean $distinct
+	 * @param      PropelPDO $con
+	 * @return     int Count of related Event objects.
 	 * @throws     PropelException
 	 */
-	public function setEvent(Event $v = null)
+	public function countEvents(Criteria $criteria = null, $distinct = false, PropelPDO $con = null)
 	{
-		if ($v === null) {
-			$this->setEventId(NULL);
+		if ($criteria === null) {
+			$criteria = new Criteria(EventTypePeer::DATABASE_NAME);
 		} else {
-			$this->setEventId($v->getId());
+			$criteria = clone $criteria;
 		}
 
-		$this->aEvent = $v;
-
-		// Add binding for other direction of this n:n relationship.
-		// If this object has already been added to the Event object, it will not be re-added.
-		if ($v !== null) {
-			$v->addParticipation($this);
+		if ($distinct) {
+			$criteria->setDistinct();
 		}
 
-		return $this;
+		$count = null;
+
+		if ($this->collEvents === null) {
+			if ($this->isNew()) {
+				$count = 0;
+			} else {
+
+				$criteria->add(EventPeer::EVENT_TYPE_ID, $this->id);
+
+				$count = EventPeer::doCount($criteria, false, $con);
+			}
+		} else {
+			// criteria has no effect for a new object
+			if (!$this->isNew()) {
+				// the following code is to determine if a new query is
+				// called for.  If the criteria is the same as the last
+				// one, just return count of the collection.
+
+
+				$criteria->add(EventPeer::EVENT_TYPE_ID, $this->id);
+
+				if (!isset($this->lastEventCriteria) || !$this->lastEventCriteria->equals($criteria)) {
+					$count = EventPeer::doCount($criteria, false, $con);
+				} else {
+					$count = count($this->collEvents);
+				}
+			} else {
+				$count = count($this->collEvents);
+			}
+		}
+		return $count;
+	}
+
+	/**
+	 * Method called to associate a Event object to this object
+	 * through the Event foreign key attribute.
+	 *
+	 * @param      Event $l Event
+	 * @return     void
+	 * @throws     PropelException
+	 */
+	public function addEvent(Event $l)
+	{
+		if ($this->collEvents === null) {
+			$this->initEvents();
+		}
+		if (!in_array($l, $this->collEvents, true)) { // only add it if the **same** object is not already associated
+			array_push($this->collEvents, $l);
+			$l->setEventType($this);
+		}
 	}
 
 
 	/**
-	 * Get the associated Event object
+	 * If this collection has already been initialized with
+	 * an identical criteria, it returns the collection.
+	 * Otherwise if this EventType is new, it will return
+	 * an empty collection; or if this EventType has previously
+	 * been saved, it will retrieve related Events from storage.
 	 *
-	 * @param      PropelPDO Optional Connection object.
-	 * @return     Event The associated Event object.
-	 * @throws     PropelException
+	 * This method is protected by default in order to keep the public
+	 * api reasonable.  You can provide public methods for those you
+	 * actually need in EventType.
 	 */
-	public function getEvent(PropelPDO $con = null)
+	public function getEventsJoinsfGuardUser($criteria = null, $con = null, $join_behavior = Criteria::LEFT_JOIN)
 	{
-		if ($this->aEvent === null && ($this->event_id !== null)) {
-			$this->aEvent = EventPeer::retrieveByPk($this->event_id);
-			/* The following can be used additionally to
-			   guarantee the related object contains a reference
-			   to this object.  This level of coupling may, however, be
-			   undesirable since it could result in an only partially populated collection
-			   in the referenced object.
-			   $this->aEvent->addParticipations($this);
-			 */
+		if ($criteria === null) {
+			$criteria = new Criteria(EventTypePeer::DATABASE_NAME);
 		}
-		return $this->aEvent;
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collEvents === null) {
+			if ($this->isNew()) {
+				$this->collEvents = array();
+			} else {
+
+				$criteria->add(EventPeer::EVENT_TYPE_ID, $this->id);
+
+				$this->collEvents = EventPeer::doSelectJoinsfGuardUser($criteria, $con, $join_behavior);
+			}
+		} else {
+			// the following code is to determine if a new query is
+			// called for.  If the criteria is the same as the last
+			// one, just return the collection.
+
+			$criteria->add(EventPeer::EVENT_TYPE_ID, $this->id);
+
+			if (!isset($this->lastEventCriteria) || !$this->lastEventCriteria->equals($criteria)) {
+				$this->collEvents = EventPeer::doSelectJoinsfGuardUser($criteria, $con, $join_behavior);
+			}
+		}
+		$this->lastEventCriteria = $criteria;
+
+		return $this->collEvents;
 	}
 
 	/**
@@ -976,10 +947,14 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	public function clearAllReferences($deep = false)
 	{
 		if ($deep) {
+			if ($this->collEvents) {
+				foreach ((array) $this->collEvents as $o) {
+					$o->clearAllReferences($deep);
+				}
+			}
 		} // if ($deep)
 
-			$this->asfGuardUser = null;
-			$this->aEvent = null;
+		$this->collEvents = null;
 	}
 
 	// symfony_behaviors behavior
@@ -989,9 +964,9 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	 */
 	public function __call($method, $arguments)
 	{
-	  if (!$callable = sfMixer::getCallable('BaseParticipation:'.$method))
+	  if (!$callable = sfMixer::getCallable('BaseEventType:'.$method))
 	  {
-	    throw new sfException(sprintf('Call to undefined method BaseParticipation::%s', $method));
+	    throw new sfException(sprintf('Call to undefined method BaseEventType::%s', $method));
 	  }
 	
 	  array_unshift($arguments, $this);
@@ -999,4 +974,4 @@ abstract class BaseParticipation extends BaseObject  implements Persistent {
 	  return call_user_func_array($callable, $arguments);
 	}
 
-} // BaseParticipation
+} // BaseEventType

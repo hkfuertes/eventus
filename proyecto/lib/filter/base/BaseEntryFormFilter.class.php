@@ -13,14 +13,14 @@ abstract class BaseEntryFormFilter extends BaseFormFilterPropel
   {
     $this->setWidgets(array(
       'event_id' => new sfWidgetFormPropelChoice(array('model' => 'Event', 'add_empty' => true)),
-      'hora'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'acto'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'time'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'act'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
       'event_id' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Event', 'column' => 'id')),
-      'hora'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'acto'     => new sfValidatorPass(array('required' => false)),
+      'time'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'act'      => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('entry_filters[%s]');
@@ -40,8 +40,8 @@ abstract class BaseEntryFormFilter extends BaseFormFilterPropel
     return array(
       'id'       => 'Number',
       'event_id' => 'ForeignKey',
-      'hora'     => 'Date',
-      'acto'     => 'Text',
+      'time'     => 'Date',
+      'act'      => 'Text',
     );
   }
 }

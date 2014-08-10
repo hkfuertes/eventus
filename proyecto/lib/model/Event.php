@@ -28,5 +28,27 @@ class Event extends BaseEvent {
 		// is where any default values for this object are set.
 		parent::__construct();
 	}
+        
+        private function getAdmin(){
+            return sfGuardUserPeer::retrieveByPK($this->getAdminId());
+        }
+        
+        public static function exposeEventList($list){
+            $retval = array();
+            foreach ($list as $event){
+                $retval[] = $event->expose();
+            }
+            return $retval;
+        }
+        
+        public function expose() {
+        //return get_object_vars($this);
+        return array(
+            'name'=> $this->getName(),
+            'place'=>$this->getPlace(),
+            'date'=>$this->getDate('d-m-Y'),
+            'type'=>$this->getEventType()->getName(),
+            'admin'=> $this->getAdmin()->getUsername());
+    }
 
 } // Event

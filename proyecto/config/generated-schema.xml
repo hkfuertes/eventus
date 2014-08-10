@@ -36,14 +36,24 @@
     <column name="active" type="boolean" default="1" />
   </table>
 
+  <table name="events_type" phpName="EventType">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" required="true" size="255" />
+  </table>
+
   <table name="events" phpName="Event">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" required="true" size="255" />
+    <column name="place" type="varchar" required="true" size="255" />
+    <column name="date" type="timestamp" />
     <column name="key" type="varchar" required="true" size="255" />
     <unique>
       <unique-column name="key" />
     </unique>
-    <column name="date" type="timestamp" />
+    <column name="event_type_id" type="integer" />
+    <foreign-key foreignTable="events_type">
+      <reference local="event_type_id" foreign="id" />
+    </foreign-key>
     <column name="created_at" type="timestamp" />
     <column name="admin_id" type="integer" required="true" />
     <foreign-key foreignTable="sf_guard_user" onDelete="cascade">
@@ -58,8 +68,8 @@
     <foreign-key foreignTable="events">
       <reference local="event_id" foreign="id" />
     </foreign-key>
-    <column name="hora" type="timestamp" required="true" />
-    <column name="acto" type="varchar" required="true" size="255" />
+    <column name="time" type="timestamp" required="true" />
+    <column name="act" type="varchar" required="true" size="255" />
   </table>
 
   <table name="users_event" phpName="Participation">
@@ -67,7 +77,10 @@
     <foreign-key foreignTable="sf_guard_user" onDelete="cascade">
       <reference local="user_id" foreign="id" />
     </foreign-key>
-    <column name="event_id" primaryKey="true" />
+    <column name="event_id" type="integer" required="true" primaryKey="true" />
+    <foreign-key foreignTable="events" onDelete="cascade">
+      <reference local="event_id" foreign="id" />
+    </foreign-key>
     <column name="joined_at" type="timestamp" />
   </table>
 

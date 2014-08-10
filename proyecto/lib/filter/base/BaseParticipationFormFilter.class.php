@@ -35,7 +35,7 @@ abstract class BaseParticipationFormFilter extends BaseFormFilterPropel
   {
     return array(
       'user_id'   => 'ForeignKey',
-      'event_id'  => 'Text',
+      'event_id'  => 'ForeignKey',
       'joined_at' => 'Date',
     );
   }

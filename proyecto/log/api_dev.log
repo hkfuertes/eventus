@@ -1286,3 +1286,665 @@ Aug 07 17:45:32 symfony [info] {sfWebDebugLogger} Factories 27.67 ms (1)
 Aug 07 17:45:32 symfony [info] {sfWebDebugLogger} Action "users/createUser" 51.08 ms (1)
 Aug 07 17:45:32 symfony [info] {sfWebDebugLogger} View "None" for "users/createUser" 0.01 ms (1)
 Aug 07 17:45:32 symfony [info] {sfWebResponse} Send content (26589 o)
+Aug 09 11:45:21 symfony [info] {sfPatternRouting} Match route "create_user" (/:app_token/user/create) for /NsBHwgaksWYKnYHFB3AS2DSk/user/create with parameters array (  'module' => 'users',  'action' => 'createUser',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',)
+Aug 09 11:45:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 11:45:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 11:45:21 symfony [info] {usersActions} Call "usersActions->executeCreateUser()"
+Aug 09 11:45:21 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 11:45:21 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 11:45:21 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 11:45:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 11:45:21 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 11:45:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 11:45:21 symfony [info] {sfWebDebugLogger} Configuration 1.36 ms (8)
+Aug 09 11:45:21 symfony [info] {sfWebDebugLogger} Factories 47.96 ms (1)
+Aug 09 11:45:21 symfony [info] {sfWebDebugLogger} Action "users/createUser" 47.05 ms (1)
+Aug 09 11:45:21 symfony [info] {sfWebDebugLogger} View "None" for "users/createUser" 0.01 ms (1)
+Aug 09 11:45:21 symfony [info] {sfWebResponse} Send content (20933 o)
+Aug 09 12:21:05 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:21:05 symfony [info] {myUser} Automatic user logout due to timeout
+Aug 09 12:21:05 symfony [info] {myUser} User is not authenticated
+Aug 09 12:21:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:21:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:21:05 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:21:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:21:05 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:21:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:21:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:21:06 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY IS NULL  AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:21:06 symfony [err] {sfWebDebugLogger}  Error at /Applications/MAMP/htdocs/eventus/proyecto/lib/model/Participation.php on line 20 (Argument 2 passed to Participation::checkJoined() must be an instance of Event, null given, called in /Applications/MAMP/htdocs/eventus/proyecto/apps/api/modules/events/actions/actions.class.php on line 53 and defined)
+Aug 09 12:22:01 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:22:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:22:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:22:01 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:22:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:22:01 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:22:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:22:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:22:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:23:30 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:23:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:23:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:23:30 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:23:30 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:23:30 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:23:30 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:23:30 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:23:30 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:23:30 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:23:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:23:30 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:23:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:23:30 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Aug 09 12:23:30 symfony [info] {sfWebDebugLogger} Factories 26.74 ms (1)
+Aug 09 12:23:30 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 68.69 ms (1)
+Aug 09 12:23:30 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 12:23:30 symfony [info] {sfWebResponse} Send content (25389 o)
+Aug 09 12:24:25 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:24:25 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:24:25 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:24:25 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:24:25 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:24:25 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:24:25 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:24:25 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:24:25 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:24:25 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:24:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:24:25 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:24:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:24:25 symfony [info] {sfWebDebugLogger} Configuration 0.94 ms (8)
+Aug 09 12:24:25 symfony [info] {sfWebDebugLogger} Factories 26.93 ms (1)
+Aug 09 12:24:25 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 65.94 ms (1)
+Aug 09 12:24:25 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 12:24:25 symfony [info] {sfWebResponse} Send content (25768 o)
+Aug 09 12:27:24 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:27:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:27:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:27:24 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:27:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:27:24 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:27:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:27:24 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:27:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:27:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:27:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 12:27:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:27:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:27:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:27:24 symfony [info] {sfWebDebugLogger} Configuration 0.90 ms (8)
+Aug 09 12:27:24 symfony [info] {sfWebDebugLogger} Factories 27.68 ms (1)
+Aug 09 12:27:24 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 77.47 ms (1)
+Aug 09 12:27:24 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 12:27:25 symfony [info] {sfWebResponse} Send content (26529 o)
+Aug 09 12:27:38 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:27:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:27:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:27:38 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:27:38 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:27:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:27:39 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:27:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:27:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:27:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:27:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 12:27:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:27:39 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:27:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:27:39 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Aug 09 12:27:39 symfony [info] {sfWebDebugLogger} Factories 27.37 ms (1)
+Aug 09 12:27:39 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 64.91 ms (1)
+Aug 09 12:27:39 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 12:27:39 symfony [info] {sfWebResponse} Send content (26527 o)
+Aug 09 12:27:51 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:27:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:27:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:27:51 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:27:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:27:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:27:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:27:51 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:27:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:27:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:27:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 12:27:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:27:51 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:27:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:27:51 symfony [info] {sfWebDebugLogger} Configuration 0.93 ms (8)
+Aug 09 12:27:51 symfony [info] {sfWebDebugLogger} Factories 27.03 ms (1)
+Aug 09 12:27:51 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 65.91 ms (1)
+Aug 09 12:27:51 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 12:27:52 symfony [info] {sfWebResponse} Send content (26515 o)
+Aug 09 12:28:11 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:28:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:28:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:28:11 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:28:11 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:28:11 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:28:11 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:28:11 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:28:11 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:28:11 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:28:11 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 12:28:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:28:11 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:28:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:28:11 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Aug 09 12:28:11 symfony [info] {sfWebDebugLogger} Factories 27.45 ms (1)
+Aug 09 12:28:11 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 64.29 ms (1)
+Aug 09 12:28:11 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 12:28:11 symfony [info] {sfWebResponse} Send content (26519 o)
+Aug 09 12:28:39 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:28:39 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:28:39 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:28:39 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:28:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:28:39 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:28:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:28:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:28:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:28:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:28:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 12:28:40 symfony [err] {sfException} Call to undefined method BaseEvent::getAdmin
+Aug 09 12:28:40 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Aug 09 12:28:40 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:28:40 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:28:40 symfony [info] {sfWebDebugLogger} Configuration 0.95 ms (8)
+Aug 09 12:28:40 symfony [info] {sfWebDebugLogger} Factories 26.44 ms (1)
+Aug 09 12:28:40 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 110.29 ms (1)
+Aug 09 12:30:01 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:30:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:30:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:30:01 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:30:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:30:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:30:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:30:01 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:30:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:30:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:30:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 12:30:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.8 MB | mempeak:    7.8 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 09 12:30:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:30:01 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:30:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:30:01 symfony [info] {sfWebDebugLogger} Configuration 1.01 ms (8)
+Aug 09 12:30:01 symfony [info] {sfWebDebugLogger} Factories 36.16 ms (1)
+Aug 09 12:30:01 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 68.57 ms (1)
+Aug 09 12:30:01 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 12:30:01 symfony [info] {sfWebResponse} Send content (28019 o)
+Aug 09 12:47:24 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 12:47:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:47:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:47:24 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 12:47:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:47:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:47:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:47:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:47:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 12:47:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.8 MB | mempeak:    7.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 12:47:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.8 MB | mempeak:    7.8 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 12:47:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    8.3 MB | mempeak:    8.3 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 09 12:47:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:47:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:47:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:47:24 symfony [info] {sfWebDebugLogger} Configuration 52.40 ms (9)
+Aug 09 12:47:24 symfony [info] {sfWebDebugLogger} Factories 77.01 ms (1)
+Aug 09 12:47:24 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 73.01 ms (1)
+Aug 09 12:47:24 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 12:47:24 symfony [info] {sfWebResponse} Send content (27966 o)
+Aug 09 12:47:31 symfony [info] {sfPatternRouting} Match route "event_list_admin" (/:app_token/event/list/admin/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/list/admin/hkfuertes with parameters array (  'module' => 'events',  'action' => 'listAdmins',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'username' => 'hkfuertes',)
+Aug 09 12:47:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 12:47:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 12:47:31 symfony [info] {eventsActions} Call "eventsActions->executeListAdmins()"
+Aug 09 12:47:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.5 MB | mempeak:    4.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 12:47:31 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 12:47:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 12:47:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 12:47:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.ADMIN_ID=1 AND events.ACTIVE=1
+Aug 09 12:47:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 12:47:31 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 12:47:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 12:47:31 symfony [info] {sfWebDebugLogger} Configuration 0.96 ms (8)
+Aug 09 12:47:31 symfony [info] {sfWebDebugLogger} Factories 43.45 ms (1)
+Aug 09 12:47:31 symfony [info] {sfWebDebugLogger} Action "events/listAdmins" 49.37 ms (1)
+Aug 09 12:47:31 symfony [info] {sfWebDebugLogger} View "None" for "events/listAdmins" 0.01 ms (1)
+Aug 09 12:47:31 symfony [info] {sfWebResponse} Send content (23892 o)
+Aug 09 13:53:52 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 13:53:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 13:53:52 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 13:53:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 13:53:52 symfony [info] {sfWebDebugLogger} Configuration 130.12 ms (5)
+Aug 09 13:53:52 symfony [info] {sfWebDebugLogger} Factories 88.44 ms (1)
+Aug 09 13:54:28 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 13:54:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 13:54:28 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 13:54:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 13:54:28 symfony [info] {sfWebDebugLogger} Configuration 120.99 ms (5)
+Aug 09 13:54:28 symfony [info] {sfWebDebugLogger} Factories 86.38 ms (1)
+Aug 09 15:17:57 symfony [info] {myUser} Automatic user logout due to timeout
+Aug 09 15:17:57 symfony [info] {myUser} User is not authenticated
+Aug 09 15:17:58 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:17:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:17:58 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:17:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:17:58 symfony [info] {sfWebDebugLogger} Configuration 1.09 ms (5)
+Aug 09 15:17:58 symfony [info] {sfWebDebugLogger} Factories 1106.83 ms (1)
+Aug 09 15:18:31 symfony [info] {sfPatternRouting} Match route "event_list_admin" (/:app_token/event/list/admin/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/list/admin/hkfuertes with parameters array (  'module' => 'events',  'action' => 'listAdmins',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'username' => 'hkfuertes',)
+Aug 09 15:18:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:18:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:18:31 symfony [info] {eventsActions} Call "eventsActions->executeListAdmins()"
+Aug 09 15:18:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:18:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:18:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:18:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.5 MB | mempeak:    6.5 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 15:18:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.ADMIN_ID=1 AND events.ACTIVE=1
+Aug 09 15:18:31 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 15:18:31 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    7.8 MB | mempeak:    7.8 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 09 15:18:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 15:18:31 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:18:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:18:31 symfony [info] {sfWebDebugLogger} Configuration 15.56 ms (9)
+Aug 09 15:18:31 symfony [info] {sfWebDebugLogger} Factories 26.29 ms (1)
+Aug 09 15:18:31 symfony [info] {sfWebDebugLogger} Action "events/listAdmins" 68.23 ms (1)
+Aug 09 15:18:31 symfony [info] {sfWebDebugLogger} View "None" for "events/listAdmins" 0.01 ms (1)
+Aug 09 15:18:31 symfony [info] {sfWebResponse} Send content (26533 o)
+Aug 09 15:18:35 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:18:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:18:35 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:18:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:18:35 symfony [info] {sfWebDebugLogger} Configuration 0.63 ms (5)
+Aug 09 15:18:35 symfony [info] {sfWebDebugLogger} Factories 27.28 ms (1)
+Aug 09 15:19:12 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:19:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:19:12 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:19:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:19:12 symfony [info] {sfWebDebugLogger} Configuration 121.71 ms (5)
+Aug 09 15:19:12 symfony [info] {sfWebDebugLogger} Factories 86.10 ms (1)
+Aug 09 15:24:33 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:24:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:24:33 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:24:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:24:33 symfony [info] {sfWebDebugLogger} Configuration 0.64 ms (5)
+Aug 09 15:24:33 symfony [info] {sfWebDebugLogger} Factories 29.27 ms (1)
+Aug 09 15:26:21 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:26:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:26:21 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:26:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:26:21 symfony [info] {sfWebDebugLogger} Configuration 0.61 ms (5)
+Aug 09 15:26:21 symfony [info] {sfWebDebugLogger} Factories 27.30 ms (1)
+Aug 09 15:26:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Aug 09 15:26:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:26:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:26:29 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Aug 09 15:26:29 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/eventus/proyecto/apps/api/modules/default/templates/indexSuccess.php"
+Aug 09 15:26:29 symfony [info] {sfPHPView} Decorate content with "/Applications/MAMP/htdocs/eventus/proyecto/apps/api/templates/layout.php"
+Aug 09 15:26:29 symfony [info] {sfPHPView} Render "/Applications/MAMP/htdocs/eventus/proyecto/apps/api/templates/layout.php"
+Aug 09 15:26:29 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:26:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 15:26:29 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:26:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:26:29 symfony [info] {sfWebDebugLogger} Configuration 20.23 ms (10)
+Aug 09 15:26:29 symfony [info] {sfWebDebugLogger} Factories 29.91 ms (1)
+Aug 09 15:26:29 symfony [info] {sfWebDebugLogger} Action "default/index" 0.17 ms (1)
+Aug 09 15:26:29 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 21.57 ms (1)
+Aug 09 15:26:29 symfony [info] {sfWebResponse} Send content (28097 o)
+Aug 09 15:26:37 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:26:37 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:26:37 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:26:37 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:26:37 symfony [info] {sfWebDebugLogger} Configuration 0.61 ms (5)
+Aug 09 15:26:37 symfony [info] {sfWebDebugLogger} Factories 27.85 ms (1)
+Aug 09 15:27:35 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:27:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:27:35 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:27:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:27:35 symfony [info] {sfWebDebugLogger} Configuration 121.83 ms (5)
+Aug 09 15:27:35 symfony [info] {sfWebDebugLogger} Factories 86.50 ms (1)
+Aug 09 15:31:28 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:31:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:31:28 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:31:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:31:28 symfony [info] {sfWebDebugLogger} Configuration 0.68 ms (5)
+Aug 09 15:31:28 symfony [info] {sfWebDebugLogger} Factories 29.07 ms (1)
+Aug 09 15:32:03 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:32:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:32:03 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:32:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:32:03 symfony [info] {sfWebDebugLogger} Configuration 46.96 ms (6)
+Aug 09 15:32:03 symfony [info] {sfWebDebugLogger} Factories 72.34 ms (1)
+Aug 09 15:32:24 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:32:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:32:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:32:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:32:24 symfony [info] {sfWebDebugLogger} Configuration 0.99 ms (5)
+Aug 09 15:32:24 symfony [info] {sfWebDebugLogger} Factories 36.17 ms (1)
+Aug 09 15:33:00 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario" (/).
+Aug 09 15:33:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:33:00 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:33:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:33:00 symfony [info] {sfWebDebugLogger} Configuration 0.61 ms (5)
+Aug 09 15:33:00 symfony [info] {sfWebDebugLogger} Factories 27.80 ms (1)
+Aug 09 15:44:16 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/event/list/9f9afjpasof9afpoernq80w9fu98y" (/).
+Aug 09 15:44:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Aug 09 15:44:16 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:44:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:44:16 symfony [info] {sfWebDebugLogger} Configuration 45.73 ms (6)
+Aug 09 15:44:16 symfony [info] {sfWebDebugLogger} Factories 70.71 ms (1)
+Aug 09 15:45:40 symfony [info] {sfPatternRouting} Match route "event_list_participants" (/:app_token/event/list/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/list/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'participants',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 15:45:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:45:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:45:40 symfony [info] {eventsActions} Call "eventsActions->executeParticipants()"
+Aug 09 15:45:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:45:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:45:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:45:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 15:45:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:45:40 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 15:45:40 symfony [err] {sfWebDebugLogger}  Error at /Applications/MAMP/htdocs/eventus/proyecto/lib/model/Participation.php on line 20 (Argument 1 passed to Participation::__construct() must be an instance of sfGuardUser, none given, called in /Applications/MAMP/htdocs/eventus/proyecto/lib/model/om/BaseParticipationPeer.php on line 407 and defined)
+Aug 09 15:46:48 symfony [info] {sfPatternRouting} Match route "event_list_participants" (/:app_token/event/list/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/list/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'participants',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 15:46:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:46:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:46:49 symfony [info] {eventsActions} Call "eventsActions->executeParticipants()"
+Aug 09 15:46:49 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:46:49 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:46:49 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:46:49 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 15:46:49 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:46:49 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 15:46:49 symfony [err] {sfWebDebugLogger}  Error at /Applications/MAMP/htdocs/eventus/proyecto/lib/model/Participation.php on line 20 (Argument 1 passed to Participation::__construct() must be an instance of sfGuardUser, none given, called in /Applications/MAMP/htdocs/eventus/proyecto/lib/model/om/BaseParticipationPeer.php on line 407 and defined)
+Aug 09 15:48:37 symfony [info] {sfPatternRouting} Match route "event_list_participants" (/:app_token/event/list/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/list/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'participants',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 15:48:37 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:48:37 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:48:37 symfony [info] {eventsActions} Call "eventsActions->executeParticipants()"
+Aug 09 15:48:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:48:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:48:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:48:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 15:48:37 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:48:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 15:48:37 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID IN (1)
+Aug 09 15:48:37 symfony [err] {sfException} Call to undefined method BasesfGuardUser::expose
+Aug 09 15:48:38 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Aug 09 15:48:38 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:48:38 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:48:38 symfony [info] {sfWebDebugLogger} Configuration 0.87 ms (8)
+Aug 09 15:48:38 symfony [info] {sfWebDebugLogger} Factories 26.80 ms (1)
+Aug 09 15:48:38 symfony [info] {sfWebDebugLogger} Action "events/participants" 108.85 ms (1)
+Aug 09 15:51:46 symfony [info] {sfPatternRouting} Match route "event_list_participants" (/:app_token/event/list/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/list/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'participants',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 15:51:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:51:46 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:51:46 symfony [info] {eventsActions} Call "eventsActions->executeParticipants()"
+Aug 09 15:51:46 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:51:46 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:51:46 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:51:46 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 15:51:46 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:51:46 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 15:51:46 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID IN (1)
+Aug 09 15:52:56 symfony [info] {sfPatternRouting} Match route "event_list_participants" (/:app_token/event/list/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/list/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'participants',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 15:52:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:52:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:52:56 symfony [info] {eventsActions} Call "eventsActions->executeParticipants()"
+Aug 09 15:52:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:52:56 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:52:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:52:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 15:52:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:52:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 15:52:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID IN (1)
+Aug 09 15:52:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 09 15:52:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 15:52:56 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:52:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:52:56 symfony [info] {sfWebDebugLogger} Configuration 0.89 ms (8)
+Aug 09 15:52:56 symfony [info] {sfWebDebugLogger} Factories 27.55 ms (1)
+Aug 09 15:52:56 symfony [info] {sfWebDebugLogger} Action "events/participants" 71.62 ms (1)
+Aug 09 15:52:56 symfony [info] {sfWebDebugLogger} View "None" for "events/participants" 0.01 ms (1)
+Aug 09 15:52:56 symfony [info] {sfWebResponse} Send content (28472 o)
+Aug 09 15:53:12 symfony [info] {sfPatternRouting} Match route "event_join_user" (/:app_token/event/join/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'join',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 15:53:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:53:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:53:12 symfony [info] {eventsActions} Call "eventsActions->executeJoin()"
+Aug 09 15:53:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:53:12 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:53:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:53:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 15:53:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:53:12 symfony [err] {sfException} Call to undefined method BaseParticipation::setUser
+Aug 09 15:53:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Aug 09 15:53:12 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:53:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:53:12 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Aug 09 15:53:12 symfony [info] {sfWebDebugLogger} Factories 26.85 ms (1)
+Aug 09 15:53:12 symfony [info] {sfWebDebugLogger} Action "events/join" 86.52 ms (1)
+Aug 09 15:53:45 symfony [info] {sfPatternRouting} Match route "event_join_user" (/:app_token/event/join/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'join',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 15:53:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:53:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:53:45 symfony [info] {eventsActions} Call "eventsActions->executeJoin()"
+Aug 09 15:53:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:53:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:53:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:53:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 15:53:45 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:53:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | INSERT INTO users_event (`USER_ID`,`EVENT_ID`,`JOINED_AT`) VALUES (6,1,'2014-08-09 15:53:45')
+Aug 09 15:53:45 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 15:53:45 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:53:45 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:53:45 symfony [info] {sfWebDebugLogger} Configuration 0.87 ms (8)
+Aug 09 15:53:45 symfony [info] {sfWebDebugLogger} Factories 27.19 ms (1)
+Aug 09 15:53:45 symfony [info] {sfWebDebugLogger} Action "events/join" 63.20 ms (1)
+Aug 09 15:53:45 symfony [info] {sfWebDebugLogger} View "None" for "events/join" 0.01 ms (1)
+Aug 09 15:53:45 symfony [info] {sfWebResponse} Send content (25633 o)
+Aug 09 15:53:51 symfony [info] {sfPatternRouting} Match route "event_list_participants" (/:app_token/event/list/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/list/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'participants',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 15:53:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:53:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:53:51 symfony [info] {eventsActions} Call "eventsActions->executeParticipants()"
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID IN (1,6)
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Aug 09 15:53:51 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=6 LIMIT 1
+Aug 09 15:53:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 15:53:51 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:53:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:53:51 symfony [info] {sfWebDebugLogger} Configuration 0.91 ms (8)
+Aug 09 15:53:51 symfony [info] {sfWebDebugLogger} Factories 26.77 ms (1)
+Aug 09 15:53:51 symfony [info] {sfWebDebugLogger} Action "events/participants" 61.21 ms (1)
+Aug 09 15:53:51 symfony [info] {sfWebDebugLogger} View "None" for "events/participants" 0.02 ms (1)
+Aug 09 15:53:51 symfony [info] {sfWebResponse} Send content (29942 o)
+Aug 09 15:55:52 symfony [info] {sfPatternRouting} Match route "event_join_user" (/:app_token/event/join/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'join',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 15:55:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:55:52 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:55:52 symfony [info] {eventsActions} Call "eventsActions->executeJoin()"
+Aug 09 15:55:52 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:55:52 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:55:52 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:55:52 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 15:55:52 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:55:52 symfony [err] {sfPropelLogger} SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '6-1' for key 'PRIMARY'
+Aug 09 15:55:52 symfony [err] {PropelException} Unable to execute INSERT statement. [wrapped: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '6-1' for key 'PRIMARY']
+Aug 09 15:55:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Aug 09 15:55:52 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:55:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:55:52 symfony [info] {sfWebDebugLogger} Configuration 152.39 ms (8)
+Aug 09 15:55:52 symfony [info] {sfWebDebugLogger} Factories 107.99 ms (1)
+Aug 09 15:55:52 symfony [info] {sfWebDebugLogger} Action "events/join" 122.03 ms (1)
+Aug 09 15:57:39 symfony [info] {sfPatternRouting} Match route "event_join_user" (/:app_token/event/join/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'join',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 15:57:39 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 15:57:39 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 15:57:39 symfony [info] {eventsActions} Call "eventsActions->executeJoin()"
+Aug 09 15:57:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 15:57:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 15:57:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 15:57:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 15:57:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 15:57:39 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=6 AND users_event.EVENT_ID=1
+Aug 09 15:57:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 15:57:39 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 15:57:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 15:57:39 symfony [info] {sfWebDebugLogger} Configuration 0.99 ms (8)
+Aug 09 15:57:39 symfony [info] {sfWebDebugLogger} Factories 29.33 ms (1)
+Aug 09 15:57:39 symfony [info] {sfWebDebugLogger} Action "events/join" 61.14 ms (1)
+Aug 09 15:57:39 symfony [info] {sfWebDebugLogger} View "None" for "events/join" 0.01 ms (1)
+Aug 09 15:57:39 symfony [info] {sfWebResponse} Send content (25471 o)
+Aug 09 16:31:27 symfony [info] {sfPatternRouting} Match route "event_unjoin_user" (/:app_token/event/remove/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/remove/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'unjoin',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 16:31:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 16:31:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 16:31:27 symfony [info] {eventsActions} Call "eventsActions->executeUnjoin()"
+Aug 09 16:31:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 16:31:27 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 16:31:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 16:31:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 16:31:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 16:31:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=6 AND users_event.EVENT_ID=1
+Aug 09 16:31:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.8 MB | mempeak:    7.8 MB | memdelta:      0.0 B | DELETE FROM users_event WHERE users_event.USER_ID=6 AND users_event.EVENT_ID=1
+Aug 09 16:31:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 16:31:27 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 16:31:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 16:31:27 symfony [info] {sfWebDebugLogger} Configuration 48.68 ms (9)
+Aug 09 16:31:27 symfony [info] {sfWebDebugLogger} Factories 73.31 ms (1)
+Aug 09 16:31:27 symfony [info] {sfWebDebugLogger} Action "events/unjoin" 60.70 ms (1)
+Aug 09 16:31:27 symfony [info] {sfWebDebugLogger} View "None" for "events/unjoin" 0.01 ms (1)
+Aug 09 16:31:28 symfony [info] {sfWebResponse} Send content (26681 o)
+Aug 09 16:31:44 symfony [info] {sfPatternRouting} Match route "event_join_user" (/:app_token/event/join/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'join',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 16:31:44 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 16:31:44 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 16:31:44 symfony [info] {eventsActions} Call "eventsActions->executeJoin()"
+Aug 09 16:31:44 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 16:31:44 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 16:31:44 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 16:31:44 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 16:31:44 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 16:31:44 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=6 AND users_event.EVENT_ID=1
+Aug 09 16:31:44 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | INSERT INTO users_event (`USER_ID`,`EVENT_ID`,`JOINED_AT`) VALUES (6,1,'2014-08-09 16:31:44')
+Aug 09 16:31:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 16:31:44 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 16:31:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 16:31:44 symfony [info] {sfWebDebugLogger} Configuration 0.91 ms (8)
+Aug 09 16:31:44 symfony [info] {sfWebDebugLogger} Factories 27.43 ms (1)
+Aug 09 16:31:44 symfony [info] {sfWebDebugLogger} Action "events/join" 60.19 ms (1)
+Aug 09 16:31:44 symfony [info] {sfWebDebugLogger} View "None" for "events/join" 0.01 ms (1)
+Aug 09 16:31:44 symfony [info] {sfWebResponse} Send content (26705 o)
+Aug 09 16:31:53 symfony [info] {sfPatternRouting} Match route "event_unjoin_user" (/:app_token/event/remove/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/remove/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'unjoin',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 16:31:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 16:31:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 16:31:53 symfony [info] {eventsActions} Call "eventsActions->executeUnjoin()"
+Aug 09 16:31:53 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 16:31:53 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 16:31:53 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 16:31:53 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 16:31:53 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 16:31:53 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=6 AND users_event.EVENT_ID=1
+Aug 09 16:31:53 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | DELETE FROM users_event WHERE users_event.USER_ID=6 AND users_event.EVENT_ID=1
+Aug 09 16:31:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 16:31:53 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 16:31:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 16:31:53 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Aug 09 16:31:53 symfony [info] {sfWebDebugLogger} Factories 27.73 ms (1)
+Aug 09 16:31:53 symfony [info] {sfWebDebugLogger} Action "events/unjoin" 57.35 ms (1)
+Aug 09 16:31:53 symfony [info] {sfWebDebugLogger} View "None" for "events/unjoin" 0.01 ms (1)
+Aug 09 16:31:53 symfony [info] {sfWebResponse} Send content (26678 o)
+Aug 09 16:32:01 symfony [info] {sfPatternRouting} Match route "event_unjoin_user" (/:app_token/event/remove/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/remove/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'unjoin',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 16:32:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 16:32:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 16:32:01 symfony [info] {eventsActions} Call "eventsActions->executeUnjoin()"
+Aug 09 16:32:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 16:32:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 16:32:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 16:32:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 16:32:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 16:32:01 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=6 AND users_event.EVENT_ID=1
+Aug 09 16:32:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 16:32:01 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 16:32:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 16:32:01 symfony [info] {sfWebDebugLogger} Configuration 0.86 ms (8)
+Aug 09 16:32:01 symfony [info] {sfWebDebugLogger} Factories 26.94 ms (1)
+Aug 09 16:32:01 symfony [info] {sfWebDebugLogger} Action "events/unjoin" 53.90 ms (1)
+Aug 09 16:32:01 symfony [info] {sfWebDebugLogger} View "None" for "events/unjoin" 0.01 ms (1)
+Aug 09 16:32:01 symfony [info] {sfWebResponse} Send content (25440 o)
+Aug 09 16:32:04 symfony [info] {sfPatternRouting} Match route "event_join_user" (/:app_token/event/join/:key/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/usuario with parameters array (  'module' => 'events',  'action' => 'join',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',  'username' => 'usuario',)
+Aug 09 16:32:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 16:32:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 16:32:04 symfony [info] {eventsActions} Call "eventsActions->executeJoin()"
+Aug 09 16:32:04 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 16:32:04 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 16:32:04 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='usuario' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 16:32:04 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=6 AND tokens.TOKEN='082d8612a675789be7b9a68225fbe695' AND tokens.ACTIVE=1
+Aug 09 16:32:04 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 16:32:04 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=6 AND users_event.EVENT_ID=1
+Aug 09 16:32:04 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | INSERT INTO users_event (`USER_ID`,`EVENT_ID`,`JOINED_AT`) VALUES (6,1,'2014-08-09 16:32:04')
+Aug 09 16:32:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 16:32:04 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 16:32:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 16:32:04 symfony [info] {sfWebDebugLogger} Configuration 0.90 ms (8)
+Aug 09 16:32:04 symfony [info] {sfWebDebugLogger} Factories 27.28 ms (1)
+Aug 09 16:32:04 symfony [info] {sfWebDebugLogger} Action "events/join" 62.40 ms (1)
+Aug 09 16:32:04 symfony [info] {sfWebDebugLogger} View "None" for "events/join" 0.01 ms (1)
+Aug 09 16:32:04 symfony [info] {sfWebResponse} Send content (26705 o)
+Aug 09 16:55:07 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 16:55:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 16:55:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 16:55:07 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 16:55:07 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 16:55:07 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 16:55:07 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 16:55:08 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 16:55:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 16:55:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    8.0 MB | mempeak:    8.0 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 16:55:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    8.0 MB | mempeak:    8.0 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 16:55:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    8.0 MB | mempeak:    8.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID IN (1,6)
+Aug 09 16:55:08 symfony [err] {sfPropelLogger} SQLSTATE[42S22]: Column not found: 1054 Unknown column 'programs.EVENT_ID' in 'field list'
+Aug 09 16:55:08 symfony [err] {PropelException}  [wrapped: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'programs.EVENT_ID' in 'field list']
+Aug 09 16:55:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Aug 09 16:55:08 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 16:55:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 16:55:08 symfony [info] {sfWebDebugLogger} Configuration 133.99 ms (8)
+Aug 09 16:55:08 symfony [info] {sfWebDebugLogger} Factories 88.32 ms (1)
+Aug 09 16:55:08 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 114.44 ms (1)
+Aug 09 16:57:55 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 16:57:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 16:57:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 16:57:55 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 16:57:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 16:57:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 16:57:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 16:57:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 16:57:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 16:57:55 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 16:57:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 16:57:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID IN (1,6)
+Aug 09 16:57:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT programs.ID, programs.EVENT_ID, programs.TIME, programs.ACT FROM `programs` WHERE programs.EVENT_ID=1
+Aug 09 16:57:56 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 16:57:56 symfony [err] {sfException} Call to undefined method BaseEntry::getHora
+Aug 09 16:57:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Aug 09 16:57:56 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 16:57:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 16:57:56 symfony [info] {sfWebDebugLogger} Configuration 0.97 ms (8)
+Aug 09 16:57:56 symfony [info] {sfWebDebugLogger} Factories 27.35 ms (1)
+Aug 09 16:57:56 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 108.43 ms (1)
+Aug 09 16:58:12 symfony [info] {sfPatternRouting} Match route "event_info" (/:app_token/event/info/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'events',  'action' => 'getInfo',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Aug 09 16:58:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 09 16:58:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 09 16:58:12 symfony [info] {eventsActions} Call "eventsActions->executeGetInfo()"
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT FROM `users_event` WHERE users_event.EVENT_ID=1
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID IN (1,6)
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT programs.ID, programs.EVENT_ID, programs.TIME, programs.ACT FROM `programs` WHERE programs.EVENT_ID=1
+Aug 09 16:58:12 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT events_type.ID, events_type.NAME FROM `events_type` WHERE events_type.ID=1
+Aug 09 16:58:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 09 16:58:12 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Aug 09 16:58:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Aug 09 16:58:12 symfony [info] {sfWebDebugLogger} Configuration 0.90 ms (8)
+Aug 09 16:58:12 symfony [info] {sfWebDebugLogger} Factories 28.60 ms (1)
+Aug 09 16:58:12 symfony [info] {sfWebDebugLogger} Action "events/getInfo" 71.38 ms (1)
+Aug 09 16:58:12 symfony [info] {sfWebDebugLogger} View "None" for "events/getInfo" 0.01 ms (1)
+Aug 09 16:58:12 symfony [info] {sfWebResponse} Send content (30375 o)

@@ -7,21 +7,52 @@ app_token:
     column:               id
     with_wildcard_routes: true
 
-# ShowEvent: POST parameters
+# Unjoin: POST parameters
 # All variables from a user via POST.
 #  username -> route & post
 #  token -> post
-show_event_program:
-  url: /:app_token/event/:key/program
-  param: { module: events, action: showProgram, app_token: app }
+#  key -> route & post
+event_unjoin_user:
+  url: /:app_token/event/remove/:key/:username
+  param: { module: events, action: unjoin, app_token: app }
 
-# ShowEvent: POST parameters
+
+# Join: POST parameters
 # All variables from a user via POST.
 #  username -> route & post
 #  token -> post
-show_event:
-  url: /:app_token/event/:key/show
-  param: { module: events, action: show, app_token: app }
+#  key -> route & post
+event_join_user:
+  url: /:app_token/event/join/:key/:username
+  param: { module: events, action: join, app_token: app }
+
+# List User's: POST parameters
+# All variables from a user via POST.
+#  username -> route & post
+#  token -> post
+event_list_user:
+  url: /:app_token/event/participation/:username
+  param: { module: events, action: listUsers, app_token: app }
+
+# List Admin's: POST parameters
+# All variables from a user via POST.
+#  username -> route & post
+#  token -> post
+event_list_admin:
+  url: /:app_token/event/list/admin/:username
+  param: { module: events, action: listAdmins, app_token: app }
+
+# Event Info: POST parameters
+# All variables from a user via POST.
+#  key -> route
+#  username -> post
+#  token -> post
+event_info:
+  url: /:app_token/event/info/:key
+  param: { module: events, action: getInfo, app_token: app }
+
+
+#-------------------------------------------------------------------#
 
 # CreateUser: POST parameters
 # All variables from a user via POST.
@@ -33,7 +64,7 @@ create_user:
 #  username -> route & post
 #  token -> post
 info_user:
-  url: /:app_token/user/info/:username
+  url: /:app_token/user/info/:who
   param: { module: users, action: getInfo, app_token: app }
 
 # Validate Users: POST and Route parameters

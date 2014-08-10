@@ -17,7 +17,18 @@
  * @package    lib.model
  */
 class ParticipationPeer extends BaseParticipationPeer {
-    
-    
 
+    public static function retrieveParticipantsFromEvent(Event $event) {
+        $c=new Criteria();
+        $c->add(self::EVENT_ID,$event->getId());
+        $vals = self::doSelect($c);
+        
+        $ids = array();
+        foreach($vals as $val){
+            $ids[] = $val->getUserId();
+        }
+        
+        return sfGuardUserPeer::retrieveByPKs($ids);
+    }
+    
 } // ParticipationPeer

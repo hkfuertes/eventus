@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Skeleton subclass for representing a row from the 'programas' table.
  *
@@ -18,4 +17,18 @@
  */
 class Entry extends BaseEntry {
 
-} // Entry
+    public function expose() {
+        return array('time' => $this->getTime('H:i:s'), 'act' => $this->getAct());
+    }
+
+    public static function exposeEntryList($list) {
+        $retval = array();
+        foreach ($list as $event) {
+            $retval[] = $event->expose();
+        }
+        return $retval;
+    }
+
+}
+
+// Entry

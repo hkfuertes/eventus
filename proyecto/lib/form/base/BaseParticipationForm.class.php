@@ -21,7 +21,7 @@ abstract class BaseParticipationForm extends BaseFormPropel
 
     $this->setValidators(array(
       'user_id'   => new sfValidatorPropelChoice(array('model' => 'sfGuardUser', 'column' => 'id', 'required' => false)),
-      'event_id'  => new sfValidatorChoice(array('choices' => array($this->getObject()->getEventId()), 'empty_value' => $this->getObject()->getEventId(), 'required' => false)),
+      'event_id'  => new sfValidatorPropelChoice(array('model' => 'Event', 'column' => 'id', 'required' => false)),
       'joined_at' => new sfValidatorDateTime(array('required' => false)),
     ));
 

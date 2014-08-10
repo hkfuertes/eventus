@@ -18,4 +18,10 @@
  */
 class EntryPeer extends BaseEntryPeer {
 
+    public static function retrieveAllFromEvent(Event $event){
+        $c=new Criteria();
+        $c->add(self::EVENT_ID, $event->getId());
+        return self::doSelect($c);
+    }
+    
 } // EntryPeer
