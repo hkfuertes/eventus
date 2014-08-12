@@ -41,6 +41,14 @@ class Event extends BaseEvent {
             return $retval;
         }
         
+        public static function exposeEventKeys($list){
+            $retval = array();
+            foreach ($list as $event){
+                $retval[$event->getKey()] = $event->expose();
+            }
+            return $retval;
+        }
+        
         public function expose() {
         //return get_object_vars($this);
         return array(

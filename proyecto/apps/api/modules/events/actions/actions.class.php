@@ -178,7 +178,7 @@ class eventsActions extends sfActions {
         $event_list = EventPeer::retrieveUsersEvent($user);
 
         //Everything OK!, we return event info
-        $retval = array('success' => true, 'list' => Event::exposeEventList($event_list));
+        $retval = array('success' => true, 'events' => Event::exposeEventKeys($event_list));
         return $this->renderText(json_encode($retval));
     }
 
