@@ -80,6 +80,7 @@ class eventsActions extends sfActions {
         $token = $request->getParameter('token');
 
         $event_key = $request->getParameter('key');
+        //$who = $request->getParameter('who',$username);
 
         //The app is not registered or not active.
         if (!AppTokenPeer::checkExistAndActive($request->getParameter('app_token'))) {
@@ -126,6 +127,7 @@ class eventsActions extends sfActions {
      * See routes for url, params via POST
      */
     public function executeListAdmins(sfWebRequest $request) {
+        $who = $request->getParameter('who');
         $username = $request->getParameter('username');
         $token = $request->getParameter('token');
 
@@ -142,11 +144,18 @@ class eventsActions extends sfActions {
             $retval = array('success' => false, 'error' => 2);
             return $this->renderText(json_encode($retval));
         }
+        
+        $wuser = sfGuardUserPeer::retrieveByUsername($who);
+        //The user asked does not exists.
+        if($wuser == null){
+            $retval = array('success' => false, 'error' => 3);
+            return $this->renderText(json_encode($retval));
+        }
 
-        $event_list = EventPeer::retrieveByAdmin($user);
+        $event_list = EventPeer::retrieveByAdmin($wuser);
 
         //Everything OK!, we return event info
-        $retval = array('success' => true, 'list' => Event::exposeEventList($event_list));
+        $retval = array('success' => true, 'events' => Event::exposeEventKeys($event_list));
         return $this->renderText(json_encode($retval));
     }
 
@@ -158,6 +167,7 @@ class eventsActions extends sfActions {
      * See routes for url, params via POST
      */
     public function executeListUsers(sfWebRequest $request) {
+        $who = $request->getParameter('who');
         $username = $request->getParameter('username');
         $token = $request->getParameter('token');
 
@@ -174,8 +184,15 @@ class eventsActions extends sfActions {
             $retval = array('success' => false, 'error' => 2);
             return $this->renderText(json_encode($retval));
         }
+        
+        $wuser = sfGuardUserPeer::retrieveByUsername($who);
+        //The user asked does not exists.
+        if($wuser == null){
+            $retval = array('success' => false, 'error' => 3);
+            return $this->renderText(json_encode($retval));
+        }
 
-        $event_list = EventPeer::retrieveUsersEvent($user);
+        $event_list = EventPeer::retrieveUsersEvent($wuser);
 
         //Everything OK!, we return event info
         $retval = array('success' => true, 'events' => Event::exposeEventKeys($event_list));

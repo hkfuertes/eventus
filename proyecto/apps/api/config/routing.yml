@@ -13,7 +13,7 @@ app_token:
 #  token -> post
 #  key -> route & post
 event_unjoin_user:
-  url: /:app_token/event/remove/:key/:username
+  url: /:app_token/event/remove/:key/:who
   param: { module: events, action: unjoin, app_token: app }
 
 
@@ -23,7 +23,7 @@ event_unjoin_user:
 #  token -> post
 #  key -> route & post
 event_join_user:
-  url: /:app_token/event/join/:key/:username
+  url: /:app_token/event/join/:key/:who
   param: { module: events, action: join, app_token: app }
 
 # List User's: POST parameters
@@ -31,7 +31,7 @@ event_join_user:
 #  username -> route & post
 #  token -> post
 event_list_user:
-  url: /:app_token/event/participation/:username
+  url: /:app_token/event/participation/:who
   param: { module: events, action: listUsers, app_token: app }
 
 # List Admin's: POST parameters
@@ -39,7 +39,7 @@ event_list_user:
 #  username -> route & post
 #  token -> post
 event_list_admin:
-  url: /:app_token/event/list/admin/:username
+  url: /:app_token/event/list/admin/:who
   param: { module: events, action: listAdmins, app_token: app }
 
 # Event Info: POST parameters

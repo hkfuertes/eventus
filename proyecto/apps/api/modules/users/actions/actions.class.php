@@ -76,6 +76,12 @@ class usersActions extends sfActions {
 
         $who = sfGuardUserPeer::retrieveByUsername($who_id);
         
+        //The user asked does not exists
+        if ($who == null) {
+            $retval = array('success' => false, 'error' => 3);
+            return $this->renderText(json_encode($retval));
+        }
+        
         //OK!, we return user info.
         $retval = array('success' => true, 'user' => $who->getProfile()->expose());
         return $this->renderText(json_encode($retval));
