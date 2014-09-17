@@ -36,6 +36,7 @@ class EventPeer extends BaseEventPeer {
     public static function retrieveUsersEvent(sfGuardUser $user, $active = 1) {
         $c = new Criteria();
         $c->add(ParticipationPeer::USER_ID, $user->getId());
+        $c->add(ParticipationPeer::ACTIVE, $active);
 
         $participations = ParticipationPeer::doSelect($c);
 
@@ -46,7 +47,7 @@ class EventPeer extends BaseEventPeer {
 
         $c = new Criteria();
         $c->add(self::ID, $ids, Criteria::IN);
-        $c->add(self::ACTIVE, $active);
+        $c->add(self::ACTIVE, 1);
         
         return self::doSelect($c);
     }

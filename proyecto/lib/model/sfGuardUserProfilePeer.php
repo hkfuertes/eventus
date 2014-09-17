@@ -18,4 +18,11 @@
  */
 class sfGuardUserProfilePeer extends BasesfGuardUserProfilePeer {
 
+    public static function retrieveUserByEmail($email){
+        $c = new Criteria();
+        $c->add(self::EMAIL,$email);
+        $profile = self::doSelectOne($c);
+        return sfGuardUserPeer::retrieveByPK($profile->getUserId());
+    }
+    
 } // sfGuardUserProfilePeer

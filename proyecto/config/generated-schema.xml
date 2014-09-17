@@ -82,6 +82,7 @@
       <reference local="event_id" foreign="id" />
     </foreign-key>
     <column name="joined_at" type="timestamp" />
+    <column name="active" type="boolean" default="" />
   </table>
 
 </database>

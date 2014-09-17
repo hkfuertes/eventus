@@ -13,10 +13,12 @@ abstract class BaseParticipationFormFilter extends BaseFormFilterPropel
   {
     $this->setWidgets(array(
       'joined_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'active'    => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
       'joined_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'active'    => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('participation_filters[%s]');
@@ -37,6 +39,7 @@ abstract class BaseParticipationFormFilter extends BaseFormFilterPropel
       'user_id'   => 'ForeignKey',
       'event_id'  => 'ForeignKey',
       'joined_at' => 'Date',
+      'active'    => 'Boolean',
     );
   }
 }

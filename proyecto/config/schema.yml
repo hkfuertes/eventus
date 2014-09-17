@@ -54,3 +54,4 @@ propel:
     user_id:        {type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade, primaryKey: true }
     event_id:       {type: integer, foreignTable: events, foreignReference: id, required: true, onDelete: cascade, primaryKey: true }
     joined_at:      {type: timestamp}
+    active:         {type: boolean, default: false}

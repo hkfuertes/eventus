@@ -7,6 +7,22 @@ app_token:
     column:               id
     with_wildcard_routes: true
 
+# Join: GET parameters
+# All variables from a user via POST.
+#  who[] -> POST
+#  key -> route
+event_invite:
+  url: /:app_token/event/invite/:key
+  param: { module: events, action: invite, app_token: app }
+  
+# Join: GET parameters
+# All variables from a user via POST.
+#  who -> route
+#  key -> route
+event_join_user_get:
+  url: /:app_token/event/join/:key/:who
+  param: { module: events, action: joinGET, app_token: app }
+
 # Unjoin: POST parameters
 # All variables from a user via POST.
 #  username -> route & post
@@ -16,14 +32,13 @@ event_unjoin_user:
   url: /:app_token/event/remove/:key/:who
   param: { module: events, action: unjoin, app_token: app }
 
-
 # Join: POST parameters
 # All variables from a user via POST.
 #  username -> route & post
 #  token -> post
 #  key -> route & post
 event_join_user:
-  url: /:app_token/event/join/:key/:who
+  url: /:app_token/event/join/:key/
   param: { module: events, action: join, app_token: app }
 
 # List User's: POST parameters

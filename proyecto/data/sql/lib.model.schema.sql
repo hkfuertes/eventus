@@ -144,6 +144,7 @@ CREATE TABLE `users_event`
 	`user_id` INTEGER  NOT NULL,
 	`event_id` INTEGER  NOT NULL,
 	`joined_at` DATETIME,
+	`active` TINYINT default 0,
 	PRIMARY KEY (`user_id`,`event_id`),
 	CONSTRAINT `users_event_FK_1`
 		FOREIGN KEY (`user_id`)
