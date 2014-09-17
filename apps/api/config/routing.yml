@@ -1,0 +1,97 @@
+app_token:
+  class: sfPropelRouteCollection
+  options:
+    model:                AppToken
+    module:               appTokens
+    prefix_path:          /appTokens
+    column:               id
+    with_wildcard_routes: true
+
+# Join: GET parameters
+# All variables from a user via POST.
+#  who[] -> POST
+#  key -> route
+event_invite:
+  url: /:app_token/event/invite/:key
+  param: { module: events, action: invite, app_token: app }
+  
+# Join: GET parameters
+# All variables from a user via POST.
+#  who -> route
+#  key -> route
+event_join_user_get:
+  url: /:app_token/event/join/:key/:who
+  param: { module: events, action: joinGET, app_token: app }
+
+# Unjoin: POST parameters
+# All variables from a user via POST.
+#  username -> route & post
+#  token -> post
+#  key -> route & post
+event_unjoin_user:
+  url: /:app_token/event/remove/:key/:who
+  param: { module: events, action: unjoin, app_token: app }
+
+# Join: POST parameters
+# All variables from a user via POST.
+#  username -> route & post
+#  token -> post
+#  key -> route & post
+event_join_user:
+  url: /:app_token/event/join/:key/
+  param: { module: events, action: join, app_token: app }
+
+# List User's: POST parameters
+# All variables from a user via POST.
+#  username -> route & post
+#  token -> post
+event_list_user:
+  url: /:app_token/event/participation/:who
+  param: { module: events, action: listUsers, app_token: app }
+
+# List Admin's: POST parameters
+# All variables from a user via POST.
+#  username -> route & post
+#  token -> post
+event_list_admin:
+  url: /:app_token/event/list/admin/:who
+  param: { module: events, action: listAdmins, app_token: app }
+
+# Event Info: POST parameters
+# All variables from a user via POST.
+#  key -> route
+#  username -> post
+#  token -> post
+event_info:
+  url: /:app_token/event/info/:key
+  param: { module: events, action: getInfo, app_token: app }
+
+
+#-------------------------------------------------------------------#
+
+# CreateUser: POST parameters
+# All variables from a user via POST.
+create_user:
+  url: /:app_token/user/create
+  param: { module: users, action: createUser, app_token: app }
+
+# Get User Info: POST and Route parameters
+#  username -> route & post
+#  token -> post
+info_user:
+  url: /:app_token/user/info/:who
+  param: { module: users, action: getInfo, app_token: app }
+
+# Validate Users: POST and Route parameters
+#  username -> route & post
+#  password -> post
+validate_user:
+  url: /:app_token/user/validate/:username
+  param: { module: users, action: validateUser, app_token: app }
+
+# default rules
+homepage:
+  url:   /
+  param: { module: default, action: index }
+  
+
