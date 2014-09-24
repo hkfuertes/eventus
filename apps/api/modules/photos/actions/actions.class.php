@@ -96,7 +96,7 @@ class photosActions extends sfActions {
         }
 
         //OK! we retrieve the photos.
-        $photolist = PhotoPeer::retrieveByUserId($event->getId());
+        $photolist = PhotoPeer::retrieveByUserId($user->getId());
 
         $retval = array('success' => true);
         $retval['user'] = $user->getUsername();
@@ -148,17 +148,17 @@ class photosActions extends sfActions {
 
         $uploaddir = sfConfig::get('app_photos_folder');
         $filename = basename($_FILES['photo']['name']);
-        
+
         //creamos nuevo fichero.
         $p = new Photo();
         $p->setEvent($event);
         $p->setUserId($user->getId());
-        $p->setPath($uploaddir . sha1($filename.$p->getUploadedAt()));
+        $p->setPath($uploaddir . sha1($filename . $p->getUploadedAt()));
         $p->setFilename($filename);
 
         $allowedTypes = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
         $detectedType = exif_imagetype($_FILES['photo']['tmp_name']);
-        
+
         if (in_array($detectedType, $allowedTypes)) {
             //We move the file to the folder.
             if (!move_uploaded_file($_FILES['photo']['tmp_name'], $p->getPath())) {
@@ -166,7 +166,7 @@ class photosActions extends sfActions {
                 $retval = array('success' => false, 'error' => 5);
                 return $this->renderText(json_encode($retval));
             }
-        }else{
+        } else {
             //Error 6, not an image.
             $retval = array('success' => false, 'error' => 6);
             return $this->renderText(json_encode($retval));
@@ -180,6 +180,42 @@ class photosActions extends sfActions {
         $retval['event'] = $event->getKey();
         $retval['photo'] = $p->expose();
         return $this->renderText(json_encode($retval));
+    }
+
+    public function executeShowPhoto(sfWebRequest $request) {
+        $photo_id = $request->getParameter('photo_id');
+        $event_key = $request->getParameter('event_key');
+        $photo = PhotoPeer::retrieveByPK($photo_id);
+        
+        //The app is not registered or not active.
+        if (!AppTokenPeer::checkExistAndActive($request->getParameter('app_token'))) {
+            $retval = array('success' => false, 'error' => 1);
+            return $this->renderText(json_encode($retval));
+        }
+
+        $user = $this->getUser()->getGuardUser();
+        
+        $event = EventPeer::retrieveByKey($event_key);
+
+        //Event does not exists or is not active
+        if ($event == null) {
+            $retval = array('success' => false, 'error' => 2);
+            return $this->renderText(json_encode($retval));
+        }
+
+        //The user is not part of this event
+        if (!Participation::checkJoined($user, $event)) {
+            $retval = array('success' => false, 'error' => 3);
+            return $this->renderText(json_encode($retval));
+        }
+
+        $file = $photo->getPath();
+        $type = 'image/*';
+        header('Content-Type:'.$type);
+        header('Content-Length: ' . filesize($file));
+        header('Content-Disposition: inline; filename="'.$photo->getFilename().'"');
+        readfile($file);
+        return null;
     }
 
 }

@@ -7,6 +7,32 @@ app_token:
     column:               id
     with_wildcard_routes: true
 
+# getEventPhotos
+# Variables from a user via POST and ROUTE.
+#  id -> route
+#  event_key -> route
+photo_show:
+  url: /:app_token/show/photo/:event_key/:photo_id
+  param: { module: photos, action: showPhoto, app_token: app }
+
+# getEventPhotos
+# Variables from a user via POST and ROUTE.
+#  username -> POST
+#  token -> POST
+#  key -> route
+photo_user:
+  url: /:app_token/user/photos
+  param: { module: photos, action: getUserPhotos, app_token: app }
+
+# getEventPhotos
+# Variables from a user via POST and ROUTE.
+#  username -> POST
+#  token -> POST
+#  key -> route
+photo_event:
+  url: /:app_token/event/photos/:key
+  param: { module: photos, action: getEventPhotos, app_token: app }
+
 # upload Photos
 # Variables from a user via POST and ROUTE.
 #  username -> POST
@@ -14,9 +40,10 @@ app_token:
 #  photo->POST (file)
 #  key -> route
 photo_upload:
-  url: /:app_token/photo/upload/:key
+  url: /:app_token/event/upload/:key
   param: { module: photos, action: uploadPhoto, app_token: app }
 
+#------------------------------------------------------------------#
 
 # Join: GET parameters
 # All variables from a user via POST.
