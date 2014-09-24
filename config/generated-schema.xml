@@ -85,4 +85,22 @@
     <column name="active" type="boolean" default="" />
   </table>
 
+  <table name="photos" phpName="Photo">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="user_id" type="integer" required="true" />
+    <foreign-key foreignTable="sf_guard_user" onDelete="cascade">
+      <reference local="user_id" foreign="id" />
+    </foreign-key>
+    <column name="event_id" type="integer" required="true" />
+    <foreign-key foreignTable="events" onDelete="cascade">
+      <reference local="event_id" foreign="id" />
+    </foreign-key>
+    <column name="uploaded_at" type="timestamp" />
+    <column name="title" type="varchar" size="255" />
+    <column name="filename" type="varchar" required="true" size="255" />
+    <column name="path" type="varchar" required="true" size="255" />
+    <column name="visible" type="boolean" default="1" />
+    <column name="deleted" type="boolean" default="" />
+  </table>
+
 </database>

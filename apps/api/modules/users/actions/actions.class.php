@@ -18,6 +18,11 @@ class usersActions extends sfActions {
     public function executeIndex(sfWebRequest $request) {
         $this->forward('default', 'index');
     }
+    
+    public function executeError403(sfWebRequest $request){
+        $retval = array('error' => 403, 'description'=>'Not authenticated, please use login function to continue.');
+        return $this->renderText(json_encode($retval));
+    }
 
     /**
      * Validates a user and logges it in.
@@ -25,7 +30,7 @@ class usersActions extends sfActions {
      * @param password
      * See routes for url, params via get
      */
-    public function executeValidateUser(sfWebRequest $request) {
+    public function executeLogInUser(sfWebRequest $request) {
         $username = $request->getParameter('username');
         $password = $request->getParameter('password');
 
@@ -43,9 +48,43 @@ class usersActions extends sfActions {
             return $this->renderText(json_encode($retval));
         }
 
+        //We authenticate the user, so we have session, or authentified variable.
+        $this->getUser()->signin($user, $remenmber = false);
+        
         //Everything OK!, we validate and log the user in
         $token = TokenPeer::retrieveToken($user);
         $retval = array('success' => true, 'user' => array('username' => $username, 'token' => $token->getToken()));
+        return $this->renderText(json_encode($retval));
+    }
+    
+    /**
+     * Validates a user and logges it in.
+     * @param username
+     * @param password
+     * See routes for url, params via get
+     */
+    public function executeLogOutUser(sfWebRequest $request) {
+        $username = $request->getParameter('username');
+        $token = $request->getParameter('token');
+
+        //The app is not registered or not active.
+        if (!AppTokenPeer::checkExistAndActive($request->getParameter('app_token'))) {
+            $retval = array('success' => false, 'error' => 1);
+            return $this->renderText(json_encode($retval));
+        }
+
+        $user = sfGuardUserPeer::retrieveByUsername($username);
+
+        //The user has wrong token
+        if (!Token::check($user, $token)) {
+            $retval = array('success' => false, 'error' => 2);
+            return $this->renderText(json_encode($retval));
+        }
+
+        //We authenticate the user, so we have session, or authentified variable.
+        $this->getUser()->signout();
+
+        $retval = array('success' => true);
         return $this->renderText(json_encode($retval));
     }
 

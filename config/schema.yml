@@ -55,3 +55,15 @@ propel:
     event_id:       {type: integer, foreignTable: events, foreignReference: id, required: true, onDelete: cascade, primaryKey: true }
     joined_at:      {type: timestamp}
     active:         {type: boolean, default: false}
+    
+  photos:
+    _attributes:    {phpName: Photo}
+    id:             ~
+    user_id:        {type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
+    event_id:       {type: integer, foreignTable: events, foreignReference: id, required: true, onDelete: cascade }
+    uploaded_at:    {type: timestamp}
+    title :         {type: varchar(255)}
+    filename:       {type: varchar(255), required: true}
+    path:           {type: varchar(255), required: true}
+    visible:        {type: boolean, default: true}
+    deleted:        {type: boolean, default: false}

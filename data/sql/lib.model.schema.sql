@@ -157,5 +157,36 @@ CREATE TABLE `users_event`
 		ON DELETE CASCADE
 )Type=InnoDB;
 
+#-----------------------------------------------------------------------------
+#-- photos
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `photos`;
+
+
+CREATE TABLE `photos`
+(
+	`id` INTEGER  NOT NULL AUTO_INCREMENT,
+	`user_id` INTEGER  NOT NULL,
+	`event_id` INTEGER  NOT NULL,
+	`uploaded_at` DATETIME,
+	`title` VARCHAR(255),
+	`filename` VARCHAR(255)  NOT NULL,
+	`path` VARCHAR(255)  NOT NULL,
+	`visible` TINYINT default 1,
+	`deleted` TINYINT default 0,
+	PRIMARY KEY (`id`),
+	INDEX `photos_FI_1` (`user_id`),
+	CONSTRAINT `photos_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `sf_guard_user` (`id`)
+		ON DELETE CASCADE,
+	INDEX `photos_FI_2` (`event_id`),
+	CONSTRAINT `photos_FK_2`
+		FOREIGN KEY (`event_id`)
+		REFERENCES `events` (`id`)
+		ON DELETE CASCADE
+)Type=InnoDB;
+
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;

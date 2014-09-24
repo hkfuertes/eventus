@@ -25,7 +25,7 @@ test:
 all:
   .settings:
     # Form security secret (CSRF protection)
-    csrf_secret:            54d72042ecb2c5d5aadd7f5d066cb6afa10e980f
+    csrf_secret:            false
 
     # Output escaping settings
     escaping_strategy:      true
@@ -33,3 +33,11 @@ all:
 
     # Enable the database manager
     use_database:           true
+    
+    enabled_modules:      [default, sfGuardAuth]
+    
+    login_module:           users
+    login_action:           error403
+
+    secure_module:          users
+    secure_action:          error403

@@ -7,6 +7,17 @@ app_token:
     column:               id
     with_wildcard_routes: true
 
+# upload Photos
+# Variables from a user via POST and ROUTE.
+#  username -> POST
+#  token -> POST
+#  photo->POST (file)
+#  key -> route
+photo_upload:
+  url: /:app_token/photo/upload/:key
+  param: { module: photos, action: uploadPhoto, app_token: app }
+
+
 # Join: GET parameters
 # All variables from a user via POST.
 #  who[] -> POST
@@ -83,11 +94,18 @@ info_user:
   param: { module: users, action: getInfo, app_token: app }
 
 # Validate Users: POST and Route parameters
+#  username -> post
+#  token -> post
+logout_user:
+  url: /:app_token/user/logout
+  param: { module: users, action: logOutUser, app_token: app }
+
+# Validate Users: POST and Route parameters
 #  username -> route & post
 #  password -> post
-validate_user:
+login_user:
   url: /:app_token/user/validate/:username
-  param: { module: users, action: validateUser, app_token: app }
+  param: { module: users, action: logInUser, app_token: app }
 
 # default rules
 homepage:
