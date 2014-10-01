@@ -38,7 +38,7 @@ class Photo extends BasePhoto {
     
     public function expose() {
         //return get_object_vars($this);
-        return array('username'=>$this->getUser()->getUsername(), 'eventname' => $this->getEvent()->getName(),'uploaded_at'=>$this->getUploadedAt(), 'photo_id'=>$this->getId());
+        return array('username'=>$this->getUser()->getUsername(),'filename'=> $this->getFilename(),'uploaded_at'=>$this->getUploadedAt(), 'photo_id'=>$this->getId());
     }
     
 } // Photo

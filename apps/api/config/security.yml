@@ -5,4 +5,4 @@ logInUser:
   is_secure: false
 
 all:
-  is_secure: true
+  is_secure: false

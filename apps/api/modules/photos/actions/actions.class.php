@@ -203,11 +203,14 @@ class photosActions extends sfActions {
             return $this->renderText(json_encode($retval));
         }
 
+        /*
         //The user is not part of this event
         if (!Participation::checkJoined($user, $event)) {
             $retval = array('success' => false, 'error' => 3);
             return $this->renderText(json_encode($retval));
         }
+         * 
+         */
 
         $file = $photo->getPath();
         $type = 'image/*';

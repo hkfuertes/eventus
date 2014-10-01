@@ -3650,3 +3650,220 @@ Sep 24 18:05:24 symfony [info] {sfWebDebugLogger} Configuration 1.10 ms (9)
 Sep 24 18:05:24 symfony [info] {sfWebDebugLogger} Factories 30.57 ms (1)
 Sep 24 18:05:24 symfony [info] {sfWebDebugLogger} Action "photos/showPhoto" 60.92 ms (1)
 Sep 24 18:05:24 symfony [info] {sfWebDebugLogger} View "Success" for "photos/showPhoto" 34.38 ms (1)
+Sep 29 18:42:54 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 18:42:54 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 18:42:54 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 18:42:54 symfony [info] {sfPatternRouting} Match route "photo_show" (/:app_token/show/photo/:event_key/:photo_id) for /NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1 with parameters array (  'module' => 'photos',  'action' => 'showPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'event_key' => '9f9afjpasof9afpoernq80w9fu98y',  'photo_id' => '1',)
+Sep 29 18:42:54 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 29 18:42:54 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 29 18:42:54 symfony [info] {photosActions} Call "photosActions->executeShowPhoto()"
+Sep 29 18:42:54 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Sep 29 18:42:54 symfony [debug] {sfPropelLogger} time:  0.002 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.ID='1'
+Sep 29 18:42:54 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Sep 29 18:42:54 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Sep 29 18:42:54 symfony [err] {sfWebDebugLogger}  Error at /Applications/MAMP/htdocs/eventus/lib/model/Participation.php on line 37 (Argument 1 passed to Participation::checkJoined() must be an instance of sfGuardUser, null given, called in /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php on line 207 and defined)
+Sep 29 18:43:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 18:43:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 18:43:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 18:43:02 symfony [info] {sfPatternRouting} Match route "photo_show" (/:app_token/show/photo/:event_key/:photo_id) for /NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1 with parameters array (  'module' => 'photos',  'action' => 'showPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'event_key' => '9f9afjpasof9afpoernq80w9fu98y',  'photo_id' => '1',)
+Sep 29 18:43:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 29 18:43:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 29 18:43:02 symfony [info] {photosActions} Call "photosActions->executeShowPhoto()"
+Sep 29 18:43:03 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Sep 29 18:43:03 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.ID='1'
+Sep 29 18:43:03 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Sep 29 18:43:03 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.0 MB | mempeak:    6.0 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Sep 29 18:43:03 symfony [err] {sfWebDebugLogger}  Error at /Applications/MAMP/htdocs/eventus/lib/model/Participation.php on line 37 (Argument 1 passed to Participation::checkJoined() must be an instance of sfGuardUser, null given, called in /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php on line 207 and defined)
+Sep 29 18:43:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 18:43:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 18:43:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 18:43:05 symfony [info] {sfPatternRouting} Match route "login_user" (/:app_token/user/validate/:username) for /NsBHwgaksWYKnYHFB3AS2DSk/user/validate/hkfuertes with parameters array (  'module' => 'users',  'action' => 'logInUser',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'username' => 'hkfuertes',)
+Sep 29 18:43:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 29 18:43:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 29 18:43:05 symfony [info] {usersActions} Call "usersActions->executeLogInUser()"
+Sep 29 18:43:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Sep 29 18:43:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Sep 29 18:43:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Sep 29 18:43:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT sf_guard_user_profile.USER_ID, sf_guard_user_profile.FIRSTNAME, sf_guard_user_profile.LASTNAME, sf_guard_user_profile.EMAIL, sf_guard_user_profile.ID FROM `sf_guard_user_profile` WHERE sf_guard_user_profile.USER_ID=1 LIMIT 1
+Sep 29 18:43:05 symfony [info] {myUser} User is authenticated
+Sep 29 18:43:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT sf_guard_user_permission.USER_ID, sf_guard_user_permission.PERMISSION_ID, sf_guard_permission.ID, sf_guard_permission.NAME, sf_guard_permission.DESCRIPTION FROM `sf_guard_user_permission` LEFT JOIN sf_guard_permission ON (sf_guard_user_permission.PERMISSION_ID=sf_guard_permission.ID) WHERE sf_guard_user_permission.USER_ID=1
+Sep 29 18:43:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    8.0 MB | mempeak:    8.0 MB | memdelta:      0.0 B | SELECT sf_guard_user_group.USER_ID, sf_guard_user_group.GROUP_ID, sf_guard_group.ID, sf_guard_group.NAME, sf_guard_group.DESCRIPTION FROM `sf_guard_user_group` LEFT JOIN sf_guard_group ON (sf_guard_user_group.GROUP_ID=sf_guard_group.ID) WHERE sf_guard_user_group.USER_ID=1
+Sep 29 18:43:05 symfony [info] {myUser} Add credential(s) ""
+Sep 29 18:43:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    8.0 MB | mempeak:    8.0 MB | memdelta:      0.0 B | UPDATE sf_guard_user SET `LAST_LOGIN`='2014-09-29 18:43:05' WHERE sf_guard_user.ID=1
+Sep 29 18:43:05 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    8.0 MB | mempeak:    8.0 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 LIMIT 1
+Sep 29 18:43:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 29 18:43:05 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Sep 29 18:43:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 29 18:43:05 symfony [info] {sfWebDebugLogger} Configuration 15.72 ms (9)
+Sep 29 18:43:05 symfony [info] {sfWebDebugLogger} Factories 30.51 ms (1)
+Sep 29 18:43:05 symfony [info] {sfWebDebugLogger} Action "users/logInUser" 67.39 ms (1)
+Sep 29 18:43:05 symfony [info] {sfWebDebugLogger} View "None" for "users/logInUser" 0.01 ms (1)
+Sep 29 18:43:05 symfony [info] {sfWebResponse} Send content (29752 o)
+Sep 29 18:43:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 18:43:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 18:43:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 18:43:08 symfony [info] {sfPatternRouting} Match route "photo_show" (/:app_token/show/photo/:event_key/:photo_id) for /NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1 with parameters array (  'module' => 'photos',  'action' => 'showPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'event_key' => '9f9afjpasof9afpoernq80w9fu98y',  'photo_id' => '1',)
+Sep 29 18:43:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 29 18:43:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 29 18:43:08 symfony [info] {photosActions} Call "photosActions->executeShowPhoto()"
+Sep 29 18:43:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Sep 29 18:43:08 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.ID='1'
+Sep 29 18:43:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Sep 29 18:43:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID=1
+Sep 29 18:43:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Sep 29 18:43:08 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT, users_event.ACTIVE FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Sep 29 18:43:08 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/exception/sfException.class.php on line 107 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:217))
+Sep 29 18:43:08 symfony [err] {sfRenderException} The template "showPhotoSuccess.php" does not exist or is unreadable in "".
+Sep 29 18:43:08 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/exception/sfException.class.php on line 161 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:217))
+Sep 29 18:43:08 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:217))
+Sep 29 18:43:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Sep 29 18:43:08 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:217))
+Sep 29 18:43:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 29 18:43:08 symfony [info] {sfWebDebugLogger} Configuration 14.70 ms (10)
+Sep 29 18:43:08 symfony [info] {sfWebDebugLogger} Factories 30.64 ms (1)
+Sep 29 18:43:08 symfony [info] {sfWebDebugLogger} Action "photos/showPhoto" 60.76 ms (1)
+Sep 29 18:43:08 symfony [info] {sfWebDebugLogger} View "Success" for "photos/showPhoto" 50.75 ms (1)
+Sep 29 18:43:48 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 18:43:48 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 18:43:48 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 18:43:48 symfony [info] {sfPatternRouting} Match route "photo_event" (/:app_token/event/photos/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/photos/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'photos',  'action' => 'getEventPhotos',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Sep 29 18:43:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 29 18:43:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 29 18:43:48 symfony [info] {photosActions} Call "photosActions->executeGetEventPhotos()"
+Sep 29 18:43:48 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Sep 29 18:43:48 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Sep 29 18:43:48 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Sep 29 18:43:48 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Sep 29 18:43:48 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.5 MB | mempeak:    6.5 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Sep 29 18:43:48 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT, users_event.ACTIVE FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Sep 29 18:43:48 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.EVENT_ID=1 AND photos.DELETED=0
+Sep 29 18:43:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 29 18:43:48 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Sep 29 18:43:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 29 18:43:48 symfony [info] {sfWebDebugLogger} Configuration 0.93 ms (8)
+Sep 29 18:43:48 symfony [info] {sfWebDebugLogger} Factories 31.09 ms (1)
+Sep 29 18:43:48 symfony [info] {sfWebDebugLogger} Action "photos/getEventPhotos" 73.84 ms (1)
+Sep 29 18:43:48 symfony [info] {sfWebDebugLogger} View "None" for "photos/getEventPhotos" 0.01 ms (1)
+Sep 29 18:43:48 symfony [info] {sfWebResponse} Send content (27774 o)
+Sep 29 18:44:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 18:44:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 18:44:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 18:44:11 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/photo/upload/9f9afjpasof9afpoernq80w9fu98y" (/).
+Sep 29 18:44:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Sep 29 18:44:11 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Sep 29 18:44:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 29 18:44:11 symfony [info] {sfWebDebugLogger} Configuration 0.60 ms (5)
+Sep 29 18:44:11 symfony [info] {sfWebDebugLogger} Factories 30.87 ms (1)
+Sep 29 18:44:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 18:44:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 18:44:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 18:44:22 symfony [info] {sfPatternRouting} Match route "photo_user" (/:app_token/user/photos) for /NsBHwgaksWYKnYHFB3AS2DSk/user/photos with parameters array (  'module' => 'photos',  'action' => 'getUserPhotos',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',)
+Sep 29 18:44:22 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 29 18:44:22 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 29 18:44:22 symfony [info] {photosActions} Call "photosActions->executeGetUserPhotos()"
+Sep 29 18:44:22 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Sep 29 18:44:22 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Sep 29 18:44:22 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Sep 29 18:44:22 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Sep 29 18:44:22 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.5 MB | mempeak:    6.5 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.USER_ID=1 AND photos.DELETED=0
+Sep 29 18:44:22 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.ID=1
+Sep 29 18:44:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 29 18:44:22 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Sep 29 18:44:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 29 18:44:22 symfony [info] {sfWebDebugLogger} Configuration 0.91 ms (8)
+Sep 29 18:44:22 symfony [info] {sfWebDebugLogger} Factories 31.27 ms (1)
+Sep 29 18:44:22 symfony [info] {sfWebDebugLogger} Action "photos/getUserPhotos" 69.81 ms (1)
+Sep 29 18:44:22 symfony [info] {sfWebDebugLogger} View "None" for "photos/getUserPhotos" 0.01 ms (1)
+Sep 29 18:44:22 symfony [info] {sfWebResponse} Send content (26052 o)
+Sep 29 19:00:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 19:00:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 19:00:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 19:00:36 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/NsBHwgaksWYKnYHFB3AS2DSk/photo/upload/9f9afjpasof9afpoernq80w9fu98y" (/).
+Sep 29 19:00:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Sep 29 19:00:36 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Sep 29 19:00:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 29 19:00:36 symfony [info] {sfWebDebugLogger} Configuration 0.61 ms (5)
+Sep 29 19:00:36 symfony [info] {sfWebDebugLogger} Factories 33.63 ms (1)
+Sep 29 19:07:24 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 19:07:24 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 19:07:24 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 19:07:24 symfony [info] {sfPatternRouting} Match route "photo_show" (/:app_token/show/photo/:event_key/:photo_id) for /NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1 with parameters array (  'module' => 'photos',  'action' => 'showPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'event_key' => '9f9afjpasof9afpoernq80w9fu98y',  'photo_id' => '1',)
+Sep 29 19:07:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 29 19:07:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 29 19:07:24 symfony [info] {photosActions} Call "photosActions->executeShowPhoto()"
+Sep 29 19:07:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Sep 29 19:07:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.ID='1'
+Sep 29 19:07:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Sep 29 19:07:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.ID=1
+Sep 29 19:07:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Sep 29 19:07:24 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT, users_event.ACTIVE FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Sep 29 19:07:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/exception/sfException.class.php on line 107 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:217))
+Sep 29 19:07:24 symfony [err] {sfRenderException} The template "showPhotoSuccess.php" does not exist or is unreadable in "".
+Sep 29 19:07:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/exception/sfException.class.php on line 161 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:217))
+Sep 29 19:07:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:217))
+Sep 29 19:07:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Sep 29 19:07:24 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:217))
+Sep 29 19:07:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 29 19:07:24 symfony [info] {sfWebDebugLogger} Configuration 1.50 ms (9)
+Sep 29 19:07:24 symfony [info] {sfWebDebugLogger} Factories 34.49 ms (1)
+Sep 29 19:07:24 symfony [info] {sfWebDebugLogger} Action "photos/showPhoto" 84.56 ms (1)
+Sep 29 19:07:24 symfony [info] {sfWebDebugLogger} View "Success" for "photos/showPhoto" 35.63 ms (1)
+Sep 29 19:07:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Sep 29 19:07:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Sep 29 19:07:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Sep 29 19:07:29 symfony [info] {sfPatternRouting} Match route "photo_upload" (/:app_token/event/upload/:key) for /NsBHwgaksWYKnYHFB3AS2DSk/event/upload/9f9afjpasof9afpoernq80w9fu98y with parameters array (  'module' => 'photos',  'action' => 'uploadPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'key' => '9f9afjpasof9afpoernq80w9fu98y',)
+Sep 29 19:07:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Sep 29 19:07:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Sep 29 19:07:29 symfony [info] {photosActions} Call "photosActions->executeUploadPhoto()"
+Sep 29 19:07:29 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    4.8 MB | mempeak:    4.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Sep 29 19:07:29 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Sep 29 19:07:29 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Sep 29 19:07:29 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Sep 29 19:07:29 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.5 MB | mempeak:    6.5 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Sep 29 19:07:29 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    7.3 MB | mempeak:    7.3 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT, users_event.ACTIVE FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=1
+Sep 29 19:07:29 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php on line 160 (exif_imagetype(): Filename cannot be empty)
+Sep 29 19:07:29 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:160))
+Sep 29 19:07:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Sep 29 19:07:29 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:160))
+Sep 29 19:07:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Sep 29 19:07:29 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (8)
+Sep 29 19:07:29 symfony [info] {sfWebDebugLogger} Factories 30.13 ms (1)
+Sep 29 19:07:29 symfony [info] {sfWebDebugLogger} Action "photos/uploadPhoto" 72.12 ms (1)
+Sep 29 19:07:29 symfony [info] {sfWebDebugLogger} View "None" for "photos/uploadPhoto" 0.01 ms (1)
+Sep 29 19:07:29 symfony [info] {sfWebResponse} Send content (26533 o)
+Oct 01 19:03:27 symfony [info] {sfPatternRouting} Match route "photo_show" (/:app_token/show/photo/:event_key/:photo_id) for /NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1 with parameters array (  'module' => 'photos',  'action' => 'showPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'event_key' => '9f9afjpasof9afpoernq80w9fu98y',  'photo_id' => '1',)
+Oct 01 19:03:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 01 19:03:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 01 19:03:27 symfony [info] {photosActions} Call "photosActions->executeShowPhoto()"
+Oct 01 19:03:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Oct 01 19:03:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.ID='1'
+Oct 01 19:03:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Oct 01 19:03:27 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Oct 01 19:03:27 symfony [err] {sfWebDebugLogger}  Error at /Applications/MAMP/htdocs/eventus/lib/model/Participation.php on line 37 (Argument 1 passed to Participation::checkJoined() must be an instance of sfGuardUser, null given, called in /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php on line 207 and defined)
+Oct 01 19:03:57 symfony [info] {sfPatternRouting} Match route "photo_show" (/:app_token/show/photo/:event_key/:photo_id) for /NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1 with parameters array (  'module' => 'photos',  'action' => 'showPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'event_key' => '9f9afjpasof9afpoernq80w9fu98y',  'photo_id' => '1',)
+Oct 01 19:03:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 01 19:03:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 01 19:03:57 symfony [info] {photosActions} Call "photosActions->executeShowPhoto()"
+Oct 01 19:03:57 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Oct 01 19:03:57 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.ID='1'
+Oct 01 19:03:57 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Oct 01 19:03:57 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Oct 01 19:04:17 symfony [info] {sfPatternRouting} Match route "photo_show" (/:app_token/show/photo/:event_key/:photo_id) for /NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/6 with parameters array (  'module' => 'photos',  'action' => 'showPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'event_key' => '9f9afjpasof9afpoernq80w9fu98y',  'photo_id' => '6',)
+Oct 01 19:04:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Oct 01 19:04:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Oct 01 19:04:17 symfony [info] {photosActions} Call "photosActions->executeShowPhoto()"
+Oct 01 19:04:17 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Oct 01 19:04:17 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.ID='6'
+Oct 01 19:04:17 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.5 MB | mempeak:    5.5 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Oct 01 19:04:17 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Oct 01 19:04:17 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/exception/sfException.class.php on line 107 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:220))
+Oct 01 19:04:17 symfony [err] {sfRenderException} The template "showPhotoSuccess.php" does not exist or is unreadable in "".
+Oct 01 19:04:17 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/exception/sfException.class.php on line 161 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:220))
+Oct 01 19:04:17 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:220))
+Oct 01 19:04:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Oct 01 19:04:17 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php:220))
+Oct 01 19:04:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Oct 01 19:04:17 symfony [info] {sfWebDebugLogger} Configuration 1.29 ms (9)
+Oct 01 19:04:17 symfony [info] {sfWebDebugLogger} Factories 29.03 ms (1)
+Oct 01 19:04:17 symfony [info] {sfWebDebugLogger} Action "photos/showPhoto" 41.40 ms (1)
+Oct 01 19:04:17 symfony [info] {sfWebDebugLogger} View "Success" for "photos/showPhoto" 64.21 ms (1)
