@@ -6,7 +6,6 @@
             <file>file:/Applications/MAMP/htdocs/eventus/apps/api/config/routing.yml</file>
             <file>file:/Applications/MAMP/htdocs/eventus/apps/api/config/settings.yml</file>
             <file>file:/Applications/MAMP/htdocs/eventus/apps/api/config/security.yml</file>
-            <file>file:/Applications/MAMP/htdocs/eventus/apps/api/modules/photos/actions/actions.class.php</file>
             <file>file:/Applications/MAMP/htdocs/eventus/lib/model/Photo.php</file>
         </group>
     </open-files>

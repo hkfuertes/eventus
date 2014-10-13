@@ -158,7 +158,7 @@ class eventsActions extends sfActions {
 
         //Everything OK!, We associate the user
         $participation = new Participation();
-        $participation->create($user, $event, $save = 1);
+        $participation->create($user, $event);
         $retval = array('success' => true, 'participation' => $participation->expose());
         return $this->renderText(json_encode($retval));
     }
@@ -384,7 +384,7 @@ class eventsActions extends sfActions {
                 if ($user != null) {
                     $url[$user->getUsername()] = $this->generateUrl('event_join_user_get', array('app_token' => $app_token, 'key' => $event->getKey(), 'who' => $user->getUsername()));
                     $participation = new Participation();
-                    $participation->create($user, $event, 1);
+                    $participation->create($user, $event);
                 }
             }
             //$body="Hey, you were invited to an eventus on Eventus, click <a href='".$url."'>here</a> to join.";
@@ -404,5 +404,84 @@ class eventsActions extends sfActions {
         );
         $this->getMailer()->send($message);
     }
+    
+    /**
+     * Creates new Event
+     * @param username
+     * @param token
+     * @param app_token
+     * 
+     * @param event_data
+     * See routes for url, params via POST
+     */
+    public function executeCreate(sfWebRequest $request) {
+        /**
+         * event_data:
+         *  - name
+         *  - place
+         *  - date
+         *  - event_type_id
+         *  - admin_id = username (the one that calls the event)
+         * 
+         * We create the event. Then with the event created we prompt to create
+         * the timetable, and then we invite people via email.
+         * 
+         * we have to return the event_key to concatenate the ops.
+         */
+        
+        
+        sfConfig::set('sf_escaping_strategy', false);
+
+        $username = $request->getParameter('username');
+        $token = $request->getParameter('token');
+        $app_token = $request->getParameter('app_token');
+        
+        //The app is not registered or not active.
+        if (!AppTokenPeer::checkExistAndActive($app_token)) {
+            $retval = array('success' => false, 'error' => 1);
+            return $this->renderText(json_encode($retval));
+        }
+
+        $user = sfGuardUserPeer::retrieveByUsername($username);
+
+        //The user has wrong token
+        if (!Token::check($user, $token)) {
+            $retval = array('success' => false, 'error' => 2);
+            return $this->renderText(json_encode($retval));
+        }
+        
+        /**
+         * The app is now authorised and the user too.
+         * We create the event.
+         */
+        
+        //$event_data = json_decode($request->getParameter('event_data',null));
+        $event_data = $request->getParameter('event_data',null); //Array
+        
+        //No data passed.
+        if($event_data == null){
+            $retval = array('success' => false, 'error' => 3);
+            return $this->renderText(json_encode($retval));
+        }
+        
+        //We create the event.
+        $event = new Event($user);
+        $event->setName($event_data['name']);
+        $event->setPlace($event_data['place']);
+        $event->setDate($event_data['date']);
+        $event->setEventTypeId($event_data['event_type_id']);
+        $event->save();
+        
+        //We associate the event with the creator.
+        $participation = new Participation();
+        $participation->create($user, $event,0);
+        $participation->setActive(1);
+        $participation->save();
+        
+        //We return the session_key
+        $retval = array('success' => true, 'event' => $event->expose());
+        return $this->renderText(json_encode($retval));
+    }
+
 
 }

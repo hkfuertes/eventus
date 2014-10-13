@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Skeleton subclass for representing a row from the 'eventos' table.
  *
@@ -18,45 +17,56 @@
  */
 class Event extends BaseEvent {
 
-	/**
-	 * Initializes internal state of Event object.
-	 * @see        parent::__construct()
-	 */
-	public function __construct()
-	{
-		// Make sure that parent constructor is always invoked, since that
-		// is where any default values for this object are set.
-		parent::__construct();
-	}
-        
-        private function getAdmin(){
-            return sfGuardUserPeer::retrieveByPK($this->getAdminId());
+    /**
+     * Initializes internal state of Event object.
+     * @see        parent::__construct()
+     */
+    public function __construct(sfGuardUser $user = null) {
+        parent::__construct();
+        if ($user != null) {
+            $seed = $user->getSalt().time();
+            $fullHash = sha1(uniqid($seed . mt_rand(), true));
+ 
+            # To get a shorter version of the hash, just use substr
+            $hash = substr($fullHash, 0, 10);
+            
+            $this->setKey($hash);
+            $this->setAdminId($user->getId());
+            $this->setCreatedAt(time());
         }
-        
-        public static function exposeEventList($list){
-            $retval = array();
-            foreach ($list as $event){
-                $retval[] = $event->expose();
-            }
-            return $retval;
-        }
-        
-        public static function exposeEventKeys($list){
-            $retval = array();
-            foreach ($list as $event){
-                $retval[$event->getKey()] = $event->expose();
-            }
-            return $retval;
-        }
-        
-        public function expose() {
-        //return get_object_vars($this);
-        return array(
-            'name'=> $this->getName(),
-            'place'=>$this->getPlace(),
-            'date'=>$this->getDate('d-m-Y'),
-            'type'=>$this->getEventType()->getName(),
-            'admin'=> $this->getAdmin()->getUsername());
     }
 
-} // Event
+    private function getAdmin() {
+        return sfGuardUserPeer::retrieveByPK($this->getAdminId());
+    }
+
+    public static function exposeEventList($list) {
+        $retval = array();
+        foreach ($list as $event) {
+            $retval[] = $event->expose();
+        }
+        return $retval;
+    }
+
+    public static function exposeEventKeys($list) {
+        $retval = array();
+        foreach ($list as $event) {
+            $retval[$event->getKey()] = $event->expose();
+        }
+        return $retval;
+    }
+
+    public function expose() {
+        //return get_object_vars($this);
+        return array(
+            'key'=>$this->getKey(),
+            'name' => $this->getName(),
+            'place' => $this->getPlace(),
+            'date' => $this->getDate('d-m-Y'),
+            'type' => $this->getEventType()->getName(),
+            'admin' => $this->getAdmin()->getUsername());
+    }
+
+}
+
+// Event

@@ -17,12 +17,12 @@
  */
 class Participation extends BaseParticipation {
 
-    public function create(sfGuardUser $user, Event $event, $save = 0) {
+    public function create(sfGuardUser $user, Event $event, $save = 1) {
 
         $this->setUserId($user->getId());
         $this->setEventId($event->getId());
         $this->setJoinedAt(time());
-        if ($save)
+        if ($save==1)
             $this->save();
     }
 

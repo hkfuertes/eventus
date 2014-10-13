@@ -49,6 +49,15 @@ photo_upload:
 # All variables from a user via POST.
 #  who[] -> POST
 #  key -> route
+event_create:
+  url: /:app_token/event/create
+  param: { module: events, action: create, app_token: app }
+
+
+# Join: GET parameters
+# All variables from a user via POST.
+#  who[] -> POST
+#  key -> route
 event_invite:
   url: /:app_token/event/invite/:key
   param: { module: events, action: invite, app_token: app }
