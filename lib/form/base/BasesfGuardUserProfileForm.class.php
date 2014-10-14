@@ -29,6 +29,10 @@ abstract class BasesfGuardUserProfileForm extends BaseFormPropel
       'id'        => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
     ));
 
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorPropelUnique(array('model' => 'sfGuardUserProfile', 'column' => array('email')))
+    );
+
     $this->widgetSchema->setNameFormat('sf_guard_user_profile[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

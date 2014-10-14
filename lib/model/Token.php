@@ -38,7 +38,9 @@ class Token extends BaseToken {
         return $token;
     }
 
-    public static function check(sfGuardUser $user, $token) {
+    public static function check($user, $token) {
+        
+        if($user == null || ! $user instanceof sfGuardUser) return false;
 
         $c = new Criteria();
         $c->add(TokenPeer::USER_ID, $user->getId());

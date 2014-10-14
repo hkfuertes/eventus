@@ -9,6 +9,9 @@
     <column name="firstname" type="varchar" size="100" />
     <column name="lastname" type="varchar" size="100" />
     <column name="email" type="varchar" size="100" />
+    <unique>
+      <unique-column name="email" />
+    </unique>
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
   </table>
 

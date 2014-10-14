@@ -18,6 +18,7 @@ CREATE TABLE `sf_guard_user_profile`
 	`email` VARCHAR(100),
 	`id` INTEGER  NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY (`id`),
+	UNIQUE KEY `sf_guard_user_profile_U_1` (`email`),
 	INDEX `sf_guard_user_profile_FI_1` (`user_id`),
 	CONSTRAINT `sf_guard_user_profile_FK_1`
 		FOREIGN KEY (`user_id`)

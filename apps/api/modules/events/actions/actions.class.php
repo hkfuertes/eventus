@@ -382,7 +382,7 @@ class eventsActions extends sfActions {
                 $error4[] = $user->getUsername();
             } else {
                 if ($user != null) {
-                    $url[$user->getUsername()] = $this->generateUrl('event_join_user_get', array('app_token' => $app_token, 'key' => $event->getKey(), 'who' => $user->getUsername()));
+                    $url[$user->getUsername()] = $this->generateUrl('event_join_user_get', array('app_token' => $app_token, 'key' => $event->getKey(), 'who' => $user->getUsername()),true);
                     $participation = new Participation();
                     $participation->create($user, $event);
                 }
@@ -455,8 +455,9 @@ class eventsActions extends sfActions {
          * We create the event.
          */
         
-        //$event_data = json_decode($request->getParameter('event_data',null));
+        
         $event_data = $request->getParameter('event_data',null); //Array
+        if(!is_array($event_data)) $event_data = json_decode ($event_data);
         
         //No data passed.
         if($event_data == null){

@@ -4,7 +4,7 @@ propel:
     user_id:        {type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
     firstname:         {type: varchar(100)}
     lastname:      {type: varchar(100)}
-    email:          {type: varchar(100)}
+    email:          {type: varchar(100), index: unique}
   
   tokens:
     _attributes:    {phpName: Token}
