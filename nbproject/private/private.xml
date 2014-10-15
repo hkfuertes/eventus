@@ -3,13 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/MAMP/htdocs/eventus/config/schema.yml</file>
-            <file>file:/Applications/MAMP/htdocs/eventus/apps/api/config/settings.yml</file>
-            <file>file:/Applications/MAMP/htdocs/eventus/apps/api/config/routing.yml</file>
-            <file>file:/Applications/MAMP/htdocs/eventus/apps/api/config/security.yml</file>
-            <file>file:/Applications/MAMP/htdocs/eventus/lib/model/Event.php</file>
-            <file>file:/Applications/MAMP/htdocs/eventus/lib/model/Photo.php</file>
-            <file>file:/Applications/MAMP/htdocs/eventus/lib/model/Token.php</file>
+            <file>file:/Applications/MAMP/htdocs/eventus/apps/api/config/factories.yml</file>
             <file>file:/Applications/MAMP/htdocs/eventus/apps/api/modules/events/actions/actions.class.php</file>
         </group>
     </open-files>
