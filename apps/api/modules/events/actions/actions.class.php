@@ -382,7 +382,7 @@ class eventsActions extends sfActions {
                 $error4[] = $user->getUsername();
             } else {
                 if ($user != null) {
-                    $url[$user->getUsername()] = $this->generateUrl('event_join_user_get', array('app_token' => $app_token, 'key' => $event->getKey(), 'who' => $user->getUsername()),true);
+                    $url[$user->getUsername()] = $this->generateUrl('event_join_user_get', array('app_token' => $app_token, 'key' => $event->getKey(), 'who' => $user->getUsername()), true);
                     $participation = new Participation();
                     $participation->create($user, $event);
                 }
@@ -390,9 +390,9 @@ class eventsActions extends sfActions {
             //$body="Hey, you were invited to an eventus on Eventus, click <a href='".$url."'>here</a> to join.";
             //$this->sendMail($email, $body, "Eventus Invitation");
         }
-        if(count($error4)>0){
-            $retval = array('success' => true, 'invitation' => array($event->getKey() => $url),'error'=>array('code'=>4,'users'=>$error4));
-        }else{
+        if (count($error4) > 0) {
+            $retval = array('success' => true, 'invitation' => array($event->getKey() => $url), 'error' => array('code' => 4, 'users' => $error4));
+        } else {
             $retval = array('success' => true, 'invitation' => array($event->getKey() => $url));
         }
         return $this->renderText(json_encode($retval));
@@ -404,7 +404,7 @@ class eventsActions extends sfActions {
         );
         $this->getMailer()->send($message);
     }
-    
+
     /**
      * Creates new Event
      * @param username
@@ -423,19 +423,20 @@ class eventsActions extends sfActions {
          *  - event_type_id
          *  - admin_id = username (the one that calls the event)
          * 
+         *  - if editing, event_data[key] will be passed.
+         * 
          * We create the event. Then with the event created we prompt to create
          * the timetable, and then we invite people via email.
          * 
          * we have to return the event_key to concatenate the ops.
          */
-        
-        
         sfConfig::set('sf_escaping_strategy', false);
 
         $username = $request->getParameter('username');
         $token = $request->getParameter('token');
         $app_token = $request->getParameter('app_token');
-        
+
+
         //The app is not registered or not active.
         if (!AppTokenPeer::checkExistAndActive($app_token)) {
             $retval = array('success' => false, 'error' => 1);
@@ -449,40 +450,54 @@ class eventsActions extends sfActions {
             $retval = array('success' => false, 'error' => 2);
             return $this->renderText(json_encode($retval));
         }
-        
+
         /**
          * The app is now authorised and the user too.
          * We create the event.
          */
-        
-        
-        $event_data = $request->getParameter('event_data',null); //Array
-        if(!is_array($event_data)) $event_data = json_decode ($event_data);
-        
+        $event_data = $request->getParameter('event_data', null); //Array
+        if (!is_array($event_data))
+            $event_data = json_decode($event_data);
+
         //No data passed.
-        if($event_data == null){
+        if ($event_data == null) {
             $retval = array('success' => false, 'error' => 3);
             return $this->renderText(json_encode($retval));
         }
-        
-        //We create the event.
-        $event = new Event($user);
+
+        if (isset($event_data['key'])) {
+            //We are editing.
+            $event = EventPeer::retrieveByKey($event_data['key']);
+
+            //Event does not exists or is not active
+            if ($event == null) {
+                $retval = array('success' => false, 'error' => 4);
+                return $this->renderText(json_encode($retval));
+            }
+            
+            if($user->getId() != $event->getAdminId()){
+                $retval = array('success' => false, 'error' => 5);
+                return $this->renderText(json_encode($retval));
+            }
+        } else {
+            //We create the event.
+            $event = new Event($user);
+        }
         $event->setName($event_data['name']);
         $event->setPlace($event_data['place']);
         $event->setDate($event_data['date']);
         $event->setEventTypeId($event_data['event_type_id']);
         $event->save();
-        
+
         //We associate the event with the creator.
         $participation = new Participation();
-        $participation->create($user, $event,0);
+        $participation->create($user, $event, 0);
         $participation->setActive(1);
         $participation->save();
-        
+
         //We return the session_key
         $retval = array('success' => true, 'event' => $event->expose());
         return $this->renderText(json_encode($retval));
     }
-
 
 }

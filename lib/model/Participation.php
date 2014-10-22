@@ -34,8 +34,8 @@ class Participation extends BaseParticipation {
         return array('username'=>$this->getUser()->getUsername(), 'eventname' => $this->getEvent()->getName(),'joined_at'=>$this->getJoinedAt());
     }
 
-    public static function checkJoined(sfGuardUser $user, Event $event) {
-        return ParticipationPeer::retrieveByPk($user->getId(), $event->getId()) != null;
+    public static function checkJoined($user, Event $event) {
+        return $user != null && ParticipationPeer::retrieveByPk($user->getId(), $event->getId()) != null;
     }
 
     public static function exposeParticipantList($list) {

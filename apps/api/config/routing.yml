@@ -52,6 +52,10 @@ photo_upload:
 event_create:
   url: /:app_token/event/create
   param: { module: events, action: create, app_token: app }
+  
+event_edit:
+  url: /:app_token/event/save
+  param: { module: events, action: create, app_token: app }
 
 
 # Join: GET parameters
