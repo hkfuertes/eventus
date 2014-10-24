@@ -63,6 +63,12 @@ class eventsActions extends sfActions {
         }
 
         $participation->delete();
+        
+        if($user->getId() == $event->getAdminId()){
+            //we remove also the event
+            $event->delete();
+            //we might notify via email and zip the pictures.
+        }
         $retval = array('success' => true, 'participation' => $participation->expose());
         return $this->renderText(json_encode($retval));
     }
@@ -468,6 +474,7 @@ class eventsActions extends sfActions {
         if (isset($event_data['key'])) {
             //We are editing.
             $event = EventPeer::retrieveByKey($event_data['key']);
+            $participation = ParticipationPeer::retrieveByPK($user->getId(), $event->getId());
 
             //Event does not exists or is not active
             if ($event == null) {
@@ -479,22 +486,22 @@ class eventsActions extends sfActions {
                 $retval = array('success' => false, 'error' => 5);
                 return $this->renderText(json_encode($retval));
             }
+            
         } else {
-            //We create the event.
             $event = new Event($user);
+            $participation = new Participation();
+            $participation->create($user, $event, 0);
+            $participation->setActive(1);
+            $participation->save();
         }
+        
         $event->setName($event_data['name']);
         $event->setPlace($event_data['place']);
         $event->setDate($event_data['date']);
         $event->setEventTypeId($event_data['event_type_id']);
         $event->save();
 
-        //We associate the event with the creator.
-        $participation = new Participation();
-        $participation->create($user, $event, 0);
-        $participation->setActive(1);
-        $participation->save();
-
+        
         //We return the session_key
         $retval = array('success' => true, 'event' => $event->expose());
         return $this->renderText(json_encode($retval));
