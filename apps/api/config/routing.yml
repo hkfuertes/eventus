@@ -51,11 +51,11 @@ photo_upload:
 #  key -> route
 event_create:
   url: /:app_token/event/create
-  param: { module: events, action: create, app_token: app }
+  param: { module: events, action: save, app_token: app }
   
 event_edit:
   url: /:app_token/event/save
-  param: { module: events, action: create, app_token: app }
+  param: { module: events, action: save, app_token: app }
 
 
 # Join: GET parameters
@@ -89,7 +89,7 @@ event_unjoin_user:
 #  token -> post
 #  key -> route & post
 event_join_user:
-  url: /:app_token/event/join/:key/
+  url: /:app_token/event/join/:key
   param: { module: events, action: join, app_token: app }
 
 # List User's: POST parameters

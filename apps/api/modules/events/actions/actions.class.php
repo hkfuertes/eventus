@@ -164,7 +164,9 @@ class eventsActions extends sfActions {
 
         //Everything OK!, We associate the user
         $participation = new Participation();
-        $participation->create($user, $event);
+        $participation->create($user, $event,0);
+        $participation->setActive(1);
+        $participation->save();
         $retval = array('success' => true, 'participation' => $participation->expose());
         return $this->renderText(json_encode($retval));
     }
@@ -420,7 +422,7 @@ class eventsActions extends sfActions {
      * @param event_data
      * See routes for url, params via POST
      */
-    public function executeCreate(sfWebRequest $request) {
+    public function executeSave(sfWebRequest $request) {
         /**
          * event_data:
          *  - name
@@ -487,19 +489,21 @@ class eventsActions extends sfActions {
                 return $this->renderText(json_encode($retval));
             }
             
-        } else {
-            $event = new Event($user);
-            $participation = new Participation();
-            $participation->create($user, $event, 0);
-            $participation->setActive(1);
-            $participation->save();
-        }
+        } else $event = new Event($user);
         
         $event->setName($event_data['name']);
         $event->setPlace($event_data['place']);
         $event->setDate($event_data['date']);
         $event->setEventTypeId($event_data['event_type_id']);
         $event->save();
+        
+        // IF new Event... firs we create the event and then we associate.
+        if(isset($event_data['key'])){
+            $participation = new Participation();
+            $participation->create($user, $event, 0);
+            $participation->setActive(1);
+            $participation->save();
+        }
 
         
         //We return the session_key
