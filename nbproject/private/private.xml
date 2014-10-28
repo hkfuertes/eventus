@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Applications/MAMP/htdocs/eventus/apps/api/config/routing.yml</file>
+            <file>file:/Applications/MAMP/htdocs/eventus/config/databases.yml</file>
             <file>file:/Applications/MAMP/htdocs/eventus/apps/api/modules/events/actions/actions.class.php</file>
         </group>
     </open-files>
