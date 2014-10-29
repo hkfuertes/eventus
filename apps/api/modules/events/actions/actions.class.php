@@ -63,8 +63,8 @@ class eventsActions extends sfActions {
         }
 
         $participation->delete();
-        
-        if($user->getId() == $event->getAdminId()){
+
+        if ($user->getId() == $event->getAdminId()) {
             //we remove also the event
             $event->delete();
             //we might notify via email and zip the pictures.
@@ -164,7 +164,7 @@ class eventsActions extends sfActions {
 
         //Everything OK!, We associate the user
         $participation = new Participation();
-        $participation->create($user, $event,0);
+        $participation->create($user, $event, 0);
         $participation->setActive(1);
         $participation->save();
         $retval = array('success' => true, 'participation' => $participation->expose());
@@ -483,32 +483,98 @@ class eventsActions extends sfActions {
                 $retval = array('success' => false, 'error' => 4);
                 return $this->renderText(json_encode($retval));
             }
-            
-            if($user->getId() != $event->getAdminId()){
+
+            if ($user->getId() != $event->getAdminId()) {
                 $retval = array('success' => false, 'error' => 5);
                 return $this->renderText(json_encode($retval));
             }
-            
-        } else $event = new Event($user);
-        
+        } else
+            $event = new Event($user);
+
         $event->setName($event_data['name']);
         $event->setPlace($event_data['place']);
         $event->setDate($event_data['date']);
         $event->setEventTypeId($event_data['event_type_id']);
         $event->save();
-        
+
         // IF new Event... firs we create the event and then we associate.
-        if(isset($event_data['key'])){
+        if (isset($event_data['key'])) {
             $participation = new Participation();
             $participation->create($user, $event, 0);
             $participation->setActive(1);
             $participation->save();
         }
 
-        
+
         //We return the session_key
         $retval = array('success' => true, 'event' => $event->expose());
         return $this->renderText(json_encode($retval));
+    }
+
+    public function executeSaveProgram(sfWebRequest $request) {
+        /*
+         * Datos que espera recibir:
+         * event_program['key'][] = array('time'=>time, 'act'=>act);
+         */
+        $username = $request->getParameter('username');
+        $token = $request->getParameter('token');
+        $app_token = $request->getParameter('app_token');
+
+
+        //The app is not registered or not active.
+        if (!AppTokenPeer::checkExistAndActive($app_token)) {
+            $retval = array('success' => false, 'error' => 1);
+            return $this->renderText(json_encode($retval));
+        }
+
+        $user = sfGuardUserPeer::retrieveByUsername($username);
+
+        //The user has wrong token
+        if (!Token::check($user, $token)) {
+            $retval = array('success' => false, 'error' => 2);
+            return $this->renderText(json_encode($retval));
+        }
+
+        /**
+         * The app is now authorised and the user too.
+         * We create the event.
+         */
+        $event_program = $request->getParameter('event_program', null); //Array
+        //print_r($event_program);
+        //No data passed.
+        if ($event_program == null) {
+            $retval = array('success' => false, 'error' => 3);
+            return $this->renderText(json_encode($retval));
+        }
+
+        //we have event program
+        foreach ($event_program as $key => $program) {
+            $event = EventPeer::retrieveByKey($key);
+            EntryPeer::clearAllFromEvent($event);
+
+            //Event does not exists or is not active
+            if ($event == null) {
+                $retval[] = array('error' => 4,'event'=>$key, 'entry' => $program);
+            }
+            //The user is not part of this event
+            if (!Participation::checkJoined($user, $event)) {
+                $retval[] = array('error' => 5,'event'=>$key, 'entry' => $program);
+            }
+            foreach ($program as $nEntry) {
+                $entry = new Entry();
+                $entry->setEvent($event);
+                $entry->setTime($event->getDate('Y-m-d') . " " . $nEntry['time']);
+                $entry->setAct($nEntry['act']);
+                $entry->save();
+            }
+        }
+
+        if (isset($retval)) {
+            return $this->renderText(json_encode(array('succes' => false, 'errors' => $retval)));
+        }
+
+        $nProgram = EntryPeer::retrieveAllFromEvent($event);
+        return $this->renderText(json_encode(array('success' => true, 'program' => Entry::exposeEntryList($nProgram))));
     }
 
 }

@@ -24,4 +24,10 @@ class EntryPeer extends BaseEntryPeer {
         return self::doSelect($c);
     }
     
+   public static function clearAllFromEvent(Event $event){
+       $c=new Criteria();
+        $c->add(self::EVENT_ID, $event->getId());
+        return self::doDelete($c);
+   }
+    
 } // EntryPeer
