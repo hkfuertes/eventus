@@ -498,7 +498,8 @@ class eventsActions extends sfActions {
         $event->save();
 
         // IF new Event... firs we create the event and then we associate.
-        if (isset($event_data['key'])) {
+        $participation = ParticipationPeer::retrieveByPK($user->getId(), $event->getId());
+        if ($participation == null) {
             $participation = new Participation();
             $participation->create($user, $event, 0);
             $participation->setActive(1);
