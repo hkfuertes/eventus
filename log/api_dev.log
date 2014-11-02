@@ -5721,3 +5721,32 @@ Oct 29 18:55:05 symfony [info] {sfWebDebugLogger} Factories 29.33 ms (1)
 Oct 29 18:55:05 symfony [info] {sfWebDebugLogger} Action "events/saveProgram" 70.41 ms (1)
 Oct 29 18:55:05 symfony [info] {sfWebDebugLogger} View "None" for "events/saveProgram" 0.01 ms (1)
 Oct 29 18:55:05 symfony [info] {sfWebResponse} Send content (28163 o)
+Nov 01 18:34:42 symfony [info] {sfPatternRouting} Match route "photo_show" (/:app_token/show/photo/:event_key/:photo_id) for /NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1 with parameters array (  'module' => 'photos',  'action' => 'showPhoto',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',  'event_key' => '9f9afjpasof9afpoernq80w9fu98y',  'photo_id' => '1',)
+Nov 01 18:34:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 01 18:34:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 01 18:34:42 symfony [info] {photosActions} Call "photosActions->executeShowPhoto()"
+Nov 01 18:34:42 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Nov 01 18:34:42 symfony [debug] {sfPropelLogger} time:  0.004 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT photos.ID, photos.USER_ID, photos.EVENT_ID, photos.UPLOADED_AT, photos.TITLE, photos.FILENAME, photos.PATH, photos.VISIBLE, photos.DELETED FROM `photos` WHERE photos.ID='1'
+Nov 01 18:34:42 symfony [debug] {sfPropelLogger} time:  0.003 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Nov 01 18:34:42 symfony [debug] {sfPropelLogger} time:  0.002 sec | slow:  NO | mem:    5.8 MB | mempeak:    5.8 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9f9afjpasof9afpoernq80w9fu98y' AND events.ACTIVE=1 LIMIT 1
+Nov 01 18:34:45 symfony [info] {sfPatternRouting} Match route "event_program_update" (/:app_token/event/program/update) for /NsBHwgaksWYKnYHFB3AS2DSk/event/program/update with parameters array (  'module' => 'events',  'action' => 'saveProgram',  'app_token' => 'NsBHwgaksWYKnYHFB3AS2DSk',)
+Nov 01 18:34:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Nov 01 18:34:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Nov 01 18:34:45 symfony [info] {eventsActions} Call "eventsActions->executeSaveProgram()"
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.0 MB | mempeak:    5.0 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT COUNT(*) FROM `app_tokens` WHERE app_tokens.TOKEN='NsBHwgaksWYKnYHFB3AS2DSk' AND app_tokens.ACTIVE=1
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    5.3 MB | mempeak:    5.3 MB | memdelta:      0.0 B | SELECT sf_guard_user.ID, sf_guard_user.USERNAME, sf_guard_user.ALGORITHM, sf_guard_user.SALT, sf_guard_user.PASSWORD, sf_guard_user.CREATED_AT, sf_guard_user.LAST_LOGIN, sf_guard_user.IS_ACTIVE, sf_guard_user.IS_SUPER_ADMIN FROM `sf_guard_user` WHERE sf_guard_user.USERNAME='hkfuertes' AND sf_guard_user.IS_ACTIVE=1 LIMIT 1
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.3 MB | mempeak:    6.3 MB | memdelta:      0.0 B | SELECT tokens.ID, tokens.USER_ID, tokens.TOKEN, tokens.CREATED_AT, tokens.ACTIVE FROM `tokens` WHERE tokens.USER_ID=1 AND tokens.TOKEN='3a6540079128b8b19f115783ec30e1d2' AND tokens.ACTIVE=1
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    6.5 MB | mempeak:    6.5 MB | memdelta:      0.0 B | SELECT events.ID, events.NAME, events.PLACE, events.DATE, events.KEY, events.EVENT_TYPE_ID, events.CREATED_AT, events.ADMIN_ID, events.ACTIVE FROM `events` WHERE events.KEY='9fd11b0a5b' AND events.ACTIVE=1 LIMIT 1
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.002 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | DELETE FROM programs WHERE programs.EVENT_ID=52
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    7.5 MB | mempeak:    7.5 MB | memdelta:      0.0 B | SELECT users_event.USER_ID, users_event.EVENT_ID, users_event.JOINED_AT, users_event.ACTIVE FROM `users_event` WHERE users_event.USER_ID=1 AND users_event.EVENT_ID=52
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.8 MB | mempeak:    7.8 MB | memdelta:      0.0 B | INSERT INTO programs (`ID`,`EVENT_ID`,`TIME`,`ACT`) VALUES (NULL,52,'2014-09-10 17:00:00','Cafe')
+Nov 01 18:34:45 symfony [debug] {sfPropelLogger} time:  0.000 sec | slow:  NO | mem:    7.8 MB | mempeak:    7.8 MB | memdelta:      0.0 B | SELECT programs.ID, programs.EVENT_ID, programs.TIME, programs.ACT FROM `programs` WHERE programs.EVENT_ID=52
+Nov 01 18:34:45 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Nov 01 18:34:45 symfony [warning] {sfWebDebugLogger}  Warning at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /Applications/MAMP/htdocs/symfony-1.4.20/lib/response/sfWebResponse.class.php:409))
+Nov 01 18:34:45 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Nov 01 18:34:45 symfony [info] {sfWebDebugLogger} Configuration 1.40 ms (8)
+Nov 01 18:34:45 symfony [info] {sfWebDebugLogger} Factories 29.36 ms (1)
+Nov 01 18:34:45 symfony [info] {sfWebDebugLogger} Action "events/saveProgram" 77.24 ms (1)
+Nov 01 18:34:45 symfony [info] {sfWebDebugLogger} View "None" for "events/saveProgram" 0.01 ms (1)
+Nov 01 18:34:45 symfony [info] {sfWebResponse} Send content (28163 o)
