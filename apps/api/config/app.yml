@@ -1,3 +1,4 @@
 all:
   #Directorio absoluto
-  photos_folder:    /Users/hkfuertes/Desktop/htdocs/eventus_photos/
+  #photos_folder:    /Users/hkfuertes/Desktop/htdocs/eventus_photos/
+  photos_folder:    /home/pi/eventus_photos/
