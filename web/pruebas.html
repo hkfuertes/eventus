@@ -1,0 +1,128 @@
+<div style="background-color: #ccc; border: 1px solid black; padding: 10px">
+
+<base href="http://localhost/eventus/web/"/>
+<!--<base href="http://192.168.1.42/API/api_dev.php/"/>-->
+
+
+<h1>FUNCIONES DE USUARIO</h1>
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/user/validate/hkfuertes" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="password" value="gorilafeliz" />
+	<input type="submit" value="login hkfuertes:gorilafeliz" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/user/logout" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="logout hkfuertes" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/user/info/usuario" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="Info hkfuertes:3a6540079128b8b19f115783ec30e1d2" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/user/create" method="post">
+	<input type="hidden" name="username" value="usuario2" />
+	<input type="hidden" name="password" value="clave2" />
+
+	<input type="hidden" name="nombre" value="usuario2" />
+	<input type="hidden" name="apellidos" value="clave2" />
+	<input type="hidden" name="email" value="usuario2" />
+
+	<input type="submit" value="Crear usuario usuario:clave" />
+</form>
+
+<h1>FUNCIONES DE EVENTOS</h1>
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/info/9f9afjpasof9afpoernq80w9fu98y" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="Recuperar Evento:9f9afjpasof9afpoernq80w9fu98y" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/list/admin/hkfuertes" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="Listar Admins: hkfuertes" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/participation/hkfuertes" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="Listar Users: hkfuertes" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/join/9f9afjpasof9afpoernq80w9fu98y/hkfuertes" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="Asociar: 9f9afjpasof9afpoernq80w9fu98y:hkfuertes" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/remove/9f9afjpasof9afpoernq80w9fu98y/hkfuertes" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="Desasociar: 9f9afjpasof9afpoernq80w9fu98y:hkfuertes" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/create" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="hidden" name="event_data[name]" value="Evento" />
+	<input type="hidden" name="event_data[place]" value="Pamplona" />
+	<input type="hidden" name="event_data[date]" value="2014-10-13" />
+	<input type="hidden" name="event_data[event_type_id]" value="3" />
+	<input type="submit" value="crear evento Evento" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/save" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="hidden" name="event_data[name]" value="Evento" />
+	<input type="hidden" name="event_data[place]" value="Pamplona" />
+	<input type="hidden" name="event_data[date]" value="2014-10-13" />
+	<input type="hidden" name="event_data[event_type_id]" value="3" />
+	<input type="hidden" name="event_data[key]" value="9fd11b0a5b" />
+	<input type="submit" value="editar evento Evento" />
+</form>
+
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/program/update" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="hidden" name="event_program[9fd11b0a5b][0][time]" value="17:00:00" />
+	<input type="hidden" name="event_program[9fd11b0a5b][0][act]" value="Cafe" />
+	<input type="submit" value="programa_evento" />
+</form>
+
+<h1>Email</h1>
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/invite/9f9afjpasof9afpoernq80w9fu98y" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="hidden" name="who[]" value="usuario" />
+	<input type="hidden" name="who[]" value="usuario2" />
+	<input type="submit" value="invitar hkfuertes:9f9afjpasof9afpoernq80w9fu98y" />
+</form>
+
+<h1>Photos</h1>
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/event/photos/9f9afjpasof9afpoernq80w9fu98y" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="photos hkfuertes:9f9afjpasof9afpoernq80w9fu98y" />
+</form>
+<form action="NsBHwgaksWYKnYHFB3AS2DSk/user/photos" method="post">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+	<input type="submit" value="photos hkfuertes" />
+</form>
+<form enctype="multipart/form-data" action="NsBHwgaksWYKnYHFB3AS2DSk/event/upload/9f9afjpasof9afpoernq80w9fu98y" method="POST">
+	<input type="hidden" name="username" value="hkfuertes" />
+	<input type="hidden" name="token" value="3a6540079128b8b19f115783ec30e1d2" />
+    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+	<input name="photo" type="file" />
+    <input type="submit" value="subir hkfuertes:9f9afjpasof9afpoernq80w9fu98y" />
+</form>
+
+<a href="NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1"> foto 1 </a>
+<img src="NsBHwgaksWYKnYHFB3AS2DSk/show/photo/9f9afjpasof9afpoernq80w9fu98y/1"/>
+
+</div>
