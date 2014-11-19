@@ -3,6 +3,9 @@
 
 logInUser:
   is_secure: false
+  
+webJoin:
+  is_secure: true
 
 all:
   is_secure: false

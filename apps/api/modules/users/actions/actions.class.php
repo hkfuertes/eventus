@@ -23,6 +23,29 @@ class usersActions extends sfActions {
         $retval = array('error' => 403, 'description'=>'Not authenticated, please use login function to continue.');
         return $this->renderText(json_encode($retval));
     }
+    
+    public function executeCheckToken(sfWebRequest $request){
+        $username = $request->getParameter('username');
+        $token = $request->getParameter('token');
+        
+        //die($username. " ".$token);
+
+        //The app is not registered or not active.
+        if (!AppTokenPeer::checkExistAndActive($request->getParameter('app_token'))) {
+            $retval = array('success' => false, 'error' => 1);
+            return $this->renderText(json_encode($retval));
+        }
+
+        $user = sfGuardUserPeer::retrieveByUsername($username);
+
+        //The user has wrong token
+        if (!Token::check($user, $token)) {
+            $retval = array('success' => false, 'error' => 2);
+            return $this->renderText(json_encode($retval));
+        }
+        $retval = array('success' => true);
+        return $this->renderText(json_encode($retval));
+    }
 
     /**
      * Validates a user and logges it in.

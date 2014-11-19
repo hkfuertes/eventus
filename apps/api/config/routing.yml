@@ -42,8 +42,8 @@ event_invite:
   param: { module: events, action: invite, app_token: app }
   
 event_join_user_get:
-  url: /:app_token/event/join/:key/:who
-  param: { module: events, action: joinGET, app_token: app }
+  url: /:app_token/event/web/join/:key
+  param: { module: default, action: webJoin, app_token: app }
 
 event_unjoin_user:
   url: /:app_token/event/remove/:key/:who
@@ -67,35 +67,22 @@ event_info:
 
 
 #-------------------------------------------------------------------#
-
-# CreateUser: POST parameters
-# All variables from a user via POST.
 create_user:
   url: /:app_token/user/create
   param: { module: users, action: createUser, app_token: app }
-
-# Get User Info: POST and Route parameters
-#  username -> route & post
-#  token -> post
 info_user:
   url: /:app_token/user/info/:who
   param: { module: users, action: getInfo, app_token: app }
-
-# Validate Users: POST and Route parameters
-#  username -> post
-#  token -> post
 logout_user:
   url: /:app_token/user/logout
   param: { module: users, action: logOutUser, app_token: app }
-
-# Validate Users: POST and Route parameters
-#  username -> route & post
-#  password -> post
 login_user:
   url: /:app_token/user/validate/:username
   param: { module: users, action: logInUser, app_token: app }
-
-# default rules
+check_token:
+  url: /:app_token/user/token/check/:username
+  param: { module: users, action: checkToken, app_token: app }
+  
 homepage:
   url:   /
   param: { module: default, action: index }

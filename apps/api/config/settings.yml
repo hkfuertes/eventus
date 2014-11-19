@@ -34,10 +34,10 @@ all:
     # Enable the database manager
     use_database:           true
     
-    enabled_modules:      [default]
+    enabled_modules:      [default, sfGuardAuth]
     
-    login_module:           users
-    login_action:           error403
+    login_module:           sfGuardAuth
+    login_action:           signin
 
-    secure_module:          users
-    secure_action:          error403
+    secure_module:          sfGuardAuth
+    secure_action:          signin
